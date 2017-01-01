@@ -1,0 +1,7 @@
+#initial-loader {
+  display: flex;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body ng-app="werewolf">
+
+    <ion-nav-bar class="bar-stable" align-title="center">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-nav-view></ion-nav-view>
+
+    <div id="initial-loader">Growl</div>
+
+    <!-- libraries js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/lodash/4.17.2/lodash.min.js"></script>
+    <script src="lib/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/werewolf.js"></script>
+    <script src="js/common/services/local-storage.js"></script>
+    <script src="js/components/choose-players/choose-players.module.js"></script>
+    <script src="js/components/choose-players/choose-players.controller.js"></script>
+    <script src="js/components/choose-players/choose-players.routes.js"></script>
+  </body>
+</html>
