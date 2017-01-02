@@ -5,14 +5,15 @@
 
   function gameState($state, $ionicHistory, localStorage) {
     var service = {
-      players     : localStorage.getArray('playerNames'),
+      playerNames : localStorage.getArray('playerNames'),
       roles       : [],
 
       setProperty : setProperty
     };
 
-    // if the application doesn't have an equal number of players to roles, we need to 
-    if (service.players.length !== service.roles.length &&
+    // if the application doesn't have an equal number of players to roles,
+    // we need to go back to the choose players state, mostly for localhost
+    if (service.playerNames.length !== service.roles.length &&
       $state.current.name !== 'choose-players') {
       $ionicHistory.nextViewOptions({
         disableAnimate: true,
