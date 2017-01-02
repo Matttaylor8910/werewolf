@@ -5,3 +5,9 @@
   align-items: center;
   font-weight: bold;
 }
+
+/*OVERRIDES*/
+
+.item {
+  white-space: normal !important;
+}

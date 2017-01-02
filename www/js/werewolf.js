@@ -4,11 +4,20 @@
       'ionic',
       'ionic.utils',
 
-      'werewolf.choosePlayers'
+      'werewolf.choosePlayers',
+      'werewolf.chooseRoles',
+      'werewolf.confirm'
     ])
+    .config(config)
     .run(run);
 
-  run.$inject = ['$ionicPlatform'];
+  /**
+   * Default to choosing players
+   * @param $urlRouterProvider
+   */
+  function config($urlRouterProvider) {
+    $urlRouterProvider.otherwise('/choose-players');
+  }
 
   function run($ionicPlatform) {
     $ionicPlatform.ready(function() {

@@ -1,6 +1,24 @@
 <ion-view>
   <ion-nav-title>Werewolf Moderator</ion-nav-title>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear button-positive" ng-click="$ctrl.next()">Go On</button>
+  </ion-nav-buttons>
   <ion-content>
-    <ion-item>Yo</ion-item>
+    <div class="list">
+      <div class="item item-input item-icon-right padding">
+        <input id="new-player" type="text" placeholder="New Player" ng-model="$ctrl.newPlayer">
+        <i class="icon ion-person-add balanced" ng-click="$ctrl.addPlayer($ctrl.newPlayer)"></i>
+      </div>
+    </div>
+    <div class="list">
+      <div class="item item-divider">{{$ctrl.players.length}} Player(s)</div>
+      <div class="item item-icon-right" ng-repeat="player in $ctrl.players">
+        {{player}}
+        <i class="icon ion-minus-circled assertive" ng-click="$ctrl.togglePlayer(player)"></i>
+      </div>
+      <div class="item" ng-show="$ctrl.players.length === 0">
+        No players yet
+      </div>
+    </div>
   </ion-content>
 </ion-view>

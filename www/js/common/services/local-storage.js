@@ -4,8 +4,6 @@
     .module('ionic.utils', [])
     .factory('localStorage', localStorage);
 
-  localStorage.$inject = ['$window'];
-
   function localStorage($window)
   {
     return {
