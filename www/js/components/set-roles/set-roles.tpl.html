@@ -9,16 +9,14 @@
     </button>
   </ion-nav-buttons>
   <ion-content>
-    <div class="item text-center text-bold">
-      Wake up {{$ctrl.playerName}} and ask to see their card.
+    <div class="intro-toast">
+      Wake up <b>{{$ctrl.playerName}}</b>, and ask to see their card, then select it below.
     </div>
 
     <!--Remaining roles-->
-    <div class="list">
-      <div class="item item-icon-right" ng-repeat="role in $ctrl.roles track by $index" ng-click="$ctrl.selectRole($index)">
-        {{role.name}}
-        <i class="icon ion-checkmark" ng-show="$ctrl.role === $index"></i>
-      </div>
+    <div class="grid-container">
+      <img ng-src="{{role.url}}" ng-class="{'faded': $ctrl.role !== $index}" ng-repeat="role in $ctrl.gameState.roles track by $index" ng-click="$ctrl.selectRole($index)">
     </div>
+
   </ion-content>
 </ion-view>

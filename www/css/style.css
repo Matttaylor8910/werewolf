@@ -18,6 +18,17 @@
   opacity: .2;
 }
 
+.grid-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.grid-container img {
+  width: 33%;
+}
+
 /*choose roles css*/
 
 .selected-divider {
@@ -53,7 +64,7 @@
 }
 
 .all-roles .role {
-  width: 300px;
+  width: 280px;
   display: inline-block;
   overflow: hidden;
   margin: 10px 0px;
@@ -71,7 +82,8 @@
 /*play css*/
 .ded {
   opacity: .5;
-  background: #ccc;
+  text-decoration: line-through;
+  color: #cd5c5c;
 }
 
 /*OVERRIDES*/

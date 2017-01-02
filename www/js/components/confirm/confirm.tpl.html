@@ -9,11 +9,16 @@
     <button class="button button-clear button-positive text-bold" ui-sref="set-roles">Start</button>
   </ion-nav-buttons>
   <ion-content>
+
+    <div class="intro-toast">Confirm this is correct and then click start.</div>
+
     <div class="item">
-      Players: {{$ctrl.playerString}}
+      <b>Players:</b> {{$ctrl.playerString}}
     </div>
-    <div class="item">
-      Roles: {{$ctrl.roleString}}
+
+    <div class="item item-divider">Roles</div>
+    <div class="grid-container">
+      <img ng-src="{{role.url}}" ng-repeat="role in $ctrl.gameState.roles">
     </div>
   </ion-content>
 </ion-view>
