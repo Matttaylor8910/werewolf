@@ -111,6 +111,10 @@
   color: #fff;
 }
 
+.role img {
+  width: 100%;
+}
+
 /*confirm css*/
 .text-bold {
   font-weight: bold !important;

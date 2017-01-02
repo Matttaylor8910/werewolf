@@ -10,7 +10,7 @@
       <i class="icon ion-arrow-right-c"></i>
     </button>
   </ion-nav-buttons>
-  <ion-content>
+  <ion-content overflow-scroll="true">
 
     <div class="item item-divider selected-divider">
       <div>{{$ctrl.selectedRoles.length}} of {{$ctrl.gameState.playerNames.length}} Roles Selected</div>
@@ -34,12 +34,8 @@
 
     <div class="item item-divider">All Roles</div>
     <div class="all-roles">
-      <div class="role"
-           style="background: url({{role.url}})"
-           ng-repeat="role in $ctrl.allRoles track by $index"
-           ng-click="$ctrl.addRole(role, $index)">
-           <!--ng-class="{'faded': role.max === 0}">-->
-        <div class="opaque center" ng-show="role.max === 0"></div>
+      <div class="role" ng-repeat="role in $ctrl.allRoles track by $index">
+        <img ng-src="{{role.url}}" ng-click="$ctrl.addRole(role, $index)" ng-class="{'faded': role.max === 0}">
       </div>
     </div>
 
