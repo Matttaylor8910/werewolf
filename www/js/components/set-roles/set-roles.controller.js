@@ -25,11 +25,11 @@
     }
 
     /**
-     * Select a role from the list
-     * @param role
+     * Select a role from the list and store that index
+     * @param index
      */
-    function selectRole(role) {
-      $ctrl.role = role;
+    function selectRole(index) {
+      $ctrl.role = index;
     }
 
     /**
@@ -42,7 +42,7 @@
       var player = {
         alive: true,
         name: $ctrl.playerName,
-        role: $ctrl.role
+        role: $ctrl.roles.splice($ctrl.role, 1)[0]
       };
 
       // Add the player to the game with their role
@@ -56,7 +56,6 @@
       // Else set up for the next player
       else {
         $ctrl.playerName = $ctrl.playerNames.shift();
-        $ctrl.roles = _.xor($ctrl.roles, [$ctrl.role]);
         $ctrl.role = undefined;
       }
     }

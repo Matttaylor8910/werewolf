@@ -14,14 +14,53 @@
   font-size: 16px;
 }
 
+.faded {
+  opacity: .2;
+}
+
 /*choose roles css*/
-.roles-subheader {
-  background-color: #f5f5f5;
+
+.selected-divider {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+}
+
+.selected-roles {
+  height:144px;
+  text-align:left;
+  white-space: nowrap;
+  overflow-y:hidden;
+}
+.selected-roles .role {
+  width:100px;
+  display: inline-block;
+  overflow:hidden;
+  margin: 4px 0;
+}
+
+.selected-roles .role:first-child {
+  margin-left: 5px;
+}
+
+.selected-roles .role:last-child {
+  margin-right: 5px;
+}
+
+.all-roles {
+  text-align:left;
+  white-space: nowrap;
+  overflow-y:hidden;
+}
+
+.all-roles .role {
+  width: 300px;
+  display: inline-block;
+  overflow: hidden;
+  margin: 10px 0px;
+}
+
+.role img {
   width: 100%;
-  padding: 10px;
 }
 
 /*confirm css*/

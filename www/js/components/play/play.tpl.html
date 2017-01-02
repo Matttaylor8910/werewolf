@@ -5,7 +5,7 @@
   <ion-nav-title>Werewolf</ion-nav-title>
   <ion-content>
     <div class="list">
-      <div class="item item-icon-right" ng-class="{'ded': !player.alive}" ng-repeat="player in $ctrl.gameState.players" ng-click="$ctrl.gameState.toggleDead(player)">
+      <div class="item item-icon-right" ng-class="{'ded': !player.alive}" ng-repeat="player in $ctrl.gameState.players track by $index" ng-click="$ctrl.gameState.toggleDead(player)">
         {{player.name}} ({{player.role.name}})
       </div>
     </div>

@@ -19,37 +19,33 @@
      * @returns {*}
      */
     function allRoles() {
-      var roles = _.sortBy(_.filter(constants.roles, 'active'), 'name');
-
-      // remove the selected roles from the list of all roles
-      return _.xor(roles, gameState.roles);
+      return _.sortBy(_.filter(constants.roles, 'active'), 'name');
     }
 
     /**
      * Add a role
      * @param role
+     * @param index
      */
-    function addRole(role) {
+    function addRole(role, index) {
+      // no more of that card to play
+      if (role.max === 0) return;
+
+      _.find($ctrl.allRoles, ['name', role.name]).max--;
       $ctrl.totalWeight += parseInt(role.weight);
-      toggleRole(role);
+      $ctrl.selectedRoles.unshift($ctrl.allRoles[index]);
+      gameState.setProperty('roles', $ctrl.selectedRoles);
     }
 
     /**
      * Remove a role
      * @param role
+     * @param index
      */
-    function removeRole(role) {
+    function removeRole(role, index) {
+      _.find($ctrl.allRoles, ['name', role.name]).max++;
       $ctrl.totalWeight -= parseInt(role.weight);
-      toggleRole(role);
-    }
-
-    /**
-     * Toggle a role being selected for the game
-     * @param role
-     */
-    function toggleRole(role) {
-      $ctrl.selectedRoles = _.sortBy(_.xor($ctrl.selectedRoles, [role]), 'name');
-      $ctrl.allRoles = _.sortBy(_.xor($ctrl.allRoles, [role]), 'name');
+      $ctrl.selectedRoles.splice(index, 1);
       gameState.setProperty('roles', $ctrl.selectedRoles);
     }
   }

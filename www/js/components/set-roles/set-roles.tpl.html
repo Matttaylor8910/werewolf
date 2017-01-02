@@ -4,7 +4,7 @@
   </ion-nav-buttons>
   <ion-nav-title>Set Roles</ion-nav-title>
   <ion-nav-buttons side="right">
-    <button class="button button-clear button-positive text-bold" ng-click="$ctrl.next()" ng-disabled="!$ctrl.role">
+    <button class="button button-clear button-positive text-bold" ng-click="$ctrl.next()" ng-disabled="$ctrl.role === undefined">
       Next Player
     </button>
   </ion-nav-buttons>
@@ -15,9 +15,9 @@
 
     <!--Remaining roles-->
     <div class="list">
-      <div class="item item-icon-right" ng-repeat="role in $ctrl.roles" ng-click="$ctrl.selectRole(role)">
+      <div class="item item-icon-right" ng-repeat="role in $ctrl.roles track by $index" ng-click="$ctrl.selectRole($index)">
         {{role.name}}
-        <i class="icon ion-checkmark" ng-show="$ctrl.role.name === role.name"></i>
+        <i class="icon ion-checkmark" ng-show="$ctrl.role === $index"></i>
       </div>
     </div>
   </ion-content>

@@ -17,7 +17,7 @@
 
     // if the application doesn't have an equal number of players to roles,
     // we need to go back to the choose players state, mostly for localhost
-    // goHomeIfBlank();
+    goHomeIfBlank();
 
     return service;
 
