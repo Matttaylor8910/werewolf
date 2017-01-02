@@ -29,6 +29,23 @@
   width: 33%;
 }
 
+/*player colors*/
+.blue {
+  color: #284c73;
+}
+.brown {
+  color: #6f471b;
+}
+.green {
+  color: #0b9444;
+}
+.purple {
+  color: #5a3c60;
+}
+.red {
+  color: #600c17;
+}
+
 /*choose roles css*/
 
 .selected-divider {
