@@ -6,7 +6,9 @@
 
       'werewolf.choosePlayers',
       'werewolf.chooseRoles',
-      'werewolf.confirm'
+      'werewolf.confirm',
+      'werewolf.setRoles',
+      'werewolf.play'
     ])
     .config(config)
     .run(run);

@@ -1,25 +1,39 @@
 <ion-view>
-  <ion-nav-title>Werewolf Moderator</ion-nav-title>
-  <ion-nav-buttons side="right">
-    <button class="button button-clear button-positive" ui-sref="confirm" ng-disabled="$ctrl.selectedRoles.length !== $ctrl.gameState.playerNames.length">Go On</button>
+  <ion-nav-buttons side="left">
+    <button class="button button-clear button-positive" ui-sref="choose-players">
+      <i class="icon ion-arrow-left-c"></i>
+    </button>
   </ion-nav-buttons>
-  <ion-content>
+  <ion-nav-title>Choose Roles</ion-nav-title>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear button-positive" ui-sref="confirm" ng-disabled="$ctrl.selectedRoles.length !== $ctrl.gameState.playerNames.length">
+      <i class="icon ion-arrow-right-c"></i>
+    </button>
+  </ion-nav-buttons>
+  <div class="bar bar-subheader">
+    <div class="roles-subheader">
+      <div>{{$ctrl.selectedRoles.length}} of {{$ctrl.gameState.playerNames.length}} Roles Selected</div>
+      <b>({{$ctrl.totalWeight}})</b>
+    </div>
+  </div>
+  <ion-content class="has-subheader">
+
+    <div class="intro-toast">
+      Pick {{$ctrl.gameState.playerNames.length}} roles you want to use in the game. Notice the value in the top right. Negative means the werewolves have the advantage, positive means the villagers have the advantage.
+    </div>
 
     <!--Selected Roles-->
     <div class="list">
-      <div class="item item-divider">{{$ctrl.selectedRoles.length}} of {{$ctrl.gameState.playerNames.length}} Role(s) Selected ({{$ctrl.totalWeight}})</div>
+      <div class="item item-divider">Selected Roles ({{$ctrl.selectedRoles.length}})</div>
       <div class="item item-icon-right" ng-repeat="role in $ctrl.selectedRoles">
         {{role.name}} ({{role.weight}})
         <i class="icon ion-minus-circled assertive" ng-click="$ctrl.removeRole(role)"></i>
-      </div>
-      <div class="item" ng-show="$ctrl.selectedRoles.length === 0">
-        No roles chosen yet
       </div>
     </div>
 
     <!--All Roles-->
     <div class="list">
-      <div class="item item-divider">Selectable Roles</div>
+      <div class="item item-divider">All Roles</div>
       <div class="item item-icon-right" ng-repeat="role in $ctrl.allRoles" ng-click="$ctrl.addRole(role)" ng-show="!role.selected">
         {{role.name}} ({{role.weight}})
         <i class="icon ion-information-circled positive"></i>

@@ -1,0 +1,13 @@
+<ion-view>
+  <ion-nav-buttons side="left">
+    <button class="button button-clear button-assertive" ng-click="$ctrl.gameState.startOver()">Start Over</button>
+  </ion-nav-buttons>
+  <ion-nav-title>Werewolf</ion-nav-title>
+  <ion-content>
+    <div class="list">
+      <div class="item item-icon-right" ng-class="{'ded': !player.alive}" ng-repeat="player in $ctrl.gameState.players" ng-click="$ctrl.gameState.toggleDead(player)">
+        {{player.name}} ({{player.role.name}})
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

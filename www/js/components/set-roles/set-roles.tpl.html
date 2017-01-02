@@ -1,0 +1,24 @@
+<ion-view>
+  <ion-nav-buttons side="left">
+    <button class="button button-clear button-assertive" ng-click="$ctrl.gameState.startOver()">Start Over</button>
+  </ion-nav-buttons>
+  <ion-nav-title>Set Roles</ion-nav-title>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear button-positive text-bold" ng-click="$ctrl.next()" ng-disabled="!$ctrl.role">
+      Next Player
+    </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="item text-center text-bold">
+      Wake up {{$ctrl.playerName}} and ask to see their card.
+    </div>
+
+    <!--Remaining roles-->
+    <div class="list">
+      <div class="item item-icon-right" ng-repeat="role in $ctrl.roles" ng-click="$ctrl.selectRole(role)">
+        {{role.name}}
+        <i class="icon ion-checkmark" ng-show="$ctrl.role.name === role.name"></i>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

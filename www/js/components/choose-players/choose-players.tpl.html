@@ -1,9 +1,14 @@
 <ion-view>
-  <ion-nav-title>Werewolf Moderator</ion-nav-title>
+  <ion-nav-title>Choose Players</ion-nav-title>
   <ion-nav-buttons side="right">
-    <button class="button button-clear button-positive" ui-sref="choose-roles" ng-disabled="$ctrl.players.length < 3">Go On</button>
+    <button class="button button-clear button-positive" ui-sref="choose-roles" ng-disabled="$ctrl.players.length < 3">
+      <i class="icon ion-arrow-right-c"></i>
+    </button>
   </ion-nav-buttons>
   <ion-content>
+    <div class="intro-toast">
+      Enter the names of everyone wanting to play then click the arrow to go to select some roles.
+    </div>
     <div class="list">
       <div class="item item-input item-icon-right padding">
         <input id="new-player" type="text" placeholder="New Player" ng-model="$ctrl.newPlayer">
@@ -16,9 +21,7 @@
         {{player}}
         <i class="icon ion-minus-circled assertive" ng-click="$ctrl.togglePlayer(player)"></i>
       </div>
-      <div class="item" ng-show="$ctrl.players.length === 0">
-        No players yet
-      </div>
     </div>
+    <div class="text-center" ng-show="$ctrl.players.length < 3">Add at least 3 players to proceed</div>
   </ion-content>
 </ion-view>

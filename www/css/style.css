@@ -1,3 +1,4 @@
+/*index.html*/
 #initial-loader {
   display: flex;
   height: 400px;
@@ -6,7 +7,43 @@
   font-weight: bold;
 }
 
+/*common css*/
+.intro-toast {
+  text-align: center;
+  padding: 16px;
+  font-size: 16px;
+}
+
+/*choose roles css*/
+.roles-subheader {
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+}
+
+/*confirm css*/
+.text-bold {
+  font-weight: bold !important;
+}
+
+/*play css*/
+.ded {
+  opacity: .5;
+  background: #ccc;
+}
+
 /*OVERRIDES*/
+
+.bar .title {
+  margin: 0 5px;
+}
+
+.bar.bar-subheader {
+  padding: 0;
+}
 
 .item {
   white-space: normal !important;
