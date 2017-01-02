@@ -8,9 +8,9 @@
   </ion-nav-buttons>
   <ion-content>
 
-    <werewolf-daytime ng-if="$ctrl.phase.title === 'Day Time'"></werewolf-daytime>
+    <werewolf-daytime ng-show="$ctrl.phase.title === 'Day Time'"></werewolf-daytime>
 
-    <werewolf-nighttime ng-if="$ctrl.phase.title === 'Night Time'"></werewolf-nighttime>
+    <werewolf-nighttime ng-show="$ctrl.phase.title === 'Night Time'"></werewolf-nighttime>
 
   </ion-content>
 </ion-view>
