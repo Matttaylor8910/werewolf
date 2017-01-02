@@ -20,6 +20,7 @@
       <div>{{$ctrl.selectedRoles.length}} of {{$ctrl.gameState.playerNames.length}} Roles Selected</div>
       <div ng-class="{'assertive': $ctrl.totalWeight < 0, 'positive': $ctrl.totalWeight > 0}">({{($ctrl.totalWeight < 0 ? '' : '+') + $ctrl.totalWeight}})</div>
     </div>
+
     <div class="selected-roles">
       <div class="role" ng-repeat="role in $ctrl.selectedRoles track by $index">
         <img ng-src="{{role.url}}" ng-click="$ctrl.removeRole(role, $index)">

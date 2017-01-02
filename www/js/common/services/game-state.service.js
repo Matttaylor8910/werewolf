@@ -12,7 +12,7 @@
       setProperty     : setProperty,
       addPlayerToGame : addPlayerToGame,
       toggleDead      : toggleDead,
-      startOver       : startOver
+      startOver       : goHomeIfBlank
     };
 
     // if the application doesn't have an equal number of players to roles,
@@ -39,25 +39,12 @@
     }
 
     /**
-     * Temporary function to mark someone as dead or alive
+     * Function to mark someone as dead or alive
      * @param player
      */
     function toggleDead(player) {
-      _.each(service.players, function(p) {
-        if (p.name === player.name) {
-          p.alive = !p.alive;
-        }
-      });
-    }
-
-    /**
-     * Start all the way over
-     */
-    function startOver() {
-      service.playerNames = localStorage.getArray('playerNames');
-      service.roles = [];
-      service.players = [];
-      goHomeIfBlank();
+      var found = _.find(service.players, ['name', player.name]);
+      found.alive = !found.alive;
     }
 
     /**
@@ -67,12 +54,18 @@
       if ((service.playerNames.length < 1 ||
           service.roles.length  < 1) &&
           $state.current.name !== 'choose-players') {
-
-        $ionicHistory.nextViewOptions({
-          disableAnimate: true
-        });
-        $state.go('choose-players');
+        goHome();
       }
+    }
+
+    /**
+     * Return to the beginning
+     */
+    function goHome() {
+      $ionicHistory.nextViewOptions({
+        disableAnimate: true
+      });
+      $state.go('choose-players');
     }
   }
 })();
