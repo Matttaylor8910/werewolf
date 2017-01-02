@@ -4,9 +4,12 @@
     .factory('gameState', gameState);
 
   function gameState($state, $ionicHistory, localStorage) {
+    // only for local dev use
+    var DEBUG = true;
+
     var service = {
       playerNames     : localStorage.getArray('playerNames'),
-      roles           : [],
+      roles           : DEBUG ? localStorage.getArray('roles') : [],
       players         : [],
 
       setProperty     : setProperty,
@@ -17,7 +20,7 @@
 
     // if the application doesn't have an equal number of players to roles,
     // we need to go back to the choose players state, mostly for localhost
-    goHomeIfBlank();
+    if (!DEBUG) goHomeIfBlank();
 
     return service;
 

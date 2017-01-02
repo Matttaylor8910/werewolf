@@ -1,4 +1,7 @@
 (function() {
   angular
-    .module('werewolf.play', []);
+    .module('werewolf.play', [
+      'werewolf.play.daytime',
+      'werewolf.play.nighttime'
+    ]);
 })();

@@ -3,7 +3,7 @@
     .module('werewolf.chooseRoles')
     .controller('ChooseRolesController', ChooseRolesController);
 
-  function ChooseRolesController(constants, gameState) {
+  function ChooseRolesController(constants, gameState, localStorage) {
     var $ctrl = this;
 
     $ctrl.allRoles = allRoles();
@@ -35,6 +35,7 @@
       $ctrl.totalWeight += parseInt(role.weight);
       $ctrl.selectedRoles.unshift($ctrl.allRoles[index]);
       gameState.setProperty('roles', $ctrl.selectedRoles);
+      localStorage.setArray('roles', $ctrl.selectedRoles);
     }
 
     /**
@@ -47,6 +48,7 @@
       $ctrl.totalWeight -= parseInt(role.weight);
       $ctrl.selectedRoles.splice(index, 1);
       gameState.setProperty('roles', $ctrl.selectedRoles);
+      localStorage.setArray('roles', $ctrl.selectedRoles);
     }
   }
 })();

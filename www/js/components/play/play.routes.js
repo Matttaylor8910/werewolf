@@ -8,7 +8,7 @@
       .state('play', {
         url: '/play',
         templateUrl: 'js/components/play/play.tpl.html',
-        controller: 'ChooseRolesController',
+        controller: 'PlayController',
         controllerAs: '$ctrl'
       });
   }

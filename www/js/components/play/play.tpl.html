@@ -2,16 +2,15 @@
   <ion-nav-buttons side="left">
     <button class="button button-clear button-assertive" ng-click="$ctrl.gameState.startOver()">Start Over</button>
   </ion-nav-buttons>
-  <ion-nav-title>Werewolf</ion-nav-title>
+  <ion-nav-title>{{$ctrl.phase.title}}</ion-nav-title>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear button-positive text-bold" ng-click="$ctrl.phase.nextAction()">{{$ctrl.phase.nextActionText}}</button>
+  </ion-nav-buttons>
   <ion-content>
-    <div class="list">
-      <div class="item item-icon-right" ng-class="{'ded': !player.alive}" ng-repeat="player in $ctrl.gameState.players track by $index" ng-click="$ctrl.gameState.toggleDead(player)">
-        {{player.name}} ({{player.role.name}})
-        <span class="icon assertive" ng-show="!player.alive">RIP</span>
-      </div>
-    </div>
 
-    <textarea class="notes-field" placeholder="Write notes about the game here until I finish the super dank logic to keep track for you"></textarea>
+    <werewolf-daytime ng-if="$ctrl.phase.title === 'Day Time'"></werewolf-daytime>
+
+    <werewolf-nighttime ng-if="$ctrl.phase.title === 'Night Time'"></werewolf-nighttime>
 
   </ion-content>
 </ion-view>

@@ -1,0 +1,10 @@
+<div class="daytime">
+  <div class="list">
+    <div class="item item-icon-right" ng-class="{'ded': !player.alive}" ng-repeat="player in $ctrl.gameState.players track by $index" ng-click="$ctrl.gameState.toggleDead(player)">
+      {{player.name}} ({{player.role.name}})
+      <span class="icon assertive" ng-show="!player.alive">RIP</span>
+    </div>
+  </div>
+
+  <textarea class="notes-field" placeholder="Write notes about the game here until I finish the super dank logic to keep track for you"></textarea>
+</div>
