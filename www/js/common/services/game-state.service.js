@@ -5,7 +5,7 @@
 
   function gameState($state, $ionicHistory, localStorage) {
     // only for local dev use
-    var DEBUG = true;
+    var DEBUG = false;
 
     var service = {
       playerNames     : localStorage.getArray('playerNames'),
