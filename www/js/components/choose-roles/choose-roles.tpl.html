@@ -10,11 +10,7 @@
       <i class="icon ion-arrow-right-c"></i>
     </button>
   </ion-nav-buttons>
-  <ion-content overflow-scroll="true">
-
-    <div class="intro-toast">
-      Pick {{$ctrl.gameState.playerNames.length}} roles you want to use in the game.
-    </div>
+  <ion-content>
 
     <div class="item item-divider selected-divider">
       <div>{{$ctrl.selectedRoles.length}} of {{$ctrl.gameState.playerNames.length}} Roles Selected</div>
@@ -22,16 +18,28 @@
     </div>
 
     <div class="selected-roles">
-      <div class="role" ng-repeat="role in $ctrl.selectedRoles track by $index">
-        <img ng-src="{{role.url}}" ng-click="$ctrl.removeRole(role, $index)">
+      <div class="role"
+           style="background: url({{role.url}})"
+           ng-repeat="role in $ctrl.selectedRoles track by $index"
+           ng-src="{{role.url}}"
+           ng-click="$ctrl.removeRole(role, $index)">
+        <div class="center">
+          <button class="icon button-large ion-ios-close"></button>
+        </div>
       </div>
-      <div class="intro-toast padding-top">None selected yet</div>
+      <div class="intro-toast">
+        Pick {{$ctrl.gameState.playerNames.length}} roles you want to use in the game.
+      </div>
     </div>
 
     <div class="item item-divider">All Roles</div>
     <div class="all-roles">
-      <div class="role" ng-repeat="role in $ctrl.allRoles track by $index">
-        <img ng-src="{{role.url}}" ng-click="$ctrl.addRole(role, $index)" ng-class="{'faded': role.max === 0}">
+      <div class="role"
+           style="background: url({{role.url}})"
+           ng-repeat="role in $ctrl.allRoles track by $index"
+           ng-click="$ctrl.addRole(role, $index)">
+           <!--ng-class="{'faded': role.max === 0}">-->
+        <div class="opaque center" ng-show="role.max === 0"></div>
       </div>
     </div>
 

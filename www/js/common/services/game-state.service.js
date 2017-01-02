@@ -12,7 +12,7 @@
       setProperty     : setProperty,
       addPlayerToGame : addPlayerToGame,
       toggleDead      : toggleDead,
-      startOver       : goHomeIfBlank
+      startOver       : goHome
     };
 
     // if the application doesn't have an equal number of players to roles,
