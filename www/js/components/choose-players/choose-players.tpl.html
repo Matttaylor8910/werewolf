@@ -10,10 +10,10 @@
       Enter the names of everyone wanting to play then click the arrow to go to select some roles.
     </div>
     <div class="list">
-      <div class="item item-input item-icon-right padding">
+      <form class="item item-input item-icon-right padding" ng-submit="$ctrl.addPlayer($ctrl.newPlayer)">
         <input id="new-player" type="text" placeholder="New Player" ng-model="$ctrl.newPlayer">
-        <i class="icon ion-person-add balanced" ng-click="$ctrl.addPlayer($ctrl.newPlayer)"></i>
-      </div>
+        <i class="icon ion-person-add positive" ng-click="$ctrl.addPlayer($ctrl.newPlayer)"></i>
+      </form>
     </div>
     <div class="list">
       <div class="item item-divider">{{$ctrl.players.length}} Player(s)</div>

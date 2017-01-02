@@ -3,7 +3,7 @@
     .module('werewolf.choosePlayers')
     .controller('ChoosePlayersController', ChoosePlayersController);
 
-  function ChoosePlayersController(gameState, localStorage) {
+  function ChoosePlayersController($timeout, gameState, localStorage) {
     var $ctrl = this;
 
     $ctrl.newPlayer = '';
@@ -18,12 +18,15 @@
      */
     function addPlayer(player) {
       $ctrl.newPlayer = '';
-      $('#new-player').focus();
 
       // if player hasn't already been added and isn't blank
       if (!_.includes($ctrl.players, player) && player !== '') {
         togglePlayer(player);
       }
+
+      $timeout(function(){
+        $('#new-player').focus();
+      }, 0);
     }
 
     /**
