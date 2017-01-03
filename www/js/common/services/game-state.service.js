@@ -8,14 +8,18 @@
     var DEBUG = false;
 
     var service = {
-      playerNames     : localStorage.getArray('playerNames'),
-      roles           : DEBUG ? localStorage.getArray('roles') : [],
-      players         : [],
+      playerNames               : localStorage.getArray('playerNames'),
+      roles                     : DEBUG ? localStorage.getArray('roles') : [],
+      players                   : [],
+      round                     : 0,
+      role                      : undefined,
 
-      setProperty     : setProperty,
-      addPlayerToGame : addPlayerToGame,
-      toggleDead      : toggleDead,
-      startOver       : goHome
+      setProperty               : setProperty,
+      addPlayerToGame           : addPlayerToGame,
+      toggleDead                : toggleDead,
+      startOver                 : startOver,
+      nextRound                 : nextRound,
+      transition                : transition
     };
 
     // if the application doesn't have an equal number of players to roles,
@@ -57,18 +61,35 @@
       if ((service.playerNames.length < 1 ||
           service.roles.length  < 1) &&
           $state.current.name !== 'choose-players') {
-        goHome();
+        startOver();
       }
     }
 
     /**
      * Return to the beginning
      */
-    function goHome() {
+    function startOver() {
+      service.round = 0;
       $ionicHistory.nextViewOptions({
         disableAnimate: true
       });
       $state.go('choose-players');
+    }
+
+    /**
+     * Move to the next round
+     */
+    function nextRound() {
+      service.round++;
+      transition('wolves');
+    }
+
+    /**
+     * Transition to another role
+     * @param role
+     */
+    function transition(role) {
+      service.role = role;
     }
   }
 })();

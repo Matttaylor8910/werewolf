@@ -4,7 +4,7 @@
   </ion-nav-buttons>
   <ion-nav-title>{{$ctrl.phase.title}}</ion-nav-title>
   <ion-nav-buttons side="right">
-    <button class="button button-clear button-positive text-bold" ng-click="$ctrl.phase.nextAction()">{{$ctrl.phase.nextActionText}}</button>
+    <button class="button button-clear button-positive text-bold" ng-click="$ctrl.phase.nextAction()" ng-show="$ctrl.gameState.role === 'done'">{{$ctrl.phase.nextActionText}}</button>
   </ion-nav-buttons>
   <ion-content>
 

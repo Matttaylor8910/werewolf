@@ -16,6 +16,7 @@
      * Set the play state to the nighttime phase
      */
     function sleep() {
+      gameState.nextRound();
       $ctrl.phase = {
         title: 'Night Time',
         nextActionText: 'Wake',

@@ -8,6 +8,17 @@
 }
 
 /*common css*/
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.buttons-container button {
+  min-width: 80px;
+  margin: 5px;
+}
+
 .intro-toast {
   text-align: center;
   padding: 16px;

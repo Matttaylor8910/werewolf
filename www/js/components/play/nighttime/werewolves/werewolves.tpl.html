@@ -1,0 +1,25 @@
+<div>
+  <div class="intro-toast">
+    <span ng-show="$ctrl.gameState.round === 1">
+      <b>Werewolves</b> wake up and acknowledge each other.
+    </span>
+    <span ng-show="$ctrl.gameState.round > 1">
+      <b>Werewolves</b>, time to feast. Who do you want to kill?
+    </span>
+  </div>
+
+  <div class="buttons-container">
+    <button class="button button-clear button-positive"
+            ng-repeat="player in $ctrl.gameState.players"
+            ng-show="$ctrl.state.numberToKill > 0 && player.alive"
+            ng-click="$ctrl.kill(player)">
+      {{player.name}}
+    </button>
+  </div>
+
+  <button class="button button-clear button-full button-positive"
+          ng-show="$ctrl.state.numberToKill === 0"
+          ng-click="$ctrl.next()">
+    Move On
+  </button>
+</div>

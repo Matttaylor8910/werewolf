@@ -1,3 +1,11 @@
 <div class="nighttime">
-  <div class="center padding">This view hasn't been implemented yet. Hang Tight.</div>
+
+  <night-werewolves
+    next-role="done"
+    ng-show="$ctrl.gameState.role === 'wolves'">
+  </night-werewolves>
+
+  <div class="intro-toast" ng-show="$ctrl.gameState.role === 'done'">
+    All actions are done for the night, time to wake everyone.
+  </div>
 </div>
