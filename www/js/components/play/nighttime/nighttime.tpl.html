@@ -1,9 +1,14 @@
 <div class="nighttime">
 
-  <night-werewolves
-    next-role="done"
+  <werewolves
+    next-role="cult"
     ng-show="$ctrl.gameState.role === 'wolves'">
-  </night-werewolves>
+  </werewolves>
+
+  <cult-leader
+    next-role="done"
+    ng-show="$ctrl.gameState.role === 'cult'">
+  </cult-leader>
 
   <div class="intro-toast" ng-show="$ctrl.gameState.role === 'done'">
     All actions are done for the night, time to wake everyone.

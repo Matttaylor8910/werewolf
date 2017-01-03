@@ -39,10 +39,12 @@
      * Move to the play state when finished with all players
      */
     function next() {
+      var role = $ctrl.roles.splice($ctrl.role, 1)[0];
+
       var player = {
         alive: true,
         name: $ctrl.playerName,
-        role: $ctrl.roles.splice($ctrl.role, 1)[0]
+        role: role
       };
 
       // Add the player to the game with their role

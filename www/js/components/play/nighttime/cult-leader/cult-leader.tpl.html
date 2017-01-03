@@ -1,0 +1,20 @@
+<div>
+  <div class="intro-toast">
+    <b>Cult Leader</b> wake up. Who's joining the cult?
+  </div>
+
+  <div class="buttons-container" ng-show="!$ctrl.ready">
+    <button class="button button-clear button-positive"
+            ng-repeat="player in $ctrl.gameState.players"
+            ng-show="!player.inCult && player.alive"
+            ng-click="$ctrl.joinCult(player)">
+      {{player.name}}
+    </button>
+  </div>
+
+  <button class="button button-clear button-full button-positive"
+          ng-show="$ctrl.ready"
+          ng-click="$ctrl.next()">
+    Move On
+  </button>
+</div>

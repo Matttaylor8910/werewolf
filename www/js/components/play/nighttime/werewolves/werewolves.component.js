@@ -1,15 +1,15 @@
 (function() {
   angular
     .module('werewolf.play.nighttime.werewolves', [])
-    .component('nightWerewolves', {
+    .component('werewolves', {
       templateUrl: 'js/components/play/nighttime/werewolves/werewolves.tpl.html',
-      controller: NightWerewolvesController,
+      controller: WerewolvesController,
       bindings: {
         nextRole  : '@'
       }
     });
 
-  function NightWerewolvesController(gameState) {
+  function WerewolvesController(gameState) {
     var $ctrl = this;
 
     $ctrl.state = {
@@ -23,7 +23,7 @@
 
     function kill(player) {
       $ctrl.state.numberToKill--;
-      gameState.toggleDead(player);
+      player.shouldDie = true;
     }
 
     function next() {

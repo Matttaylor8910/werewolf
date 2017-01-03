@@ -33,6 +33,17 @@
         nextActionText: 'Sleep',
         nextAction: sleep
       };
+
+      // Logic for what happened after the night
+      _.each($ctrl.gameState.players, function(player){
+
+        // if player was marked to die, kill em
+        if (player.alive && player.shouldDie) {
+          player.alive = false;
+          player.shouldDie = false;
+        }
+
+      });
     }
   }
 })();

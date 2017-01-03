@@ -1,8 +1,11 @@
 <div class="daytime">
   <div class="list">
-    <div class="item item-icon-right" ng-class="{'ded': !player.alive}" ng-repeat="player in $ctrl.gameState.players track by $index" ng-click="$ctrl.gameState.toggleDead(player)">
-      {{player.name}} ({{player.role.name}})
-      <span class="icon assertive" ng-show="!player.alive">RIP</span>
+    <div class="item space-between" ng-repeat="player in $ctrl.gameState.players track by $index" ng-click="player.alive = !player.alive">
+      <div ng-class="{'ded': !player.alive}">{{player.name}} ({{player.role.name}})</div>
+      <div class="player-badges">
+        <span class="icon green" ng-show="player.inCult">C</span>
+        <span class="icon assertive" ng-show="!player.alive">RIP</span>
+      </div>
     </div>
   </div>
 

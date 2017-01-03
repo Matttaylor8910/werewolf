@@ -5,18 +5,17 @@
 
   function gameState($state, $ionicHistory, localStorage) {
     // only for local dev use
-    var DEBUG = true;
+    var DEBUG = false;
 
     var service = {
       playerNames               : localStorage.getArray('playerNames'),
       roles                     : DEBUG ? localStorage.getArray('roles') : [],
-      players                   : [],
+      players                   : DEBUG ? localStorage.getArray('players') : [],
       round                     : 0,
       role                      : undefined,
 
       setProperty               : setProperty,
       addPlayerToGame           : addPlayerToGame,
-      toggleDead                : toggleDead,
       startOver                 : startOver,
       nextRound                 : nextRound,
       transition                : transition
@@ -43,15 +42,7 @@
      */
     function addPlayerToGame(player) {
       service.players.push(player);
-    }
-
-    /**
-     * Function to mark someone as dead or alive
-     * @param player
-     */
-    function toggleDead(player) {
-      var found = _.find(service.players, ['name', player.name]);
-      found.alive = !found.alive;
+      localStorage.setArray('players', service.players);
     }
 
     /**
