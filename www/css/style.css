@@ -40,6 +40,11 @@
   width: 33%;
 }
 
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
 /*player colors*/
 .blue {
   color: #284c73;
@@ -87,13 +92,13 @@
   margin-right: 5px;
 }
 
-.all-roles {
+.all-roles-horizontal {
   text-align:left;
   white-space: nowrap;
   overflow-y:hidden;
 }
 
-.all-roles .role {
+.all-roles-horizontal .role {
   width: 280px;
   height: 380px;
   display: inline-block;
@@ -152,7 +157,13 @@
 }
 
 .bar.bar-subheader {
-  padding: 0;
+  height: 38px;
+  margin: 0;
+  border: none;
+}
+
+.has-subheader {
+  top: 82px;
 }
 
 .item {

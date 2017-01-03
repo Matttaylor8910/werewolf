@@ -3,16 +3,18 @@
     .module('werewolf.chooseRoles')
     .controller('ChooseRolesController', ChooseRolesController);
 
-  function ChooseRolesController(constants, gameState, localStorage) {
+  function ChooseRolesController(constants, gameState, settings, localStorage) {
     var $ctrl = this;
 
     $ctrl.allRoles = allRoles();
     $ctrl.gameState = gameState;
     $ctrl.selectedRoles = gameState.roles;
     $ctrl.totalWeight = 0;
+    $ctrl.grid = settings.chooseRolesGrid;
 
     $ctrl.addRole = addRole;
     $ctrl.removeRole = removeRole;
+    $ctrl.toggleView = toggleView;
 
     /**
      * Get all selectable roles
@@ -49,6 +51,15 @@
       $ctrl.selectedRoles.splice(index, 1);
       gameState.setProperty('roles', $ctrl.selectedRoles);
       localStorage.setArray('roles', $ctrl.selectedRoles);
+    }
+
+    /**
+     * Toggle between grid vies and horizontal view
+     */
+    function toggleView() {
+      $ctrl.grid = !$ctrl.grid;
+      settings.setProperty('chooseRolesGrid', $ctrl.grid);
+      // $ionicScrollDelegate.scrollTop(true)
     }
   }
 })();

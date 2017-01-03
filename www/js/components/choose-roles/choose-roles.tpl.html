@@ -10,13 +10,16 @@
       <i class="icon ion-arrow-right-c"></i>
     </button>
   </ion-nav-buttons>
-  <ion-content overflow-scroll="true">
 
-    <div class="item item-divider selected-divider">
-      <div>{{$ctrl.selectedRoles.length}} of {{$ctrl.gameState.playerNames.length}} Roles Selected</div>
-      <div ng-class="{'assertive': $ctrl.totalWeight < 0, 'positive': $ctrl.totalWeight > 0}">({{($ctrl.totalWeight < 0 ? '' : '+') + $ctrl.totalWeight}})</div>
-    </div>
+  <!--Subheader for the top-->
+  <div class="bar bar-subheader item item-divider selected-divider">
+    <div>{{$ctrl.selectedRoles.length}} of {{$ctrl.gameState.playerNames.length}} Roles Selected</div>
+    <div ng-class="{'assertive': $ctrl.totalWeight < 0, 'positive': $ctrl.totalWeight > 0}">({{($ctrl.totalWeight < 0 ? '' : '+') + $ctrl.totalWeight}})</div>
+  </div>
 
+  <ion-content overflow-scroll="true" class="has-subheader">
+
+    <!--Selected roles-->
     <div class="selected-roles">
       <div class="role"
            style="background: url({{role.url}})"
@@ -32,11 +35,26 @@
       </div>
     </div>
 
-    <div class="item item-divider">All Roles</div>
-    <div class="all-roles">
+    <!--All roles header-->
+    <div class="item item-divider space-between">
+      <span>All Roles</span>
+      <span ng-click="$ctrl.toggleView()">
+        <i class="icon ion-grid" ng-class="{'positive': $ctrl.grid}"></i>
+        |
+        <i class="icon ion-arrow-swap" ng-class="{'positive': !$ctrl.grid}"></i>
+      </span>
+    </div>
+
+    <!--Horizontal scroll view for all roles-->
+    <div class="all-roles-horizontal" ng-if="!$ctrl.grid">
       <div class="role" ng-repeat="role in $ctrl.allRoles track by $index">
         <img ng-src="{{role.url}}" ng-click="$ctrl.addRole(role, $index)" ng-class="{'faded': role.max === 0}">
       </div>
+    </div>
+
+    <!--Grid view for all roles-->
+    <div class="grid-container" ng-if="$ctrl.grid">
+      <img ng-src="{{role.url}}" ng-class="{'faded': role.max === 0}" ng-repeat="role in $ctrl.allRoles track by $index" ng-click="$ctrl.addRole(role, $index)">
     </div>
 
   </ion-content>
