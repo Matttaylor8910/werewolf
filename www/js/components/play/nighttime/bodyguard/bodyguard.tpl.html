@@ -1,0 +1,21 @@
+<div ng-show="$ctrl.thisRole === $ctrl.currentRole">
+  <div class="intro-toast">
+    <b>Bodyguard</b> wake up. Who are you going to save?
+  </div>
+
+  <div class="buttons-container">
+    <button class="button button-clear button-positive"
+            ng-repeat="player in $ctrl.gameState.players"
+            ng-class="{'button-assertive': $ctrl.isSaved(player)}"
+            ng-disabled="$ctrl.savedLast === player.name"
+            ng-click="$ctrl.save(player)">
+      {{player.name}}
+    </button>
+  </div>
+
+  <button class="button button-clear button-full button-positive"
+          ng-show="$ctrl.playersToSave.length === 1"
+          ng-click="$ctrl.next()">
+    Move On
+  </button>
+</div>

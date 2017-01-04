@@ -14,9 +14,15 @@
 
   <cupid
     this-role="cupid"
-    next-role="done"
+    next-role="bodyguard"
     current-role="$ctrl.gameState.role">
   </cupid>
+
+  <bodyguard
+    this-role="bodyguard"
+    next-role="done"
+    current-role="$ctrl.gameState.role">
+  </bodyguard>
 
   <div class="intro-toast" ng-show="$ctrl.gameState.role === 'done'">
     All actions are done for the night, time to wake everyone.
