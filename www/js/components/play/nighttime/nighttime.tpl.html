@@ -6,9 +6,14 @@
   </werewolves>
 
   <cult-leader
-    next-role="done"
+    next-role="cupid"
     ng-show="$ctrl.gameState.role === 'cult'">
   </cult-leader>
+
+  <cupid
+    next-role="done"
+    ng-show="$ctrl.gameState.role === 'cupid'">
+  </cupid>
 
   <div class="intro-toast" ng-show="$ctrl.gameState.role === 'done'">
     All actions are done for the night, time to wake everyone.
