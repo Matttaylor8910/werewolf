@@ -22,6 +22,14 @@
     $ctrl.isSaved = isSaved;
     $ctrl.next = next;
 
+    $ctrl.$onChanges = function(changes) {
+      if (changes.currentRole.currentValue === $ctrl.thisRole) {
+        if (!gameState.isLiving('Bodyguard')) {
+          gameState.transition($ctrl.nextRole);
+        }
+      }
+    };
+
     function isSaved(player){
       return !!_.find($ctrl.playersToSave, ['name', player.name]);
     }

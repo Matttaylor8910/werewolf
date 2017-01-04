@@ -21,6 +21,14 @@
     $ctrl.joinCult = joinCult;
     $ctrl.next = next;
 
+    $ctrl.$onChanges = function(changes) {
+      if (changes.currentRole.currentValue === $ctrl.thisRole) {
+        if (!gameState.isLiving('Cult Leader')) {
+          gameState.transition($ctrl.nextRole);
+        }
+      }
+    };
+
     function inCult(player){
       return !!_.find($ctrl.playersInCult, ['name', player.name]);
     }

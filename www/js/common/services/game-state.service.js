@@ -16,6 +16,7 @@
 
       setProperty               : setProperty,
       addPlayerToGame           : addPlayerToGame,
+      isLiving                  : isLiving,
       startOver                 : startOver,
       nextRound                 : nextRound,
       transition                : transition
@@ -54,6 +55,15 @@
           $state.current.name !== 'choose-players') {
         startOver();
       }
+    }
+
+    /**
+     * Determine if a role is in the game and living
+     * @param role
+     * @returns {boolean}
+     */
+    function isLiving(role) {
+      return _.includes(_.map(_.map(_.filter(service.players, 'alive'), 'role'), 'name'), role);
     }
 
     /**

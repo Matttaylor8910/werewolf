@@ -24,6 +24,14 @@
     $ctrl.kill = kill;
     $ctrl.next = next;
 
+    $ctrl.$onChanges = function(changes) {
+      if (changes.currentRole.currentValue === $ctrl.thisRole) {
+        if (!gameState.isLiving('Werewolf')) {
+          gameState.transition($ctrl.nextRole);
+        }
+      }
+    };
+
     function kill(player) {
       player.shouldDie = !player.shouldDie;
       $ctrl.state.numberToKill += player.shouldDie ? -1 : 1;
