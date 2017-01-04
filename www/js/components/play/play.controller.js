@@ -18,7 +18,7 @@
     function sleep() {
       gameState.nextRound();
       $ctrl.phase = {
-        title: 'Night Time',
+        title: 'Night',
         nextActionText: 'Wake',
         nextAction: wake
       };
@@ -29,7 +29,7 @@
      */
     function wake() {
       $ctrl.phase = {
-        title: 'Day Time',
+        title: 'Day',
         nextActionText: 'Sleep',
         nextAction: sleep
       };
