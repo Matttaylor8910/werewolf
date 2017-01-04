@@ -1,4 +1,4 @@
-<div>
+<div ng-show="$ctrl.thisRole === $ctrl.currentRole">
   <div class="intro-toast">
     <span ng-show="$ctrl.gameState.round === 1">
       <b>Werewolves</b> wake up and acknowledge each other.
@@ -8,10 +8,11 @@
     </span>
   </div>
 
-  <div class="buttons-container">
+  <div class="buttons-container" ng-show="!$ctrl.disabled">
     <button class="button button-clear button-positive"
             ng-repeat="player in $ctrl.gameState.players"
-            ng-show="$ctrl.state.numberToKill > 0 && player.alive"
+            ng-show="player.alive"
+            ng-class="{'button-assertive': player.shouldDie}"
             ng-click="$ctrl.kill(player)">
       {{player.name}}
     </button>

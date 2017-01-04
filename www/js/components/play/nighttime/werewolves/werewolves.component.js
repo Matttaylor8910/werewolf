@@ -5,7 +5,9 @@
       templateUrl: 'js/components/play/nighttime/werewolves/werewolves.tpl.html',
       controller: WerewolvesController,
       bindings: {
-        nextRole  : '@'
+        thisRole    : '@',
+        nextRole    : '@',
+        currentRole : '<'
       }
     });
 
@@ -15,6 +17,7 @@
     $ctrl.state = {
       numberToKill: 0
     };
+    $ctrl.disabled = true;
 
     $ctrl.gameState = gameState;
 
@@ -22,12 +25,13 @@
     $ctrl.next = next;
 
     function kill(player) {
-      $ctrl.state.numberToKill--;
-      player.shouldDie = true;
+      player.shouldDie = !player.shouldDie;
+      $ctrl.state.numberToKill += player.shouldDie ? -1 : 1;
     }
 
     function next() {
       $ctrl.state.numberToKill = 1;
+      $ctrl.disabled = false;
       gameState.transition($ctrl.nextRole);
     }
   }

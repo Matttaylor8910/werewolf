@@ -5,7 +5,9 @@
       templateUrl: 'js/components/play/nighttime/cult-leader/cult-leader.tpl.html',
       controller: CultLeaderController,
       bindings: {
-        nextRole  : '@'
+        thisRole    : '@',
+        nextRole    : '@',
+        currentRole : '<'
       }
     });
 
@@ -13,18 +15,23 @@
     var $ctrl = this;
 
     $ctrl.gameState = gameState;
-    $ctrl.ready = false;
+    $ctrl.playersInCult = [];
 
+    $ctrl.inCult = inCult;
     $ctrl.joinCult = joinCult;
     $ctrl.next = next;
 
+    function inCult(player){
+      return !!_.find($ctrl.playersInCult, ['name', player.name]);
+    }
+
     function joinCult(player) {
-      player.inCult = true;
-      $ctrl.ready = true;
+      $ctrl.playersInCult = _.xor($ctrl.playersInCult, [player]);
     }
 
     function next() {
-      $ctrl.ready = false;
+      $ctrl.playersInCult[0].inCult = true;
+      $ctrl.playersInCult = [];
       gameState.transition($ctrl.nextRole);
     }
   }

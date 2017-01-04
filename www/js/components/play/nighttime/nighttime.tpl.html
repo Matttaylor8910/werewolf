@@ -1,18 +1,21 @@
 <div class="nighttime">
 
   <werewolves
+    this-role="wolves"
     next-role="cult"
-    ng-show="$ctrl.gameState.role === 'wolves'">
+    current-role="$ctrl.gameState.role">
   </werewolves>
 
   <cult-leader
+    this-role="cult"
     next-role="cupid"
-    ng-show="$ctrl.gameState.role === 'cult'">
+    current-role="$ctrl.gameState.role">
   </cult-leader>
 
   <cupid
+    this-role="cupid"
     next-role="done"
-    ng-show="$ctrl.gameState.role === 'cupid'">
+    current-role="$ctrl.gameState.role">
   </cupid>
 
   <div class="intro-toast" ng-show="$ctrl.gameState.role === 'done'">

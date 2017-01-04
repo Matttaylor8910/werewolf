@@ -5,7 +5,9 @@
       templateUrl: 'js/components/play/nighttime/cupid/cupid.tpl.html',
       controller: CupidController,
       bindings: {
-        nextRole  : '@'
+        thisRole    : '@',
+        nextRole    : '@',
+        currentRole : '<'
       }
     });
 
@@ -19,9 +21,17 @@
     $ctrl.shootArrow = shootArrow;
     $ctrl.next = next;
 
+    $ctrl.$onChanges = function(changes) {
+      if (changes.currentRole.currentValue === $ctrl.thisRole) {
+        if ($ctrl.allDone) {
+          next();
+        }
+      }
+    };
+
     function shootArrow(player) {
       player.inLove = !player.inLove;
-      player.inLove? $ctrl.arrows-- : $ctrl.arrows++;
+      $ctrl.arrows += player.inLove ? -1 : 1;
     }
 
     function next() {
