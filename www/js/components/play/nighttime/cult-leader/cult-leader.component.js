@@ -15,31 +15,37 @@
     var $ctrl = this;
 
     $ctrl.gameState = gameState;
-    $ctrl.playersInCult = [];
+    $ctrl.players = [];
 
-    $ctrl.inCult = inCult;
-    $ctrl.joinCult = joinCult;
+    $ctrl.isSelected = isSelected;
+    $ctrl.select = select;
     $ctrl.next = next;
+    $ctrl.dead = false;
 
     $ctrl.$onChanges = function(changes) {
       if (changes.currentRole.currentValue === $ctrl.thisRole) {
         if (!gameState.rolePlaying('Cult Leader')) {
           gameState.transition($ctrl.nextRole);
         }
+        if (gameState.isDead('Cult Leader')) {
+          $ctrl.dead = true;
+        }
       }
     };
 
-    function inCult(player){
-      return !!_.find($ctrl.playersInCult, ['name', player.name]);
+    function isSelected(player){
+      return !!_.find($ctrl.players, ['name', player.name]);
     }
 
-    function joinCult(player) {
-      $ctrl.playersInCult = _.xor($ctrl.playersInCult, [player]);
+    function select(player) {
+      $ctrl.players = _.xor($ctrl.players, [player]);
     }
 
     function next() {
-      $ctrl.playersInCult[0].inCult = true;
-      $ctrl.playersInCult = [];
+      if ($ctrl.players.length) {
+        $ctrl.players[0].inCult = true;
+        $ctrl.players = [];
+      }
       gameState.transition($ctrl.nextRole);
     }
   }

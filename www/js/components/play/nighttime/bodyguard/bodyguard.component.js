@@ -15,33 +15,39 @@
     var $ctrl = this;
 
     $ctrl.gameState = gameState;
-    $ctrl.playersToSave = [];
-    $ctrl.savedLast = undefined;
+    $ctrl.players = [];
+    $ctrl.last = undefined;
 
-    $ctrl.save = save;
-    $ctrl.isSaved = isSaved;
+    $ctrl.select = select;
+    $ctrl.isSelected = isSelected;
     $ctrl.next = next;
+    $ctrl.dead = false;
 
     $ctrl.$onChanges = function(changes) {
       if (changes.currentRole.currentValue === $ctrl.thisRole) {
         if (!gameState.rolePlaying('Bodyguard')) {
           gameState.transition($ctrl.nextRole);
         }
+        if (gameState.isDead('Bodyguard')) {
+          $ctrl.dead = true;
+        }
       }
     };
 
-    function isSaved(player){
-      return !!_.find($ctrl.playersToSave, ['name', player.name]);
+    function isSelected(player){
+      return !!_.find($ctrl.players, ['name', player.name]);
     }
 
-    function save(player) {
-      $ctrl.playersToSave = _.xor($ctrl.playersToSave, [player]);
+    function select(player) {
+      $ctrl.players = _.xor($ctrl.players, [player]);
     }
 
     function next() {
-      $ctrl.savedLast = $ctrl.playersToSave[0].name;
-      $ctrl.playersToSave[0].shouldDie = false;
-      $ctrl.playersToSave = [];
+      if ($ctrl.players.length) {
+        $ctrl.last = $ctrl.players[0].name;
+        $ctrl.players[0].shouldDie = false;
+        $ctrl.players = [];
+      }
       gameState.transition($ctrl.nextRole);
     }
   }

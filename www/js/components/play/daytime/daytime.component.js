@@ -12,5 +12,6 @@
     $ctrl.gameState = gameState;
 
     $ctrl.unsupportedRoles = _.filter($ctrl.gameState.roles, ['supported', false]);
+    console.log($ctrl.unsupportedRoles);
   }
 })();

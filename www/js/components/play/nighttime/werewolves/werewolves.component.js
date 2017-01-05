@@ -18,8 +18,8 @@
       numberToKill: 0
     };
     $ctrl.disabled = true;
-
     $ctrl.gameState = gameState;
+    $ctrl.dead = false;
 
     $ctrl.kill = kill;
     $ctrl.next = next;
@@ -28,6 +28,9 @@
       if (changes.currentRole.currentValue === $ctrl.thisRole) {
         if (!gameState.rolePlaying('Werewolf')) {
           gameState.transition($ctrl.nextRole);
+        }
+        if (gameState.isDead('Werewolf')) {
+          $ctrl.dead = true;
         }
       }
     };

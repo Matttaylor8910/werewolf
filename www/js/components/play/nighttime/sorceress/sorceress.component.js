@@ -15,16 +15,20 @@
     var $ctrl = this;
 
     $ctrl.gameState = gameState;
+    $ctrl.dead = false;
 
     $ctrl.next = next;
 
     $ctrl.$onChanges = function(changes) {
       if (changes.currentRole.currentValue === $ctrl.thisRole) {
-        
+        // find seer
         $ctrl.seer = _.filter(gameState.players, function(player) { return player.role.name === 'Seer'; })[0];
 
         if (!gameState.rolePlaying('Sorceress')) {
           gameState.transition($ctrl.nextRole);
+        }
+        if (gameState.isDead('Sorceress')) {
+          $ctrl.dead = true;
         }
       }
     };

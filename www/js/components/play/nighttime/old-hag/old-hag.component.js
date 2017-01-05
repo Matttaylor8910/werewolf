@@ -21,11 +21,15 @@
     $ctrl.select = select;
     $ctrl.isSelected = isSelected;
     $ctrl.next = next;
+    $ctrl.dead = false;
 
     $ctrl.$onChanges = function(changes) {
       if (changes.currentRole.currentValue === $ctrl.thisRole) {
         if (!gameState.rolePlaying('Old Hag')) {
           gameState.transition($ctrl.nextRole);
+        }
+        if (gameState.isDead('Old Hag')) {
+          $ctrl.dead = true;
         }
       }
     };
@@ -39,9 +43,11 @@
     }
 
     function next() {
-      $ctrl.last = $ctrl.players[0].name;
-      $ctrl.players[0].silenced = true;
-      $ctrl.players = [];
+      if ($ctrl.players.length) {
+        $ctrl.last = $ctrl.players[0].name;
+        $ctrl.players[0].banished = true;
+        $ctrl.players = [];
+      }
       gameState.transition($ctrl.nextRole);
     }
   }

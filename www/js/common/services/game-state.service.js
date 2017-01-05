@@ -17,6 +17,7 @@
       setProperty               : setProperty,
       addPlayerToGame           : addPlayerToGame,
       rolePlaying               : rolePlaying,
+      isDead                    : isDead,
       startOver                 : startOver,
       nextRound                 : nextRound,
       transition                : transition
@@ -64,6 +65,21 @@
      */
     function rolePlaying(role) {
       return _.includes(_.map(service.roles, 'name'), role);
+    }
+
+    /**
+     * Determine if a role is dead
+     * @param role
+     * @returns {boolean}
+     */
+    function isDead(role) {
+      var dead = false
+      _.each(service.players, function(player) {
+        if (!player.alive && player.role.name === role) {
+          dead = true;
+        }
+      });
+      return dead;
     }
 
     /**

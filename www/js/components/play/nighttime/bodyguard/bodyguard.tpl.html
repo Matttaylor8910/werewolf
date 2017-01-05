@@ -3,19 +3,23 @@
     <b>Bodyguard</b> wake up. Who are you going to save?
   </div>
 
-  <div class="buttons-container">
+  <div class="intro-toast" ng-show="$ctrl.dead">
+    The Bodyguard is dead, just waking up for appearances.
+  </div>
+
+  <div class="buttons-container" ng-show="!$ctrl.dead">
     <button class="button button-clear button-positive"
             ng-repeat="player in $ctrl.gameState.players"
-            ng-class="{'button-assertive': $ctrl.isSaved(player)}"
-            ng-disabled="$ctrl.savedLast === player.name"
+            ng-class="{'button-assertive': $ctrl.isSelected(player)}"
+            ng-disabled="$ctrl.last === player.name"
             ng-show="player.alive"
-            ng-click="$ctrl.save(player)">
+            ng-click="$ctrl.select(player)">
       {{player.name}}
     </button>
   </div>
 
   <button class="button button-clear button-full button-positive"
-          ng-show="$ctrl.playersToSave.length === 1"
+          ng-show="$ctrl.players.length === 1 || $ctrl.dead"
           ng-click="$ctrl.next()">
     Move On
   </button>

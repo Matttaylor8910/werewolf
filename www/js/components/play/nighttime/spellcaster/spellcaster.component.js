@@ -17,6 +17,7 @@
     $ctrl.gameState = gameState;
     $ctrl.players = [];
     $ctrl.last = undefined;
+    $ctrl.dead = false;
 
     $ctrl.select = select;
     $ctrl.isSelected = isSelected;
@@ -26,6 +27,9 @@
       if (changes.currentRole.currentValue === $ctrl.thisRole) {
         if (!gameState.rolePlaying('Spellcaster')) {
           gameState.transition($ctrl.nextRole);
+        }
+        if (gameState.isDead('Spellcaster')) {
+          $ctrl.dead = true;
         }
       }
     };
@@ -39,9 +43,11 @@
     }
 
     function next() {
-      $ctrl.last = $ctrl.players[0].name;
-      $ctrl.players[0].silenced = true;
-      $ctrl.players = [];
+      if ($ctrl.players.length) {
+        $ctrl.last = $ctrl.players[0].name;
+        $ctrl.players[0].silenced = true;
+        $ctrl.players = [];
+      }
       gameState.transition($ctrl.nextRole);
     }
   }
