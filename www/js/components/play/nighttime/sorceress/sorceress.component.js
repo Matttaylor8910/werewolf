@@ -15,12 +15,14 @@
     var $ctrl = this;
 
     $ctrl.gameState = gameState;
-    $ctrl.seer = _.filter(gameState.players, function(player) { return player.role.name === 'Seer'; })[0].name;
 
     $ctrl.next = next;
 
     $ctrl.$onChanges = function(changes) {
       if (changes.currentRole.currentValue === $ctrl.thisRole) {
+        
+        $ctrl.seer = _.filter(gameState.players, function(player) { return player.role.name === 'Seer'; })[0];
+
         if (!gameState.rolePlaying('Sorceress')) {
           gameState.transition($ctrl.nextRole);
         }

@@ -4,7 +4,8 @@
   </div>
 
   <div class="intro-toast">
-    Thumbs up if they point at <b>{{$ctrl.seer}}</b>, he is the Seer.
+    <span ng-show="$ctrl.seer">Thumbs up if they point at <b>{{$ctrl.seer.name}}</b>, they are the Seer.</span>
+    <span ng-show="!$ctrl.seer">WTF, you didn't choose a Seer? Sorceress is useless then.</span>
   </div>
 
   <button class="button button-clear button-full button-positive"
