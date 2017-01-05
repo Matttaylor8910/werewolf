@@ -430,7 +430,7 @@
           weight: '-8',
           max: 1,
           active: true,
-          supported: false,
+          supported: true,
           team: 'wolf',
           url: 'img/cards/wolf-cub.png',
           description: 'If you die, the werewolves get two kills the following night.'
@@ -460,8 +460,8 @@
           weight: '-5',
           max: 1,
           active: true,
-          supported: false,
-          team: 'unknown',
+          supported: true,
+          team: 'wolf',
           url: 'img/cards/lone-wolf.png',
           description: 'You are a werewolf, but you only win if you are the last wolf team member alive.'
         },

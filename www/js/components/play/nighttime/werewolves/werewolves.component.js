@@ -14,6 +14,8 @@
   function WerewolvesController(gameState) {
     var $ctrl = this;
 
+    var wolves = ['Werewolf', 'Wolf Cub', 'Wolf Man', 'Fruit Brute', 'Dire Wolf', 'Big Bad Wolf', 'Lone Wolf'];
+
     $ctrl.state = {
       numberToKill: 0
     };
@@ -26,12 +28,10 @@
 
     $ctrl.$onChanges = function(changes) {
       if (changes.currentRole.currentValue === $ctrl.thisRole) {
-        if (!gameState.rolePlaying('Werewolf')) {
+        if (!gameState.rolesPlaying(wolves, true)) {
           gameState.transition($ctrl.nextRole);
         }
-        if (gameState.isDead('Werewolf')) {
-          $ctrl.dead = true;
-        }
+        $ctrl.dead = gameState.areDead(wolves, false);
       }
     };
 

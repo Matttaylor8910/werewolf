@@ -17,7 +17,9 @@
       setProperty               : setProperty,
       addPlayerToGame           : addPlayerToGame,
       rolePlaying               : rolePlaying,
+      rolesPlaying              : rolesPlaying,
       isDead                    : isDead,
+      areDead                   : areDead,
       startOver                 : startOver,
       nextRound                 : nextRound,
       transition                : transition
@@ -68,15 +70,49 @@
     }
 
     /**
+     * Determine if any/all of the roles are playing
+     * @param roles
+     * @param any
+     * @returns {boolean}
+     */
+    function rolesPlaying(roles, any) {
+      var playing = !any;
+      _.each(roles, function(role) {
+        var thisRole = _.includes(_.map(service.roles, 'name'), role);
+        any ? playing |= thisRole : playing &= thisRole;
+      });
+      return playing;
+    }
+
+    /**
      * Determine if a role is dead
      * @param role
      * @returns {boolean}
      */
     function isDead(role) {
-      var dead = false
+      var dead = false;
       _.each(service.players, function(player) {
         if (!player.alive && player.role.name === role) {
           dead = true;
+        }
+      });
+      return dead;
+    }
+
+    /**
+     * Determine if any/all of the roles are dead
+     * @param roles
+     * @param any
+     */
+    function areDead(roles, any) {
+      var dead = !any;
+      _.each(roles, function(role) {
+        var found = _.find(service.players, function(player) {
+          return player.role.name = role
+        });
+        if (found) {
+          var isDead = !found.alive;
+          any ? dead |= isDead : dead &= isDead;
         }
       });
       return dead;
