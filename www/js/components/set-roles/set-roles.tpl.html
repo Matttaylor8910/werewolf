@@ -15,7 +15,7 @@
 
     <!--Remaining roles-->
     <div class="grid-container">
-      <img ng-src="{{role.url}}" ng-class="{'faded': $ctrl.role !== $index}" ng-repeat="role in $ctrl.gameState.roles track by $index" ng-click="$ctrl.selectRole($index)">
+      <img ng-src="{{role.url}}" ng-class="{'faded': $ctrl.role !== $index}" ng-repeat="role in $ctrl.roles track by $index" ng-click="$ctrl.selectRole($index)">
     </div>
 
   </ion-content>

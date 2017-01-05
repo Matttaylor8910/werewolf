@@ -19,7 +19,7 @@
      */
     function init() {
       $ctrl.playerNames = gameState.playerNames;
-      $ctrl.roles = gameState.roles;
+      $ctrl.roles = _.clone(gameState.roles);
       $ctrl.playerName = $ctrl.playerNames.shift();
       $ctrl.role = undefined;
     }
