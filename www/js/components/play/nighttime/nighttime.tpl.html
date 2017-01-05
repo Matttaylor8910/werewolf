@@ -44,9 +44,15 @@
 
   <sorceress
     this-role="sorceress"
-    next-role="done"
+    next-role="hoodlum"
     current-role="$ctrl.gameState.role">
   </sorceress>
+
+  <hoodlum
+    this-role="hoodlum"
+    next-role="done"
+    current-role="$ctrl.gameState.role">
+  </hoodlum>
 
   <div ng-show="$ctrl.gameState.role === 'done'">
     <div class="intro-toast">

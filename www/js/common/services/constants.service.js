@@ -440,7 +440,7 @@
           weight: '+0',
           max: 1,
           active: true,
-          supported: false,
+          supported: true,
           team: 'hoodlum',
           url: 'img/cards/hoodlum.png',
           description: 'Indicate two players on the first night. If they die and you are alive at the end of the game, you win.'
