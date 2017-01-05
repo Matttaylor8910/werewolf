@@ -250,7 +250,7 @@
           weight: '+2',
           max: 3,
           active: true,
-          supported: false,
+          supported: true,
           team: 'villager',
           url: 'img/cards/mason.png',
           description: 'You know who the other Masons are.'
