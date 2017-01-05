@@ -147,7 +147,7 @@
         },
         {
           name: 'Drunk',
-          weight: '+3',
+          weight: '+4',
           max: 1,
           active: true,
           supported: false,
@@ -357,7 +357,7 @@
         },
         {
           name: 'Troublemaker',
-          weight: '+2',
+          weight: '-3',
           max: 1,
           active: true,
           supported: false,
