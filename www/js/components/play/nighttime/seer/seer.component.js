@@ -14,7 +14,7 @@
   function SeerController(gameState) {
     var $ctrl = this;
 
-    var wolves = ['Werewolf', 'Wolf Cub', 'Lone Wolf'];
+    var wolves = ['Werewolf', 'Wolf Cub', 'Lone Wolf', 'Lycan'];
 
     $ctrl.gameState = gameState;
     $ctrl.dead = false;

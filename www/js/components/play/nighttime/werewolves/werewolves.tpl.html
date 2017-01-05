@@ -14,8 +14,7 @@
 
   <div class="buttons-container" ng-show="!$ctrl.disabled && !$ctrl.dead">
     <button class="button button-clear button-positive"
-            ng-repeat="player in $ctrl.gameState.players"
-            ng-show="player.alive"
+            ng-repeat="player in $ctrl.gameState.players | filter:{alive:true}"
             ng-class="{'button-assertive': player.shouldDie}"
             ng-click="$ctrl.kill(player)">
       {{player.name}}

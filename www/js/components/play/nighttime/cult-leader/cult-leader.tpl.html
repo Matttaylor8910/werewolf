@@ -9,10 +9,9 @@
 
   <div class="buttons-container" ng-show="!$ctrl.dead">
     <button class="button button-clear button-positive"
-            ng-repeat="player in $ctrl.gameState.players"
-            ng-show="player.alive"
-            ng-disabled="player.inCult"
+            ng-repeat="player in $ctrl.gameState.players | filter:{alive:true}"
             ng-class="{'button-assertive': $ctrl.isSelected(player)}"
+            ng-disabled="player.inCult"
             ng-click="$ctrl.select(player)">
       {{player.name}}
     </button>
