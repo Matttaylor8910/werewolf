@@ -400,7 +400,7 @@
           weight: '-3',
           max: 1,
           active: true,
-          supported: false,
+          supported: true,
           team: 'wolf',
           url: 'img/cards/sorceress.png',
           description: 'You are a seer, but you are on the Werewolf team. You only know if you\'ve found the Seer.'
@@ -447,10 +447,10 @@
         },
         {
           name: 'Tanner',
-          weight: '+1',
+          weight: '-2',
           max: 1,
           active: true,
-          supported: false,
+          supported: true,
           team: 'tanner',
           url: 'img/cards/tanner.png',
           description: 'You only win if you are killed.'

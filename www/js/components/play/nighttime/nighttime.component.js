@@ -6,7 +6,8 @@
       'werewolf.play.nighttime.cupid',
       'werewolf.play.nighttime.bodyguard',
       'werewolf.play.nighttime.spellcaster',
-      'werewolf.play.nighttime.oldHag'
+      'werewolf.play.nighttime.oldHag',
+      'werewolf.play.nighttime.sorceress'
     ])
     .component('werewolfNighttime', {
       templateUrl: 'js/components/play/nighttime/nighttime.tpl.html',

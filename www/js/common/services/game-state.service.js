@@ -16,7 +16,7 @@
 
       setProperty               : setProperty,
       addPlayerToGame           : addPlayerToGame,
-      isLiving                  : isLiving,
+      rolePlaying               : rolePlaying,
       startOver                 : startOver,
       nextRound                 : nextRound,
       transition                : transition
@@ -62,8 +62,8 @@
      * @param role
      * @returns {boolean}
      */
-    function isLiving(role) {
-      return _.includes(_.map(_.map(_.filter(service.players, 'alive'), 'role'), 'name'), role);
+    function rolePlaying(role) {
+      return _.includes(_.map(service.roles, 'name'), role);
     }
 
     /**

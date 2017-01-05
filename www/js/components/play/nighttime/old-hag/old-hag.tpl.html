@@ -8,6 +8,7 @@
             ng-repeat="player in $ctrl.gameState.players"
             ng-class="{'button-assertive': $ctrl.isSelected(player)}"
             ng-disabled="$ctrl.last === player.name"
+            ng-show="player.alive"
             ng-click="$ctrl.select(player)">
       {{player.name}}
     </button>

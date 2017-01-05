@@ -32,9 +32,15 @@
 
   <old-hag
     this-role="old-hag"
-    next-role="done"
+    next-role="sorceress"
     current-role="$ctrl.gameState.role">
   </old-hag>
+
+  <sorceress
+    this-role="sorceress"
+    next-role="done"
+    current-role="$ctrl.gameState.role">
+  </sorceress>
 
   <div ng-show="$ctrl.gameState.role === 'done'">
     <div class="intro-toast">

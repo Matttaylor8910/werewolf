@@ -24,7 +24,7 @@
 
     $ctrl.$onChanges = function(changes) {
       if (changes.currentRole.currentValue === $ctrl.thisRole) {
-        if (!gameState.isLiving('Old Hag')) {
+        if (!gameState.rolePlaying('Old Hag')) {
           gameState.transition($ctrl.nextRole);
         }
       }
@@ -40,7 +40,7 @@
 
     function next() {
       $ctrl.last = $ctrl.players[0].name;
-      $ctrl.players[0].banished = true;
+      $ctrl.players[0].silenced = true;
       $ctrl.players = [];
       gameState.transition($ctrl.nextRole);
     }

@@ -26,7 +26,7 @@
 
     $ctrl.$onChanges = function(changes) {
       if (changes.currentRole.currentValue === $ctrl.thisRole) {
-        if (!gameState.isLiving('Werewolf')) {
+        if (!gameState.rolePlaying('Werewolf')) {
           gameState.transition($ctrl.nextRole);
         }
       }

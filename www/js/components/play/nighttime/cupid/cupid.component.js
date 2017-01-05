@@ -23,7 +23,7 @@
 
     $ctrl.$onChanges = function(changes) {
       if (changes.currentRole.currentValue === $ctrl.thisRole) {
-        if ($ctrl.allDone || !gameState.isLiving('Cupid')) {
+        if ($ctrl.allDone || !gameState.rolePlaying('Cupid')) {
           gameState.transition($ctrl.nextRole);
         }
       }
