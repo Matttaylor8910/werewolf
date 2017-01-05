@@ -3,7 +3,7 @@
     .module('werewolf')
     .factory('gameState', gameState);
 
-  function gameState($state, $ionicHistory, localStorage) {
+  function gameState($state, $ionicHistory, $ionicScrollDelegate, localStorage) {
     // only for local dev use
     var DEBUG = false;
 
@@ -107,6 +107,7 @@
      */
     function transition(role) {
       service.role = role;
+      $ionicScrollDelegate.scrollTop(true);
     }
   }
 })();
