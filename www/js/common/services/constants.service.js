@@ -330,7 +330,7 @@
           weight: '+7',
           max: 1,
           active: true,
-          supported: false,
+          supported: true,
           team: 'villager',
           url: 'img/cards/seer.png',
           description: 'Each night, point at a player and learn if they are: Either on the villager team, or a vampire.'
