@@ -160,7 +160,7 @@
           weight: '+3',
           max: 1,
           active: true,
-          supported: false,
+          supported: true,
           team: 'villager',
           url: 'img/cards/diseased.png',
           description: 'If you are attacked by werewolves, the werewolves do not get fed the following night.'
@@ -190,7 +190,7 @@
           weight: '+3',
           max: 1,
           active: true,
-          supported: false,
+          supported: true,
           team: 'villager',
           url: 'img/cards/hunter.png',
           description: 'If you are killed, take someone down with you.'
@@ -200,7 +200,7 @@
           weight: '+2',
           max: 1,
           active: true,
-          supported: false,
+          supported: true,
           team: 'villager',
           url: 'img/cards/village-idiot.png',
           description: 'Always vote for players to die.'
@@ -220,7 +220,7 @@
           weight: '-1',
           max: 1,
           active: true,
-          supported: false,
+          supported: true,
           team: 'villager',
           url: 'img/cards/lycan.png',
           description: 'You are a villager, but you appear falsely to be a werewolf to the Seers and PI.'
@@ -230,7 +230,7 @@
           weight: '-9',
           max: 1,
           active: false,
-          supported: false,
+          supported: true,
           team: 'wolf',
           url: undefined,
           description: 'You wake with the other Werewolves each night, but the Seer sees you as a Villager'
@@ -260,7 +260,7 @@
           weight: '+2',
           max: 1,
           active: true,
-          supported: false,
+          supported: true,
           team: 'villager',
           url: 'img/cards/mayor.png',
           description: 'Your vote counts twice when voting to lynch a player if you reveal yourself.'
@@ -300,7 +300,7 @@
           weight: '-1',
           max: 1,
           active: true,
-          supported: false,
+          supported: true,
           team: 'villager',
           url: 'img/cards/pacifist.png',
           description: 'You cannot vote when lynching.'
@@ -320,7 +320,7 @@
           weight: '+3',
           max: 1,
           active: true,
-          supported: false,
+          supported: true,
           team: 'villager',
           url: 'img/cards/prince.png',
           description: 'You can\'t be lynched.'
@@ -350,7 +350,7 @@
           weight: '+3',
           max: 1,
           active: true,
-          supported: false,
+          supported: true,
           team: 'villager',
           url: 'img/cards/tough-guy.png',
           description: 'You survive an extra day if attacked by werewolves at night.'
@@ -380,7 +380,7 @@
           weight: '+1',
           max: 20,
           active: true,
-          supported: false,
+          supported: true,
           team: 'villager',
           url: 'img/cards/villager.png',
           description: 'Find the werewolves and lynch them.'

@@ -1,4 +1,11 @@
 <div class="daytime">
+  <div ng-show="$ctrl.unsupportedRoles.length > 0">
+    <div class="item item-divider">Unsupported Roles</div>
+    <div class="grid-container">
+      <img ng-src="{{role.url}}" ng-repeat="role in $ctrl.unsupportedRoles track by $index">
+    </div>
+  </div>
+
   <div class="list">
     <div class="item space-between" ng-repeat="player in $ctrl.gameState.players track by $index" ng-click="player.alive = !player.alive">
       <div ng-class="{'ded': !player.alive}">{{player.name}} ({{player.role.name}})</div>
