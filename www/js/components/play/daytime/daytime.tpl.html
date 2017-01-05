@@ -7,17 +7,11 @@
   </div>
 
   <div class="list">
-    <div class="item space-between" ng-repeat="player in $ctrl.gameState.players track by $index" ng-click="player.alive = !player.alive">
-      <div ng-class="{'ded': !player.alive}">{{player.name}} ({{player.role.name}})</div>
-      <div class="player-badges">
-        <i class="icon ion-help" ng-show="!player.role.supported"></i>
-        <i class="icon ion-forward" ng-show="player.banished"></i>
-        <i class="icon ion-android-microphone-off" ng-show="player.silenced"></i>
-        <i class="icon ion-heart assertive" ng-show="player.inLove"></i>
-        <span class="icon green" ng-show="player.inCult">C</span>
-        <span class="icon assertive" ng-show="!player.alive">RIP</span>
-      </div>
-    </div>
+    <player-item player="player" ng-repeat="player in $ctrl.gameState.players | filter:{alive:true} track by $index"></player-item>
+  </div>
+
+  <div class="list">
+    <player-item player="player" ng-repeat="player in $ctrl.gameState.players | filter:{alive:false} track by $index"></player-item>
   </div>
 
   <textarea class="notes-field" placeholder="Write notes about the game here until I finish the super dank logic to keep track for you"></textarea>
