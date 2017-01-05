@@ -2,12 +2,12 @@
 
   <werewolves
     this-role="wolves"
-    next-role="cult"
+    next-role="cult-leader"
     current-role="$ctrl.gameState.role">
   </werewolves>
 
   <cult-leader
-    this-role="cult"
+    this-role="cult-leader"
     next-role="cupid"
     current-role="$ctrl.gameState.role">
   </cult-leader>
@@ -26,9 +26,15 @@
 
   <spellcaster
     this-role="spellcaster"
-    next-role="done"
+    next-role="old-hag"
     current-role="$ctrl.gameState.role">
   </spellcaster>
+
+  <old-hag
+    this-role="old-hag"
+    next-role="done"
+    current-role="$ctrl.gameState.role">
+  </old-hag>
 
   <div ng-show="$ctrl.gameState.role === 'done'">
     <div class="intro-toast">

@@ -27,6 +27,8 @@
       _.each($ctrl.gameState.players, function(player) {
         //make sure no one is silenced
         player.silenced = false;
+        //make sure no one is banished
+        player.banished = false;
       });
     }
 

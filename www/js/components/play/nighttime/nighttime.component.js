@@ -5,7 +5,8 @@
       'werewolf.play.nighttime.cultLeader',
       'werewolf.play.nighttime.cupid',
       'werewolf.play.nighttime.bodyguard',
-      'werewolf.play.nighttime.spellcaster'
+      'werewolf.play.nighttime.spellcaster',
+      'werewolf.play.nighttime.oldHag'
     ])
     .component('werewolfNighttime', {
       templateUrl: 'js/components/play/nighttime/nighttime.tpl.html',
