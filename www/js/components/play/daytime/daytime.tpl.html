@@ -3,6 +3,7 @@
     <div class="item space-between" ng-repeat="player in $ctrl.gameState.players track by $index" ng-click="player.alive = !player.alive">
       <div ng-class="{'ded': !player.alive}">{{player.name}} ({{player.role.name}})</div>
       <div class="player-badges">
+        <i class="icon ion-android-microphone-off" ng-show="player.silenced"></i>
         <i class="icon ion-heart assertive" ng-show="player.inLove"></i>
         <span class="icon green" ng-show="player.inCult">C</span>
         <span class="icon assertive" ng-show="!player.alive">RIP</span>

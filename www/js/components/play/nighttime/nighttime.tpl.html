@@ -20,9 +20,15 @@
 
   <bodyguard
     this-role="bodyguard"
-    next-role="done"
+    next-role="spellcaster"
     current-role="$ctrl.gameState.role">
   </bodyguard>
+
+  <spellcaster
+    this-role="spellcaster"
+    next-role="done"
+    current-role="$ctrl.gameState.role">
+  </spellcaster>
 
   <div ng-show="$ctrl.gameState.role === 'done'">
     <div class="intro-toast">

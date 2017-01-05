@@ -22,6 +22,12 @@
         nextActionText: 'Wake',
         nextAction: wake
       };
+
+      // Logic for what happens after the day
+      _.each($ctrl.gameState.players, function(player) {
+        //make sure no one is silenced
+        player.silenced = false;
+      });
     }
 
     /**
@@ -34,7 +40,7 @@
         nextAction: sleep
       };
 
-      // Logic for what happened after the night
+      // Logic for what happens after the night
       _.each($ctrl.gameState.players, function(player){
 
         // if player was marked to die, kill em

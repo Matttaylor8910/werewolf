@@ -340,7 +340,7 @@
           weight: '+1',
           max: 1,
           active: true,
-          supported: false,
+          supported: true,
           team: 'villager',
           url: 'img/cards/spellcaster.png',
           description: 'At night, indicate a player who must not use their voice the following day.'
