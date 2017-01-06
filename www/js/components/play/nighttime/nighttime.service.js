@@ -1,6 +1,6 @@
 (function() {
   angular
-    .module('werewolf.play.nighttime.werewolves')
+    .module('werewolf.play.nighttime')
     .factory('werewolfService', werewolfService);
 
   function werewolfService() {

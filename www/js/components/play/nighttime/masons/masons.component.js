@@ -18,11 +18,9 @@
 
     $ctrl.next = next;
 
-    $ctrl.$onChanges = function() {
-      if ($ctrl.allDone || !gameState.rolePlaying('Mason')) {
-        gameState.transition($ctrl.nextRole);
-      }
-    };
+    if ($ctrl.allDone || !gameState.rolePlaying('Mason')) {
+      gameState.transition($ctrl.nextRole);
+    }
 
     function next() {
       $ctrl.allDone = true;
