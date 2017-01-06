@@ -113,6 +113,13 @@
   color: #600c17;
 }
 
+.villager {
+  background: #284c73;
+}
+.wolf {
+  background: #600c17;
+}
+
 /*choose roles css*/
 
 .selected-divider {

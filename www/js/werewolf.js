@@ -8,7 +8,8 @@
       'werewolf.chooseRoles',
       'werewolf.confirm',
       'werewolf.setRoles',
-      'werewolf.play'
+      'werewolf.play',
+      'werewolf.unsupportedRole'
     ])
     .config(config)
     .run(run);
