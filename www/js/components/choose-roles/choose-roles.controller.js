@@ -21,7 +21,7 @@
      * @returns {*}
      */
     function allRoles() {
-      return _.sortBy(_.filter(constants.roles, 'active'), 'name');
+      return _.sortBy(constants.roles, 'name');
     }
 
     /**

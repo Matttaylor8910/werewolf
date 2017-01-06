@@ -43,7 +43,7 @@
           active: false,
           supported: false,
           team: 'villager',
-          url: undefined,
+          url: 'img/cards/unsupported.jpg',
           description: 'Opens his eyes the first night to see who the seer is.'
         },
         {
@@ -53,7 +53,7 @@
           active: false,
           supported: false,
           team: 'wolf',
-          url: undefined,
+          url: 'img/cards/unsupported.jpg',
           description: 'If the werewolves target is beside you, you can kill any combination of your adjacent players. However, if the leprechaun redirects the initial attack, none of your adjacent players die. (variation: you can attack one person beside the initial werewolf target.)'
         },
         {
@@ -63,7 +63,7 @@
           active: false,
           supported: false,
           team: 'bogeyman',
-          url: undefined,
+          url: 'img/cards/unsupported.jpg',
           description: 'If the wolves can\'t decide who to kill, you\'ll do it for them. You win if all the night-active players are dead.'
         },
         {
@@ -83,7 +83,7 @@
           active: false,
           supported: false,
           team: 'dracula',
-          url: undefined,
+          url: 'img/cards/unsupported.jpg',
           description: 'Each night, pick a player to be a wife. If you make it through a day/night cycle with 3 wives, you win.'
         },
         {
@@ -113,7 +113,7 @@
           active: false,
           supported: false,
           team: 'villager',
-          url: undefined,
+          url: 'img/cards/unsupported.jpg',
           description: 'The first night, you are told how many werewolves there are in each half of the village.'
         },{
           name: 'Cursed',
@@ -122,7 +122,7 @@
           active: false,
           supported: false,
           team: 'villager',
-          url: undefined,
+          url: 'img/cards/unsupported.jpg',
           description: 'You are a villager until attacked by werewolves, at which time you become a werewolf. (variation: You become a vampire when attacked by vampires.)'
         },
         {
@@ -142,7 +142,7 @@
           active: false,
           supported: false,
           team: 'wolf',
-          url: undefined,
+          url: 'img/cards/unsupported.jpg',
           description: 'If a werewolf dies, you replace them (you\'re not allowed to wake up until a werewolf dies.)'
         },
         {
@@ -172,7 +172,7 @@
           active: false,
           supported: true,
           team: 'wolf',
-          url: undefined,
+          url: 'img/cards/unsupported.jpg',
           description: 'If you are the last wolf left alive, you lose your appetite and cannot feed, but you are trying to root out all the villagers.'
         },
         {
@@ -212,7 +212,7 @@
           active: false,
           supported: false,
           team: 'villager',
-          url: undefined,
+          url: 'img/cards/unsupported.jpg',
           description: 'Each night, learn at least one of your neighbors has woken up during the night.'
         },
         {
@@ -232,7 +232,7 @@
           active: false,
           supported: true,
           team: 'wolf',
-          url: undefined,
+          url: 'img/cards/unsupported.jpg',
           description: 'You wake with the other Werewolves each night, but the Seer sees you as a Villager'
         },
         {
@@ -242,7 +242,7 @@
           active: false,
           supported: false,
           team: 'unknown',
-          url: undefined,
+          url: 'img/cards/unsupported.jpg',
           description: 'Take the place of someone who has been killed before their role is revealed.'
         },
         {
@@ -282,7 +282,7 @@
           active: false,
           supported: false,
           team: 'unknown',
-          url: undefined,
+          url: 'img/cards/unsupported.jpg',
           description: 'You will die on night X, where X is the number of werewolves in the game plus one.'
         },
         {
@@ -372,7 +372,7 @@
           active: false,
           supported: false,
           team: 'unknown',
-          url: undefined,
+          url: 'img/cards/unsupported.jpg',
           description: 'Each night, tap a player sitting immediately next to you.'
         },
         {
@@ -482,7 +482,7 @@
           active: false,
           supported: false,
           team: 'villager',
-          url: undefined,
+          url: 'img/cards/unsupported.jpg',
           description: 'Like a villager but each night she gets to peek out but be discrete so the wolves don\'t notice, because they can signal the moderator if they think you are the little girl. You die if the wolves\' accusation was correct.'
         },
         {
@@ -492,7 +492,7 @@
           active: false,
           supported: false,
           team: 'villager',
-          url: undefined,
+          url: 'img/cards/unsupported.jpg',
           description: 'On the first night, the Wild Child chooses 1 "role model," and if the role model dies, the wild child becomes a werewolf. Until then, the wild child is a normal villager.'
         },
         {
@@ -502,7 +502,7 @@
           active: false,
           supported: false,
           team: 'villager',
-          url: undefined,
+          url: 'img/cards/unsupported.jpg',
           description: 'You are a villager until a day ends without a lynch, in which case you become a werewolf.'
         },
         {
@@ -512,7 +512,7 @@
           active: false,
           supported: false,
           team: 'villager',
-          url: undefined,
+          url: 'img/cards/unsupported.jpg',
           description: 'You can redirect werewolf attacks to players adjacent to the target(s), but you don\'t have to.'
         },
         {
@@ -522,7 +522,7 @@
           active: false,
           supported: false,
           team: 'unknown',
-          url: undefined,
+          url: 'img/cards/unsupported.jpg',
           description: 'If you die, kill someone from the team that killed you each night.'
         },
         {
@@ -532,7 +532,7 @@
           active: false,
           supported: false,
           team: 'unknown',
-          url: undefined,
+          url: 'img/cards/unsupported.jpg',
           description: 'Each night, select a player. If they are a werewolf, they die. If they aren\'t a werewolf, they don\'t die. If all the wolves are dead, kill a player each night.'
         },
         {
@@ -542,7 +542,7 @@
           active: false,
           supported: false,
           team: 'villager',
-          url: undefined,
+          url: 'img/cards/unsupported.jpg',
           description: 'Predict the winning team on the 1st night. If that team wins AND you are alive at the end of the game, you get a solo win. For the rest of the game you are a villager.'
         },
         {
@@ -552,7 +552,7 @@
           active: false,
           supported: false,
           team: 'wolf',
-          url: undefined,
+          url: 'img/cards/unsupported.jpg',
           description: 'On the first night choose a companion. You die if they die, but if you die they don\'t die. You are on the wolf team. (variation: Put yourself in love on the first night).'
         }
       ]

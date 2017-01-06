@@ -1,4 +1,6 @@
 (function() {
   angular
-    .module('werewolf.chooseRoles', []);
+    .module('werewolf.chooseRoles', [
+      'werewolf.unsupportedRole'
+    ]);
 })();

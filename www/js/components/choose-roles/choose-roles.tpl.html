@@ -47,14 +47,18 @@
 
     <!--Horizontal scroll view for all roles-->
     <div class="all-roles-horizontal" ng-if="!$ctrl.grid">
-      <div class="role" ng-repeat="role in $ctrl.allRoles track by $index">
-        <img ng-src="{{role.url}}" ng-click="$ctrl.addRole(role, $index)" ng-class="{'faded': role.max === 0}">
+      <div class="role" ng-repeat="role in $ctrl.allRoles track by $index" ng-click="$ctrl.addRole(role, $index)" ng-class="{'faded': role.max === 0}">
+        <img ng-src="{{role.url}}" ng-show="role.active">
+        <unsupported-role role=role ng-show="!role.active"></unsupported-role>
       </div>
     </div>
 
     <!--Grid view for all roles-->
     <div class="grid-container" ng-if="$ctrl.grid">
-      <img ng-src="{{role.url}}" ng-class="{'faded': role.max === 0}" ng-repeat="role in $ctrl.allRoles track by $index" ng-click="$ctrl.addRole(role, $index)">
+      <div class="grid-item" ng-repeat="role in $ctrl.allRoles track by $index" ng-click="$ctrl.addRole(role, $index)" ng-class="{'faded': role.max === 0}">
+        <img ng-show="role.active" ng-src="{{role.url}}">
+        <unsupported-role role=role ng-show="!role.active"></unsupported-role>
+      </div>
     </div>
 
   </ion-content>
