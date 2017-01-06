@@ -9,12 +9,6 @@
 
 /*common css*/
 
-.grid-item {
-  width:33%;
-  height:44vw;
-  margin: 0.5px;
-}
-
 .buttons-container {
   display: flex;
   justify-content: center;
@@ -46,6 +40,12 @@
 
 .grid-container img {
   width: 100%;
+}
+
+.grid-item {
+  width:33%;
+  height:44vw;
+  margin: 0.5px;
 }
 
 .space-between {
@@ -226,4 +226,36 @@
 
 .item {
   white-space: normal !important;
+}
+
+@media (max-width: 350px) {
+  .grid-item {
+    width:50%;
+    height:65vw;
+    margin: 0;
+  }
+  .role-title {
+    font-size: 15px;
+    line-height: 15px;
+  }
+  .role-description {
+    font-size: 9px;
+    line-height: 9px;
+  }
+}
+
+@media (min-width: 600px) {
+  .grid-item {
+    width:24%;
+    height:33vw;
+    margin: 0;
+  }
+  .role-title {
+    font-size: 15px;
+    line-height: 15px;
+  }
+  .role-description {
+    font-size: 10px;
+    line-height: 10px;
+  }
 }
