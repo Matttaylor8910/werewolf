@@ -53,8 +53,8 @@
           active: false,
           supported: false,
           team: 'wolf',
-          url: 'img/cards/unsupported.jpg',
-          description: 'If the werewolves target is beside you, you can kill any combination of your adjacent players. However, if the leprechaun redirects the initial attack, none of your adjacent players die. (variation: you can attack one person beside the initial werewolf target.)'
+          url: 'img/cards/big-bad-wolf.png',
+          description: 'Each night, wake with the other werewolves. If you are still in the game, the Werewolves may eliminate two adjacent players.'
         },
         {
           name: 'Bogeyman',
@@ -173,7 +173,7 @@
           supported: true,
           team: 'wolf',
           url: 'img/cards/unsupported.jpg',
-          description: 'If you are the last wolf left alive, you lose your appetite and cannot feed, but you are trying to root out all the villagers.'
+          description: 'Each night, wake with the other Werewolves. If you are the last Werewolf in the game, you do not get to eliminate a player at night.'
         },
         {
           name: 'Ghost',
@@ -553,7 +553,37 @@
           supported: false,
           team: 'wolf',
           url: 'img/cards/unsupported.jpg',
-          description: 'On the first night choose a companion. You die if they die, but if you die they don\'t die. You are on the wolf team. (variation: Put yourself in love on the first night).'
+          description: 'Each night, wake with the other Werewolves. The first night, choose a player to be your companion. You are eliminated if that player is eliminated.'
+        },
+        {
+          name: 'Fang Face',
+          weight: '-5',
+          max: 1,
+          active: false,
+          supported: false,
+          team: 'wolf',
+          url: 'img/cards/fang-face.png',
+          description: 'The first night, wake with the other Werewolves. While there are other werewolves in the game, do not wake up with them on subsequent nights.'
+        },
+        {
+          name: 'Virginia Woolf',
+          weight: '-2',
+          max: 1,
+          active: false,
+          supported: false,
+          team: 'villager',
+          url: 'img/cards/virginia-woolf.png',
+          description: 'The first night, choose a player to be afraid of you. If you are eliminated, that player is also eliminated.'
+        },
+        {
+          name: 'Wolverine',
+          weight: '-4',
+          max: 1,
+          active: false,
+          supported: false,
+          team: 'wolf',
+          url: 'img/cards/unsupported.jpg',
+          description: 'Each night, wake with the other Werewolves. If you are the closest Werewolf to the target, the players hear a metallic sound.'
         }
       ]
     }
