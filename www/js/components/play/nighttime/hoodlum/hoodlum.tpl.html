@@ -1,20 +1,18 @@
-<div ng-show="$ctrl.currentRole">
-  <div class="intro-toast">
-    <b>Hoodlum</b> wake up. Who do you want to be your targets?
-  </div>
+<div class="intro-toast">
+  <b>Hoodlum</b> wake up. Who do you want to be your targets?
+</div>
 
-  <div class="buttons-container" ng-show="!$ctrl.allDone">
-    <button class="button button-clear button-positive"
-            ng-repeat="player in $ctrl.gameState.players"
-            ng-class="{'button-assertive': player.hoodlum}"
-            ng-click="$ctrl.select(player)">
-      {{player.name}}
-    </button>
-  </div>
-
-  <button class="button button-clear button-full button-positive"
-          ng-show="$ctrl.choices === 0"
-          ng-click="$ctrl.next()">
-    Move On
+<div class="buttons-container" ng-show="!$ctrl.allDone">
+  <button class="button button-clear button-positive"
+          ng-repeat="player in $ctrl.gameState.players"
+          ng-class="{'button-assertive': player.hoodlum}"
+          ng-click="$ctrl.select(player)">
+    {{player.name}}
   </button>
 </div>
+
+<button class="button button-clear button-full button-positive"
+        ng-show="$ctrl.choices === 0"
+        ng-click="$ctrl.next()">
+  Move On
+</button>

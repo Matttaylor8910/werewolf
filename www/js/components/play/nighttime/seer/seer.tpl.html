@@ -1,19 +1,17 @@
-<div ng-show="$ctrl.currentRole">
-  <div class="intro-toast">
-    <b>Seer</b> wake up. Who do you think the Werewolves are?
-  </div>
-
-  <div class="intro-toast" ng-show="$ctrl.dead">
-    The Seer is dead, just waking up for appearances.
-  </div>
-
-  <div class="intro-toast" ng-show="!$ctrl.dead">
-    <span ng-show="$ctrl.wolves.length > 0">Thumbs up if they point at these players: <b>{{$ctrl.wolves.join(', ')}}</b></span>
-    <span ng-show="!$ctrl.wolves.length === 0">No werewolves?!</span>
-  </div>
-
-  <button class="button button-clear button-full button-positive"
-          ng-click="$ctrl.next()">
-    Move On
-  </button>
+<div class="intro-toast">
+  <b>Seer</b> wake up. Who do you think the Werewolves are?
 </div>
+
+<div class="intro-toast" ng-show="$ctrl.dead">
+  The Seer is dead, just waking up for appearances.
+</div>
+
+<div class="intro-toast" ng-show="!$ctrl.dead">
+  <span ng-show="$ctrl.wolves.length > 0">Thumbs up if they point at these players: <b>{{$ctrl.wolves.join(', ')}}</b></span>
+  <span ng-show="!$ctrl.wolves.length === 0">No werewolves?!</span>
+</div>
+
+<button class="button button-clear button-full button-positive"
+        ng-click="$ctrl.next()">
+  Move On
+</button>

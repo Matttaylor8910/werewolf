@@ -22,14 +22,12 @@
     $ctrl.next = next;
     $ctrl.dead = false;
 
-    $ctrl.$onChanges = function() {
-      if (!gameState.rolePlaying('Old Hag')) {
-        gameState.transition($ctrl.nextRole);
-      }
-      if (gameState.isDead('Old Hag')) {
-        $ctrl.dead = true;
-      }
-    };
+    if (!gameState.rolePlaying('Old Hag')) {
+      gameState.transition($ctrl.nextRole);
+    }
+    if (gameState.isDead('Old Hag')) {
+      $ctrl.dead = true;
+    }
 
     function isSelected(player){
       return !!_.find($ctrl.players, ['name', player.name]);

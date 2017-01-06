@@ -1,25 +1,23 @@
-<div ng-show="$ctrl.currentRole">
-  <div class="intro-toast">
-    <b>Old Hag.</b> wake up. Who are you going to kick out for the day?
-  </div>
+<div class="intro-toast">
+  <b>Old Hag.</b> wake up. Who are you going to kick out for the day?
+</div>
 
-  <div class="intro-toast" ng-show="$ctrl.dead">
-    The Old Hag is dead, just waking up for appearances.
-  </div>
+<div class="intro-toast" ng-show="$ctrl.dead">
+  The Old Hag is dead, just waking up for appearances.
+</div>
 
-  <div class="buttons-container" ng-show="!$ctrl.dead">
-    <button class="button button-clear button-positive"
-            ng-repeat="player in $ctrl.gameState.players | filter:{alive:true}"
-            ng-class="{'button-assertive': $ctrl.isSelected(player)}"
-            ng-disabled="$ctrl.last === player.name"
-            ng-click="$ctrl.select(player)">
-      {{player.name}}
-    </button>
-  </div>
-
-  <button class="button button-clear button-full button-positive"
-          ng-show="$ctrl.players.length === 1 || $ctrl.dead"
-          ng-click="$ctrl.next()">
-    Move On
+<div class="buttons-container" ng-show="!$ctrl.dead">
+  <button class="button button-clear button-positive"
+          ng-repeat="player in $ctrl.gameState.players | filter:{alive:true}"
+          ng-class="{'button-assertive': $ctrl.isSelected(player)}"
+          ng-disabled="$ctrl.last === player.name"
+          ng-click="$ctrl.select(player)">
+    {{player.name}}
   </button>
 </div>
+
+<button class="button button-clear button-full button-positive"
+        ng-show="$ctrl.players.length === 1 || $ctrl.dead"
+        ng-click="$ctrl.next()">
+  Move On
+</button>

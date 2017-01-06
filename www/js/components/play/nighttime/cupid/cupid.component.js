@@ -20,12 +20,10 @@
     $ctrl.shootArrow = shootArrow;
     $ctrl.next = next;
 
-    $ctrl.$onChanges = function() {
-      if ($ctrl.allDone || !gameState.rolePlaying('Cupid')) {
-        gameState.transition($ctrl.nextRole);
-      }
-    };
-
+    if ($ctrl.allDone || !gameState.rolePlaying('Cupid')) {
+      gameState.transition($ctrl.nextRole);
+    }
+    
     function shootArrow(player) {
       player.inLove = !player.inLove;
       $ctrl.arrows += player.inLove ? -1 : 1;

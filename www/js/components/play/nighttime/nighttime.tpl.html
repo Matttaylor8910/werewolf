@@ -1,53 +1,55 @@
 <div class="nighttime">
 
+  <div clas="intro-toast">{{$ctrl.gameState.role}}</div>
+
   <werewolves
     next-role="cultLeader"
-    current-role="$ctrl.gameState.role.wolves">
+    ng-if="$ctrl.gameState.role.wolves">
   </werewolves>
 
   <cult-leader
     next-role="cupid"
-    current-role="$ctrl.gameState.role.cultLeader">
+    ng-if="$ctrl.gameState.role.cultLeader">
   </cult-leader>
 
   <cupid
     next-role="bodyguard"
-    current-role="$ctrl.gameState.role.cupid">
+    ng-if="$ctrl.gameState.role.cupid">
   </cupid>
 
   <bodyguard
     next-role="spellcaster"
-    current-role="$ctrl.gameState.role.bodyguard">
+    ng-if="$ctrl.gameState.role.bodyguard">
   </bodyguard>
 
   <spellcaster
     next-role="oldHag"
-    current-role="$ctrl.gameState.role.spellcaster">
+    ng-if="$ctrl.gameState.role.spellcaster">
   </spellcaster>
 
   <old-hag
     next-role="seer"
-    current-role="$ctrl.gameState.role.oldHag">
+    ng-if="$ctrl.gameState.role.oldHag">
   </old-hag>
 
   <seer
     next-role="sorceress"
-    current-role="$ctrl.gameState.role.seer">
+    ng-if="$ctrl.gameState.role.seer">
   </seer>
 
   <sorceress
     next-role="hoodlum"
-    current-role="$ctrl.gameState.role.sorceress">
+    ng-if="$ctrl.gameState.role.sorceress">
   </sorceress>
 
   <hoodlum
     next-role="masons"
-    current-role="$ctrl.gameState.role.hoodlum">
+    ng-if="$ctrl.gameState.role.hoodlum">
   </hoodlum>
 
   <masons
     next-role="done"
-    current-role="$ctrl.gameState.role.masons">
+    ng-if="$ctrl.gameState.role.masons">
   </masons>
 
   <div ng-show="$ctrl.gameState.role.done">

@@ -1,19 +1,17 @@
-<div ng-show="$ctrl.currentRole">
-  <div class="intro-toast">
-    <b>Sorceress</b> wake up. Who do you think the Seer is?
-  </div>
-
-  <div class="intro-toast" ng-show="$ctrl.dead">
-    The Sorceress is dead, just waking up for appearances.
-  </div>
-
-  <div class="intro-toast" ng-show="!$ctrl.dead">
-    <span ng-show="$ctrl.seer">Thumbs up if they point at <b>{{$ctrl.seer.name}}</b>, they are the Seer.</span>
-    <span ng-show="!$ctrl.seer">WTF, you didn't choose a Seer? Sorceress is useless then.</span>
-  </div>
-
-  <button class="button button-clear button-full button-positive"
-          ng-click="$ctrl.next()">
-    Move On
-  </button>
+<div class="intro-toast">
+  <b>Sorceress</b> wake up. Who do you think the Seer is?
 </div>
+
+<div class="intro-toast" ng-show="$ctrl.dead">
+  The Sorceress is dead, just waking up for appearances.
+</div>
+
+<div class="intro-toast" ng-show="!$ctrl.dead">
+  <span ng-show="$ctrl.seer">Thumbs up if they point at <b>{{$ctrl.seer.name}}</b>, they are the Seer.</span>
+  <span ng-show="!$ctrl.seer">WTF, you didn't choose a Seer? Sorceress is useless then.</span>
+</div>
+
+<button class="button button-clear button-full button-positive"
+        ng-click="$ctrl.next()">
+  Move On
+</button>

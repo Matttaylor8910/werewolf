@@ -21,14 +21,12 @@
     $ctrl.next = next;
     $ctrl.dead = false;
 
-    $ctrl.$onChanges = function() {
-      if (!gameState.rolePlaying('Cult Leader')) {
-        gameState.transition($ctrl.nextRole);
-      }
-      if (gameState.isDead('Cult Leader')) {
-        $ctrl.dead = true;
-      }
-    };
+    if (!gameState.rolePlaying('Cult Leader')) {
+      gameState.transition($ctrl.nextRole);
+    }
+    if (gameState.isDead('Cult Leader')) {
+      $ctrl.dead = true;
+    }
 
     function isSelected(player){
       return !!_.find($ctrl.players, ['name', player.name]);

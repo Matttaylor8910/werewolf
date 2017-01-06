@@ -1,29 +1,27 @@
-<div ng-show="$ctrl.currentRole">
-  <div class="intro-toast">
-    <span ng-show="$ctrl.gameState.round === 1">
-      <b>Werewolves</b> wake up and acknowledge each other.
-    </span>
-    <span ng-show="$ctrl.gameState.round > 1">
-      <b>Werewolves</b>, time to feast. Who do you want to kill?
-    </span>
-  </div>
+<div class="intro-toast">
+  <span ng-show="$ctrl.gameState.round === 1">
+    <b>Werewolves</b> wake up and acknowledge each other.
+  </span>
+  <span ng-show="$ctrl.gameState.round > 1">
+    <b>Werewolves</b>, time to feast. Who do you want to kill?
+  </span>
+</div>
 
-  <div class="intro-toast" ng-show="$ctrl.dead">
-    The Werewolves are dead, just waking up for appearances.
-  </div>
+<div class="intro-toast" ng-show="$ctrl.dead">
+  The Werewolves are dead, just waking up for appearances.
+</div>
 
-  <div class="buttons-container" ng-show="!$ctrl.disabled && !$ctrl.dead">
-    <button class="button button-clear button-positive"
-            ng-repeat="player in $ctrl.gameState.players | filter:{alive:true}"
-            ng-class="{'button-assertive': player.shouldDie}"
-            ng-click="$ctrl.kill(player)">
-      {{player.name}}
-    </button>
-  </div>
-
-  <button class="button button-clear button-full button-positive"
-          ng-show="$ctrl.werewolfService.thisRoundKills === 0 || $ctrl.dead"
-          ng-click="$ctrl.next()">
-    Move On
+<div class="buttons-container" ng-show="$ctrl.gameState.round > 1 && !$ctrl.dead">
+  <button class="button button-clear button-positive"
+          ng-repeat="player in $ctrl.gameState.players | filter:{alive:true}"
+          ng-class="{'button-assertive': player.shouldDie}"
+          ng-click="$ctrl.kill(player)">
+    {{player.name}}
   </button>
 </div>
+
+<button class="button button-clear button-full button-positive"
+        ng-show="$ctrl.werewolfService.thisRoundKills === 0 || $ctrl.dead"
+        ng-click="$ctrl.next()">
+  Move On
+</button>

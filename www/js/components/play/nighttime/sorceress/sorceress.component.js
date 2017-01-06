@@ -18,17 +18,15 @@
 
     $ctrl.next = next;
 
-    $ctrl.$onChanges = function() {
-      // find seer
-      $ctrl.seer = _.filter(gameState.players, function(player) { return player.role.name === 'Seer'; })[0];
+    // find seer
+    $ctrl.seer = _.filter(gameState.players, function(player) { return player.role.name === 'Seer'; })[0];
 
-      if (!gameState.rolePlaying('Sorceress')) {
-        gameState.transition($ctrl.nextRole);
-      }
-      if (gameState.isDead('Sorceress')) {
-        $ctrl.dead = true;
-      }
-    };
+    if (!gameState.rolePlaying('Sorceress')) {
+      gameState.transition($ctrl.nextRole);
+    }
+    if (gameState.isDead('Sorceress')) {
+      $ctrl.dead = true;
+    }
 
     function next() {
       gameState.transition($ctrl.nextRole);

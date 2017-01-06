@@ -15,18 +15,14 @@
 
     $ctrl.gameState = gameState;
     $ctrl.werewolfService = werewolfService;
-    $ctrl.disabled = true;
-    $ctrl.dead = false;
+    $ctrl.dead = gameState.areDead(werewolfService.realWolves, false);
 
     $ctrl.kill = kill;
     $ctrl.next = next;
 
-    $ctrl.$onChanges = function() {
-      if (!gameState.rolesPlaying(werewolfService.realWolves, true)) {
-        gameState.transition($ctrl.nextRole);
-      }
-      $ctrl.dead = gameState.areDead(werewolfService.realWolves, false);
-    };
+    if (!gameState.rolesPlaying(werewolfService.realWolves, true)) {
+      gameState.transition($ctrl.nextRole);
+    }
 
     function kill(player) {
       player.shouldDie = !player.shouldDie;
@@ -35,7 +31,6 @@
 
     function next() {
       werewolfService.setKills(1);
-      $ctrl.disabled = false;
       gameState.transition($ctrl.nextRole);
     }
   }

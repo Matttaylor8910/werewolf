@@ -142,7 +142,8 @@
      * @param role
      */
     function transition(role) {
-      service.role = role;
+      service.role = {};
+      service.role[role] = true;
       $ionicScrollDelegate.scrollTop(true);
     }
   }

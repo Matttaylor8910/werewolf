@@ -22,14 +22,12 @@
     $ctrl.next = next;
     $ctrl.dead = false;
 
-    $ctrl.$onChanges = function() {
-      if (!gameState.rolePlaying('Bodyguard')) {
-        gameState.transition($ctrl.nextRole);
-      }
-      if (gameState.isDead('Bodyguard')) {
-        $ctrl.dead = true;
-      }
-    };
+    if (!gameState.rolePlaying('Bodyguard')) {
+      gameState.transition($ctrl.nextRole);
+    }
+    if (gameState.isDead('Bodyguard')) {
+      $ctrl.dead = true;
+    }
 
     function isSelected(player){
       return !!_.find($ctrl.players, ['name', player.name]);

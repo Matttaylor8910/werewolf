@@ -20,11 +20,9 @@
     $ctrl.select = select;
     $ctrl.next = next;
 
-    $ctrl.$onChanges = function() {
-      if ($ctrl.allDone || !gameState.rolePlaying('Hoodlum')) {
-        gameState.transition($ctrl.nextRole);
-      }
-    };
+    if ($ctrl.allDone || !gameState.rolePlaying('Hoodlum')) {
+      gameState.transition($ctrl.nextRole);
+    }
 
     function select(player) {
       player.hoodlum = !player.hoodlum;
