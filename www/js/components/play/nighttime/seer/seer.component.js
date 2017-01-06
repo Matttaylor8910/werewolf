@@ -5,7 +5,6 @@
       templateUrl: 'js/components/play/nighttime/seer/seer.tpl.html',
       controller: SeerController,
       bindings: {
-        thisRole    : '@',
         nextRole    : '@',
         currentRole : '<'
       }
@@ -21,18 +20,16 @@
 
     $ctrl.next = next;
 
-    $ctrl.$onChanges = function(changes) {
-      if (changes.currentRole.currentValue === $ctrl.thisRole) {
-        if (!gameState.rolePlaying('Seer')) {
-          gameState.transition($ctrl.nextRole);
-        } else if (gameState.isDead('Seer')) {
-          $ctrl.dead = true;
-        } else {
-          // find positives for seer
-          $ctrl.wolves = _.map(_.filter(gameState.players, function(player) {
-            return _.includes(wolves, player.role.name);
-          }), 'name');
-        }
+    $ctrl.$onChanges = function() {
+      if (!gameState.rolePlaying('Seer')) {
+        gameState.transition($ctrl.nextRole);
+      } else if (gameState.isDead('Seer')) {
+        $ctrl.dead = true;
+      } else {
+        // find positives for seer
+        $ctrl.wolves = _.map(_.filter(gameState.players, function(player) {
+          return _.includes(wolves, player.role.name);
+        }), 'name');
       }
     };
 

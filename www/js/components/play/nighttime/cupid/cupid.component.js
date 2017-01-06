@@ -5,7 +5,6 @@
       templateUrl: 'js/components/play/nighttime/cupid/cupid.tpl.html',
       controller: CupidController,
       bindings: {
-        thisRole    : '@',
         nextRole    : '@',
         currentRole : '<'
       }
@@ -21,11 +20,9 @@
     $ctrl.shootArrow = shootArrow;
     $ctrl.next = next;
 
-    $ctrl.$onChanges = function(changes) {
-      if (changes.currentRole.currentValue === $ctrl.thisRole) {
-        if ($ctrl.allDone || !gameState.rolePlaying('Cupid')) {
-          gameState.transition($ctrl.nextRole);
-        }
+    $ctrl.$onChanges = function() {
+      if ($ctrl.allDone || !gameState.rolePlaying('Cupid')) {
+        gameState.transition($ctrl.nextRole);
       }
     };
 

@@ -1,66 +1,56 @@
 <div class="nighttime">
 
   <werewolves
-    this-role="wolves"
-    next-role="cult-leader"
-    current-role="$ctrl.gameState.role">
+    next-role="cultLeader"
+    current-role="$ctrl.gameState.role.wolves">
   </werewolves>
 
   <cult-leader
-    this-role="cult-leader"
     next-role="cupid"
-    current-role="$ctrl.gameState.role">
+    current-role="$ctrl.gameState.role.cultLeader">
   </cult-leader>
 
   <cupid
-    this-role="cupid"
     next-role="bodyguard"
-    current-role="$ctrl.gameState.role">
+    current-role="$ctrl.gameState.role.cupid">
   </cupid>
 
   <bodyguard
-    this-role="bodyguard"
     next-role="spellcaster"
-    current-role="$ctrl.gameState.role">
+    current-role="$ctrl.gameState.role.bodyguard">
   </bodyguard>
 
   <spellcaster
-    this-role="spellcaster"
-    next-role="old-hag"
-    current-role="$ctrl.gameState.role">
+    next-role="oldHag"
+    current-role="$ctrl.gameState.role.spellcaster">
   </spellcaster>
 
   <old-hag
-    this-role="old-hag"
     next-role="seer"
-    current-role="$ctrl.gameState.role">
+    current-role="$ctrl.gameState.role.oldHag">
   </old-hag>
 
   <seer
-    this-role="seer"
     next-role="sorceress"
-    current-role="$ctrl.gameState.role">
+    current-role="$ctrl.gameState.role.seer">
   </seer>
 
   <sorceress
-    this-role="sorceress"
     next-role="hoodlum"
-    current-role="$ctrl.gameState.role">
+    current-role="$ctrl.gameState.role.sorceress">
   </sorceress>
 
   <hoodlum
-    this-role="hoodlum"
     next-role="masons"
-    current-role="$ctrl.gameState.role">
+    current-role="$ctrl.gameState.role.hoodlum">
   </hoodlum>
 
   <masons
-    this-role="masons"
     next-role="done"
-    current-role="$ctrl.gameState.role">
+    current-role="$ctrl.gameState.role.masons">
   </masons>
 
-  <div ng-show="$ctrl.gameState.role === 'done'">
+  <div ng-show="$ctrl.gameState.role.done">
     <div class="intro-toast">
       All actions are done for the night, time to wake everyone.
     </div>

@@ -5,7 +5,6 @@
       templateUrl: 'js/components/play/nighttime/cult-leader/cult-leader.tpl.html',
       controller: CultLeaderController,
       bindings: {
-        thisRole    : '@',
         nextRole    : '@',
         currentRole : '<'
       }
@@ -22,14 +21,12 @@
     $ctrl.next = next;
     $ctrl.dead = false;
 
-    $ctrl.$onChanges = function(changes) {
-      if (changes.currentRole.currentValue === $ctrl.thisRole) {
-        if (!gameState.rolePlaying('Cult Leader')) {
-          gameState.transition($ctrl.nextRole);
-        }
-        if (gameState.isDead('Cult Leader')) {
-          $ctrl.dead = true;
-        }
+    $ctrl.$onChanges = function() {
+      if (!gameState.rolePlaying('Cult Leader')) {
+        gameState.transition($ctrl.nextRole);
+      }
+      if (gameState.isDead('Cult Leader')) {
+        $ctrl.dead = true;
       }
     };
 

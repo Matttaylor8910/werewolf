@@ -5,7 +5,6 @@
       templateUrl: 'js/components/play/nighttime/old-hag/old-hag.tpl.html',
       controller: OldHagController,
       bindings: {
-        thisRole    : '@',
         nextRole    : '@',
         currentRole : '<'
       }
@@ -23,14 +22,12 @@
     $ctrl.next = next;
     $ctrl.dead = false;
 
-    $ctrl.$onChanges = function(changes) {
-      if (changes.currentRole.currentValue === $ctrl.thisRole) {
-        if (!gameState.rolePlaying('Old Hag')) {
-          gameState.transition($ctrl.nextRole);
-        }
-        if (gameState.isDead('Old Hag')) {
-          $ctrl.dead = true;
-        }
+    $ctrl.$onChanges = function() {
+      if (!gameState.rolePlaying('Old Hag')) {
+        gameState.transition($ctrl.nextRole);
+      }
+      if (gameState.isDead('Old Hag')) {
+        $ctrl.dead = true;
       }
     };
 

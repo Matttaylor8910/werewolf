@@ -5,7 +5,6 @@
       templateUrl: 'js/components/play/nighttime/hoodlum/hoodlum.tpl.html',
       controller: hoodlumController,
       bindings: {
-        thisRole    : '@',
         nextRole    : '@',
         currentRole : '<'
       }
@@ -21,11 +20,9 @@
     $ctrl.select = select;
     $ctrl.next = next;
 
-    $ctrl.$onChanges = function(changes) {
-      if (changes.currentRole.currentValue === $ctrl.thisRole) {
-        if ($ctrl.allDone || !gameState.rolePlaying('Hoodlum')) {
-          gameState.transition($ctrl.nextRole);
-        }
+    $ctrl.$onChanges = function() {
+      if ($ctrl.allDone || !gameState.rolePlaying('Hoodlum')) {
+        gameState.transition($ctrl.nextRole);
       }
     };
 

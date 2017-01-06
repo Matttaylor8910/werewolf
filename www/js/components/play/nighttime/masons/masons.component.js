@@ -5,7 +5,6 @@
       templateUrl: 'js/components/play/nighttime/masons/masons.tpl.html',
       controller: MasonsController,
       bindings: {
-        thisRole    : '@',
         nextRole    : '@',
         currentRole : '<'
       }
@@ -19,11 +18,9 @@
 
     $ctrl.next = next;
 
-    $ctrl.$onChanges = function(changes) {
-      if (changes.currentRole.currentValue === $ctrl.thisRole) {
-        if (!gameState.rolePlaying('Mason') || $ctrl.allDone) {
-          gameState.transition($ctrl.nextRole);
-        }
+    $ctrl.$onChanges = function() {
+      if ($ctrl.allDone || !gameState.rolePlaying('Mason')) {
+        gameState.transition($ctrl.nextRole);
       }
     };
 

@@ -5,7 +5,6 @@
       templateUrl: 'js/components/play/nighttime/spellcaster/spellcaster.tpl.html',
       controller: SpellcasterController,
       bindings: {
-        thisRole    : '@',
         nextRole    : '@',
         currentRole : '<'
       }
@@ -23,14 +22,12 @@
     $ctrl.isSelected = isSelected;
     $ctrl.next = next;
 
-    $ctrl.$onChanges = function(changes) {
-      if (changes.currentRole.currentValue === $ctrl.thisRole) {
-        if (!gameState.rolePlaying('Spellcaster')) {
-          gameState.transition($ctrl.nextRole);
-        }
-        if (gameState.isDead('Spellcaster')) {
-          $ctrl.dead = true;
-        }
+    $ctrl.$onChanges = function() {
+      if (!gameState.rolePlaying('Spellcaster')) {
+        gameState.transition($ctrl.nextRole);
+      }
+      if (gameState.isDead('Spellcaster')) {
+        $ctrl.dead = true;
       }
     };
 

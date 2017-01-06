@@ -5,7 +5,6 @@
       templateUrl: 'js/components/play/nighttime/bodyguard/bodyguard.tpl.html',
       controller: BodyguardController,
       bindings: {
-        thisRole    : '@',
         nextRole    : '@',
         currentRole : '<'
       }
@@ -23,14 +22,12 @@
     $ctrl.next = next;
     $ctrl.dead = false;
 
-    $ctrl.$onChanges = function(changes) {
-      if (changes.currentRole.currentValue === $ctrl.thisRole) {
-        if (!gameState.rolePlaying('Bodyguard')) {
-          gameState.transition($ctrl.nextRole);
-        }
-        if (gameState.isDead('Bodyguard')) {
-          $ctrl.dead = true;
-        }
+    $ctrl.$onChanges = function() {
+      if (!gameState.rolePlaying('Bodyguard')) {
+        gameState.transition($ctrl.nextRole);
+      }
+      if (gameState.isDead('Bodyguard')) {
+        $ctrl.dead = true;
       }
     };
 
