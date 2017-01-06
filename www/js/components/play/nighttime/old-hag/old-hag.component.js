@@ -5,28 +5,24 @@
       templateUrl: 'js/components/play/nighttime/old-hag/old-hag.tpl.html',
       controller: OldHagController,
       bindings: {
-        nextRole    : '@',
-        currentRole : '<'
+        nextRole    : '@'
       }
     });
 
-  function OldHagController(gameState) {
+  function OldHagController(gameState, nightState) {
     var $ctrl = this;
 
     $ctrl.gameState = gameState;
+    $ctrl.nightState = nightState;
     $ctrl.players = [];
-    $ctrl.last = undefined;
+    $ctrl.dead = gameState.isDead('Old Hag');
 
     $ctrl.select = select;
     $ctrl.isSelected = isSelected;
     $ctrl.next = next;
-    $ctrl.dead = false;
 
     if (!gameState.rolePlaying('Old Hag')) {
       gameState.transition($ctrl.nextRole);
-    }
-    if (gameState.isDead('Old Hag')) {
-      $ctrl.dead = true;
     }
 
     function isSelected(player){
@@ -39,7 +35,7 @@
 
     function next() {
       if ($ctrl.players.length) {
-        $ctrl.last = $ctrl.players[0].name;
+        nightState.setLast('oldHag',$ctrl.players[0].name);
         $ctrl.players[0].banished = true;
         $ctrl.players = [];
       }

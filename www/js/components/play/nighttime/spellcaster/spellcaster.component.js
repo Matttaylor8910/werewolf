@@ -5,18 +5,17 @@
       templateUrl: 'js/components/play/nighttime/spellcaster/spellcaster.tpl.html',
       controller: SpellcasterController,
       bindings: {
-        nextRole    : '@',
-        currentRole : '<'
+        nextRole    : '@'
       }
     });
 
-  function SpellcasterController(gameState) {
+  function SpellcasterController(gameState, nightState) {
     var $ctrl = this;
 
     $ctrl.gameState = gameState;
+    $ctrl.nightState = nightState;
     $ctrl.players = [];
-    $ctrl.last = undefined;
-    $ctrl.dead = false;
+    $ctrl.dead = gameState.isDead('Spellcaster');
 
     $ctrl.select = select;
     $ctrl.isSelected = isSelected;
@@ -24,9 +23,6 @@
 
     if (!gameState.rolePlaying('Spellcaster')) {
       gameState.transition($ctrl.nextRole);
-    }
-    if (gameState.isDead('Spellcaster')) {
-      $ctrl.dead = true;
     }
 
     function isSelected(player){
@@ -39,7 +35,7 @@
 
     function next() {
       if ($ctrl.players.length) {
-        $ctrl.last = $ctrl.players[0].name;
+        nightState.setLast('spellcaster', $ctrl.players[0].name);
         $ctrl.players[0].silenced = true;
         $ctrl.players = [];
       }

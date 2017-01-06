@@ -14,13 +14,12 @@
     var $ctrl = this;
 
     $ctrl.gameState = gameState;
-    $ctrl.allDone = false;
     $ctrl.choices = 2;
 
     $ctrl.select = select;
     $ctrl.next = next;
 
-    if ($ctrl.allDone || !gameState.rolePlaying('Hoodlum')) {
+    if (gameState.round > 1 || !gameState.rolePlaying('Hoodlum')) {
       gameState.transition($ctrl.nextRole);
     }
 
@@ -30,7 +29,6 @@
     }
 
     function next() {
-      $ctrl.allDone = true;
       gameState.transition($ctrl.nextRole);
     }
   }

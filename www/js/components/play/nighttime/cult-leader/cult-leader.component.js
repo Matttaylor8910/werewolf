@@ -19,13 +19,10 @@
     $ctrl.isSelected = isSelected;
     $ctrl.select = select;
     $ctrl.next = next;
-    $ctrl.dead = false;
+    $ctrl.dead = gameState.isDead('Cult Leader');
 
     if (!gameState.rolePlaying('Cult Leader')) {
       gameState.transition($ctrl.nextRole);
-    }
-    if (gameState.isDead('Cult Leader')) {
-      $ctrl.dead = true;
     }
 
     function isSelected(player){

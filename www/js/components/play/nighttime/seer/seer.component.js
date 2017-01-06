@@ -5,8 +5,7 @@
       templateUrl: 'js/components/play/nighttime/seer/seer.tpl.html',
       controller: SeerController,
       bindings: {
-        nextRole    : '@',
-        currentRole : '<'
+        nextRole    : '@'
       }
     });
 
@@ -16,14 +15,12 @@
     var wolves = ['Werewolf', 'Wolf Cub', 'Lone Wolf', 'Lycan'];
 
     $ctrl.gameState = gameState;
-    $ctrl.dead = false;
+    $ctrl.dead = gameState.isDead('Seer');
 
     $ctrl.next = next;
 
     if (!gameState.rolePlaying('Seer')) {
       gameState.transition($ctrl.nextRole);
-    } else if (gameState.isDead('Seer')) {
-      $ctrl.dead = true;
     } else {
       // find positives for seer
       $ctrl.wolves = _.map(_.filter(gameState.players, function(player) {

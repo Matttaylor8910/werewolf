@@ -5,8 +5,7 @@
       templateUrl: 'js/components/play/nighttime/sorceress/sorceress.tpl.html',
       controller: SorceressController,
       bindings: {
-        nextRole    : '@',
-        currentRole : '<'
+        nextRole    : '@'
       }
     });
 
@@ -14,7 +13,7 @@
     var $ctrl = this;
 
     $ctrl.gameState = gameState;
-    $ctrl.dead = false;
+    $ctrl.dead = gameState.isDead('Sorceress');
 
     $ctrl.next = next;
 
@@ -23,9 +22,6 @@
 
     if (!gameState.rolePlaying('Sorceress')) {
       gameState.transition($ctrl.nextRole);
-    }
-    if (gameState.isDead('Sorceress')) {
-      $ctrl.dead = true;
     }
 
     function next() {

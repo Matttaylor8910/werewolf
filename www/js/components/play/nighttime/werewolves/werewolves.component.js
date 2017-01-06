@@ -5,32 +5,31 @@
       templateUrl: 'js/components/play/nighttime/werewolves/werewolves.tpl.html',
       controller: WerewolvesController,
       bindings: {
-        nextRole    : '@',
-        currentRole : '<'
+        nextRole    : '@'
       }
     });
 
-  function WerewolvesController(gameState, werewolfService) {
+  function WerewolvesController(gameState, nightState) {
     var $ctrl = this;
 
     $ctrl.gameState = gameState;
-    $ctrl.werewolfService = werewolfService;
-    $ctrl.dead = gameState.areDead(werewolfService.realWolves, false);
+    $ctrl.nightState = nightState;
+    $ctrl.dead = gameState.areDead(nightState.realWolves, false);
 
     $ctrl.kill = kill;
     $ctrl.next = next;
 
-    if (!gameState.rolesPlaying(werewolfService.realWolves, true)) {
+    if (!gameState.rolesPlaying(nightState.realWolves, true)) {
       gameState.transition($ctrl.nextRole);
     }
 
     function kill(player) {
       player.shouldDie = !player.shouldDie;
-      werewolfService.setKills(werewolfService.thisRoundKills + (player.shouldDie ? -1 : 1));
+      nightState.setKills(nightState.thisRoundKills + (player.shouldDie ? -1 : 1));
     }
 
     function next() {
-      werewolfService.setKills(1);
+      nightState.setKills(1);
       gameState.transition($ctrl.nextRole);
     }
   }

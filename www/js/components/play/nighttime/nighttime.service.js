@@ -1,15 +1,17 @@
 (function() {
   angular
     .module('werewolf.play.nighttime')
-    .factory('werewolfService', werewolfService);
+    .factory('nightState', werewolfService);
 
   function werewolfService() {
     var service = {
       realWolves    : ['Werewolf', 'Wolf Cub', 'Wolf Man', 'Fruit Brute', 'Dire Wolf', 'Big Bad Wolf', 'Lone Wolf'],
       lookLikeWolves: [],
       thisRoundKills: 0,
+      last          : {},
 
-      setKills      : setKills
+      setKills      : setKills,
+      setLast       : setLast
     };
 
     return service;
@@ -20,6 +22,15 @@
      */
     function setKills(numKills) {
       service.thisRoundKills = numKills;
+    }
+
+    /**
+     * Set the last name for a property
+     * @param property
+     * @param name
+     */
+    function setLast(property, name) {
+      service.last[property] = name;
     }
   }
 })();

@@ -17,9 +17,10 @@
       controller: NighttimeController
     });
 
-  function NighttimeController(gameState) {
+  function NighttimeController(gameState, nightState) {
     var $ctrl = this;
 
     $ctrl.gameState = gameState;
+    $ctrl.nightState = nightState;
   }
 })();

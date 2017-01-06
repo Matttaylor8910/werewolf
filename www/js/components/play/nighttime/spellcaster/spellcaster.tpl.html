@@ -10,7 +10,7 @@
   <button class="button button-clear button-positive"
           ng-repeat="player in $ctrl.gameState.players | filter:{alive:true}"
           ng-class="{'button-assertive': $ctrl.isSelected(player)}"
-          ng-disabled="$ctrl.last === player.name"
+          ng-disabled="$ctrl.nightState.last.spellcaster === player.name"
           ng-click="$ctrl.select(player)">
     {{player.name}}
   </button>

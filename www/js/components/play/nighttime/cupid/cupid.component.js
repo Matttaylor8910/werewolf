@@ -14,23 +14,21 @@
     var $ctrl = this;
 
     $ctrl.gameState = gameState;
-    $ctrl.allDone = false;
     $ctrl.arrows = 2;
 
     $ctrl.shootArrow = shootArrow;
     $ctrl.next = next;
 
-    if ($ctrl.allDone || !gameState.rolePlaying('Cupid')) {
+    if (gameState.round > 1 || !gameState.rolePlaying('Cupid')) {
       gameState.transition($ctrl.nextRole);
     }
-    
+
     function shootArrow(player) {
       player.inLove = !player.inLove;
       $ctrl.arrows += player.inLove ? -1 : 1;
     }
 
     function next() {
-      $ctrl.allDone = true;
       gameState.transition($ctrl.nextRole);
     }
   }

@@ -14,16 +14,14 @@
     var $ctrl = this;
 
     $ctrl.gameState = gameState;
-    $ctrl.allDone = false;
 
     $ctrl.next = next;
 
-    if ($ctrl.allDone || !gameState.rolePlaying('Mason')) {
+    if (gameState.round > 1 || !gameState.rolePlaying('Mason')) {
       gameState.transition($ctrl.nextRole);
     }
 
     function next() {
-      $ctrl.allDone = true;
       gameState.transition($ctrl.nextRole);
     }
   }

@@ -10,23 +10,20 @@
       }
     });
 
-  function BodyguardController(gameState) {
+  function BodyguardController(gameState, nightState) {
     var $ctrl = this;
 
     $ctrl.gameState = gameState;
+    $ctrl.nightState = nightState;
     $ctrl.players = [];
-    $ctrl.last = undefined;
 
     $ctrl.select = select;
     $ctrl.isSelected = isSelected;
     $ctrl.next = next;
-    $ctrl.dead = false;
+    $ctrl.dead = gameState.isDead('Bodyguard');
 
     if (!gameState.rolePlaying('Bodyguard')) {
       gameState.transition($ctrl.nextRole);
-    }
-    if (gameState.isDead('Bodyguard')) {
-      $ctrl.dead = true;
     }
 
     function isSelected(player){
@@ -39,7 +36,7 @@
 
     function next() {
       if ($ctrl.players.length) {
-        $ctrl.last = $ctrl.players[0].name;
+        nightState.setLast('bodyguard', $ctrl.players[0].name);
         $ctrl.players[0].shouldDie = false;
         $ctrl.players = [];
       }
