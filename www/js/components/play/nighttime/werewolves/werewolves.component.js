@@ -11,16 +11,12 @@
       }
     });
 
-  function WerewolvesController(gameState) {
+  function WerewolvesController(gameState, werewolfService) {
     var $ctrl = this;
 
-    var wolves = ['Werewolf', 'Wolf Cub', 'Wolf Man', 'Fruit Brute', 'Dire Wolf', 'Big Bad Wolf', 'Lone Wolf'];
-
-    $ctrl.state = {
-      numberToKill: 0
-    };
-    $ctrl.disabled = true;
     $ctrl.gameState = gameState;
+    $ctrl.werewolfService = werewolfService;
+    $ctrl.disabled = true;
     $ctrl.dead = false;
 
     $ctrl.kill = kill;
@@ -28,20 +24,22 @@
 
     $ctrl.$onChanges = function(changes) {
       if (changes.currentRole.currentValue === $ctrl.thisRole) {
-        if (!gameState.rolesPlaying(wolves, true)) {
+        if (!gameState.rolesPlaying(werewolfService.realWolves, true)) {
           gameState.transition($ctrl.nextRole);
         }
-        $ctrl.dead = gameState.areDead(wolves, false);
+        $ctrl.dead = gameState.areDead(werewolfService.realWolves, false);
       }
     };
 
     function kill(player) {
       player.shouldDie = !player.shouldDie;
-      $ctrl.state.numberToKill += player.shouldDie ? -1 : 1;
+      werewolfService.setKills(werewolfService.thisRoundKills + (player.shouldDie ? -1 : 1));
+      console.log(werewolfService.thisRoundKills);
     }
 
     function next() {
-      $ctrl.state.numberToKill = 1;
+      werewolfService.setKills(1);
+      console.log(werewolfService.thisRoundKills);
       $ctrl.disabled = false;
       gameState.transition($ctrl.nextRole);
     }
