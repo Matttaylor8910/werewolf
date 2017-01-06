@@ -46,9 +46,14 @@
   </hoodlum>
 
   <masons
-    next-role="done"
+    next-role="minion"
     ng-if="$ctrl.gameState.role.masons">
   </masons>
+
+  <minion
+    next-role="done"
+    ng-if="$ctrl.gameState.role.minion">
+  </minion>
 
   <div ng-show="$ctrl.gameState.role.done">
     <div class="intro-toast">

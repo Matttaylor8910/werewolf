@@ -6,7 +6,7 @@
   function werewolfService() {
     var service = {
       realWolves    : ['Werewolf', 'Wolf Cub', 'Wolf Man', 'Fruit Brute', 'Dire Wolf', 'Big Bad Wolf', 'Lone Wolf'],
-      lookLikeWolves: [],
+      lookLikeWolves: ['Werewolf', 'Wolf Cub', 'Lone Wolf', 'Lycan'],
       thisRoundKills: 0,
       last          : {},
 

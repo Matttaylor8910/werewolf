@@ -1,0 +1,13 @@
+<div class="intro-toast">
+  <b>Minion</b> wake up so I can show you who the Werewolves are.
+</div>
+
+<div class="intro-toast" ng-show="!$ctrl.dead">
+  <span ng-show="$ctrl.wolves.length > 0">Point at these players: <b>{{$ctrl.wolves.join(', ')}}</b></span>
+  <span ng-show="!$ctrl.wolves.length === 0">No werewolves?!</span>
+</div>
+
+<button class="button button-clear button-full button-positive"
+        ng-click="$ctrl.next()">
+  Move On
+</button>

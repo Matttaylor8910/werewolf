@@ -9,10 +9,8 @@
       }
     });
 
-  function SeerController(gameState) {
+  function SeerController(gameState, nightState) {
     var $ctrl = this;
-
-    var wolves = ['Werewolf', 'Wolf Cub', 'Lone Wolf', 'Lycan'];
 
     $ctrl.gameState = gameState;
     $ctrl.dead = gameState.isDead('Seer');
@@ -24,7 +22,7 @@
     } else {
       // find positives for seer
       $ctrl.wolves = _.map(_.filter(gameState.players, function(player) {
-        return _.includes(wolves, player.role.name);
+        return _.includes(nightState.lookLikeWolves, player.role.name);
       }), 'name');
     }
 

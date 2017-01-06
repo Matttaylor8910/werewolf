@@ -410,10 +410,10 @@
           weight: '-6',
           max: 1,
           active: true,
-          supported: false,
+          supported: true,
           team: 'wolf',
           url: 'img/cards/minion.png',
-          description: 'Work with the werewolves or vampires to kill the villagers. The moderator decides whether you work with the werewolves or the vampires.'
+          description: 'Work with the werewolves to kill the villagers.'
         },
         {
           name: 'Werewolf',
