@@ -390,7 +390,7 @@
           weight: '+4',
           max: 1,
           active: true,
-          supported: false,
+          supported: true,
           team: 'villager',
           url: 'img/cards/witch.png',
           description: 'Kill or save a player, once each per game.'
