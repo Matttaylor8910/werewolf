@@ -9,6 +9,7 @@
       lookLikeWolves: ['Werewolf', 'Wolf Cub', 'Lone Wolf', 'Lycan'],
       thisRoundKills: 0,
       last          : {},
+      witchUsed     : {},
 
       setKills      : setKills,
       setLast       : setLast

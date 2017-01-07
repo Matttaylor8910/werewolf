@@ -13,6 +13,7 @@
     var $ctrl = this;
 
     $ctrl.gameState = gameState;
+    $ctrl.nightState = nightState;
     $ctrl.dead = gameState.isDead('Witch');
     $ctrl.weBeKillin = false;
     $ctrl.weBeSavin = false;
@@ -45,9 +46,11 @@
     function next() {
       if ($ctrl.weBeKillin) {
         $ctrl.players.kill.shouldDie = true;
+        $ctrl.nightState.witchUsed.kill = true;
       }
       if ($ctrl.weBeSavin) {
         $ctrl.players.save.shouldSave = true;
+        $ctrl.nightState.witchUsed.save = true;
       }
       gameState.transition($ctrl.nextRole);
     }
