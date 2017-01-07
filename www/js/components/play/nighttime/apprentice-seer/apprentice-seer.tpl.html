@@ -1,12 +1,16 @@
 <div class="intro-toast">
-  <b>Seer</b> wake up. Who do you think the Werewolves are?
+  <b>Apprentice Seer</b> wake up. Who do you think the Werewolves are?
 </div>
 
 <div class="intro-toast" ng-show="$ctrl.dead">
-  The Seer is dead, just waking up for appearances.
+  The Apprentice Seer is dead, just waking up for appearances.
 </div>
 
-<div class="intro-toast" ng-show="!$ctrl.dead">
+<div class="intro-toast" ng-show="!$ctrl.dead && !$ctrl.seerDead">
+  The Seer is still living, nothing to do for now.
+</div>
+
+<div class="intro-toast" ng-show="!$ctrl.dead && $ctrl.seerDead">
   <span ng-show="$ctrl.wolves.length > 0">Thumbs up if they point at these players: <b>{{$ctrl.wolves.join(', ')}}</b></span>
   <span ng-show="$ctrl.wolves.length === 0">No werewolves?!</span>
 </div>

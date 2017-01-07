@@ -21,7 +21,7 @@
           weight: '+4',
           max: 1,
           active: true,
-          supported: false,
+          supported: true,
           team: 'villager',
           url: 'img/cards/apprentice-seer.png',
           description: 'Become the Seer if the Seer is killed.'

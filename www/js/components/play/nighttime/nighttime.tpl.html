@@ -31,9 +31,14 @@
   </old-hag>
 
   <seer
-    next-role="sorceress"
+    next-role="apprenticeSeer"
     ng-if="$ctrl.gameState.role.seer">
   </seer>
+
+  <apprentice-seer
+    next-role="sorceress"
+    ng-if="$ctrl.gameState.role.apprenticeSeer">
+  </apprentice-seer>
 
   <sorceress
     next-role="hoodlum"
