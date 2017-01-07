@@ -3,11 +3,14 @@
     .module('werewolf.confirm')
     .controller('ConfirmController', ConfirmController);
 
-  function ConfirmController(gameState) {
+  function ConfirmController($scope ,gameState) {
     var $ctrl = this;
 
     $ctrl.gameState = gameState;
-    $ctrl.playerString = gameState.playerNames.join(', ');
-    $ctrl.roleString = _.map(gameState.roles, 'name').join(', ');
+
+    $scope.$on("$ionicView.beforeEnter", function(){
+      $ctrl.playerString = gameState.playerNames.join(', ');
+      $ctrl.roleString = _.map(gameState.roles, 'name').join(', ');
+    });
   }
 })();

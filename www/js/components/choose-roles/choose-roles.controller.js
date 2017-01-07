@@ -3,25 +3,28 @@
     .module('werewolf.chooseRoles')
     .controller('ChooseRolesController', ChooseRolesController);
 
-  function ChooseRolesController(constants, gameState, settings, localStorage) {
+  function ChooseRolesController($scope, constants, gameState, settings) {
     var $ctrl = this;
 
-    $ctrl.allRoles = allRoles();
     $ctrl.gameState = gameState;
-    $ctrl.selectedRoles = gameState.roles;
-    $ctrl.totalWeight = 0;
-    $ctrl.grid = settings.chooseRolesGrid;
 
     $ctrl.addRole = addRole;
     $ctrl.removeRole = removeRole;
     $ctrl.toggleView = toggleView;
+
+    $scope.$on("$ionicView.beforeEnter", function(){
+      $ctrl.allRoles = allRoles();
+      $ctrl.selectedRoles = gameState.roles;
+      $ctrl.totalWeight = 0;
+      $ctrl.grid = settings.chooseRolesGrid;
+    });
 
     /**
      * Get all selectable roles
      * @returns {*}
      */
     function allRoles() {
-      return _.sortBy(constants.roles, 'name');
+      return _.cloneDeep(_.sortBy(constants.roles, 'name'));
     }
 
     /**
@@ -37,7 +40,6 @@
       $ctrl.totalWeight += parseInt(role.weight);
       $ctrl.selectedRoles.unshift($ctrl.allRoles[index]);
       gameState.setProperty('roles', $ctrl.selectedRoles);
-      localStorage.setArray('roles', $ctrl.selectedRoles);
     }
 
     /**
@@ -50,7 +52,6 @@
       $ctrl.totalWeight -= parseInt(role.weight);
       $ctrl.selectedRoles.splice(index, 1);
       gameState.setProperty('roles', $ctrl.selectedRoles);
-      localStorage.setArray('roles', $ctrl.selectedRoles);
     }
 
     /**
@@ -59,7 +60,6 @@
     function toggleView() {
       $ctrl.grid = !$ctrl.grid;
       settings.setProperty('chooseRolesGrid', $ctrl.grid);
-      // $ionicScrollDelegate.scrollTop(true)
     }
   }
 })();

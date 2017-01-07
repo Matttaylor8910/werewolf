@@ -14,7 +14,7 @@
 <div class="buttons-container" ng-show="$ctrl.weBeKillin">
   <button class="button button-clear button-positive"
           ng-repeat="player in $ctrl.gameState.players | filter:{alive:true}"
-          ng-class="{'button-assertive': $ctrl.isSelected(player, 'kill')}"
+          ng-class="{'button-assertive': $ctrl.players.kill === player}"
           ng-click="$ctrl.select(player, 'kill')">
     {{player.name}}
   </button>
@@ -28,7 +28,7 @@
 <div class="buttons-container" ng-show="$ctrl.weBeSavin">
   <button class="button button-clear button-positive"
           ng-repeat="player in $ctrl.gameState.players | filter:{alive:true}"
-          ng-class="{'button-assertive': $ctrl.isSelected(player, 'save')}"
+          ng-class="{'button-assertive': $ctrl.players.save === player}"
           ng-click="$ctrl.select(player, 'save')">
     {{player.name}}
   </button>

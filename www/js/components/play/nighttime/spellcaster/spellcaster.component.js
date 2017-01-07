@@ -14,30 +14,24 @@
 
     $ctrl.gameState = gameState;
     $ctrl.nightState = nightState;
-    $ctrl.players = [];
+    $ctrl.player = undefined;
     $ctrl.dead = gameState.isDead('Spellcaster');
 
     $ctrl.select = select;
-    $ctrl.isSelected = isSelected;
     $ctrl.next = next;
 
     if (!gameState.rolePlaying('Spellcaster')) {
       gameState.transition($ctrl.nextRole);
     }
 
-    function isSelected(player){
-      return !!_.find($ctrl.players, ['name', player.name]);
-    }
-
     function select(player) {
-      $ctrl.players = _.xor($ctrl.players, [player]);
+      $ctrl.player = player;
     }
 
     function next() {
-      if ($ctrl.players.length) {
-        nightState.setLast('spellcaster', $ctrl.players[0].name);
-        $ctrl.players[0].silenced = true;
-        $ctrl.players = [];
+      if ($ctrl.player) {
+        nightState.setLast('spellcaster', $ctrl.player.name);
+        $ctrl.player.silenced = true;
       }
       gameState.transition($ctrl.nextRole);
     }

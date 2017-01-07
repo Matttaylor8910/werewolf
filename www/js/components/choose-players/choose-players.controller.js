@@ -3,11 +3,11 @@
     .module('werewolf.choosePlayers')
     .controller('ChoosePlayersController', ChoosePlayersController);
 
-  function ChoosePlayersController($timeout, gameState, localStorage) {
+  function ChoosePlayersController($timeout, gameState) {
     var $ctrl = this;
 
     $ctrl.newPlayer = '';
-    $ctrl.players = gameState.playerNames;
+    $ctrl.gameState = gameState;
 
     $ctrl.addPlayer = addPlayer;
     $ctrl.togglePlayer = togglePlayer;
@@ -35,7 +35,6 @@
      */
     function togglePlayer(player) {
       $ctrl.players = _.xor($ctrl.players, [player]).sort();
-      localStorage.setArray('playerNames', $ctrl.players);
       gameState.setProperty('playerNames', $ctrl.players);
     }
   }

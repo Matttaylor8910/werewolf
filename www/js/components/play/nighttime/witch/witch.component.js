@@ -19,7 +19,6 @@
     $ctrl.players = {};
 
     $ctrl.select = select;
-    $ctrl.isSelected = isSelected;
     $ctrl.canMoveOn = canMoveOn;
     $ctrl.next = next;
 
@@ -27,20 +26,16 @@
       gameState.transition($ctrl.nextRole);
     }
 
-    function isSelected(player, action){
-      return !!_.find($ctrl.players[action], ['name', player.name]);
-    }
-
     function select(player, action) {
-      $ctrl.players[action] = _.xor($ctrl.players[action], [player]);
+      $ctrl.players[action] = player;
     }
 
     function canMoveOn() {
-      if ($ctrl.weBeKillin && (!$ctrl.players.kill || $ctrl.players.kill.length !== 1)) {
+      if ($ctrl.weBeKillin && !$ctrl.players.kill) {
         return false;
       }
 
-      if ($ctrl.weBeSavin && (!$ctrl.players.save || $ctrl.players.save.length !== 1)) {
+      if ($ctrl.weBeSavin && !$ctrl.players.save) {
         return false;
       }
 
@@ -49,10 +44,10 @@
 
     function next() {
       if ($ctrl.weBeKillin) {
-        $ctrl.players.kill[0].shouldDie = true;
+        $ctrl.players.kill.shouldDie = true;
       }
       if ($ctrl.weBeSavin) {
-        $ctrl.players.save[0].shouldSave = true;
+        $ctrl.players.save.shouldSave = true;
       }
       gameState.transition($ctrl.nextRole);
     }

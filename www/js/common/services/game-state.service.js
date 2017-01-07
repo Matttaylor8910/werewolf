@@ -15,7 +15,6 @@
       role                      : undefined,
 
       setProperty               : setProperty,
-      addPlayerToGame           : addPlayerToGame,
       rolePlaying               : rolePlaying,
       rolesPlaying              : rolesPlaying,
       isDead                    : isDead,
@@ -38,15 +37,7 @@
      */
     function setProperty(property, value) {
       service[property] = value;
-    }
-
-    /**
-     * Add player to the game with their role
-     * @param player
-     */
-    function addPlayerToGame(player) {
-      service.players.push(player);
-      localStorage.setArray('players', service.players);
+      localStorage.setArray(property, value);
     }
 
     /**
@@ -86,17 +77,16 @@
 
     /**
      * Determine if a role is dead
+     * Undefined if that role isn't playing
      * @param role
      * @returns {boolean}
      */
     function isDead(role) {
-      var dead = false;
-      _.each(service.players, function(player) {
-        if (!player.alive && player.role.name === role) {
-          dead = true;
-        }
-      });
-      return dead;
+      var found = _.map(_.filter(service.players, function(player) {
+        return player.role.name === role;
+      }), 'alive');
+      if (DEBUG) console.log('Looking up ' + role + ': ' + (found.length > 0 ? (_.includes(found, true) ? 'alive' : 'dead') : 'not found'));
+      return found.length > 0 ? !_.includes(found, true) : undefined;
     }
 
     /**
@@ -107,11 +97,8 @@
     function areDead(roles, any) {
       var dead = !any;
       _.each(roles, function(role) {
-        var found = _.find(service.players, function(player) {
-          return player.role.name = role
-        });
-        if (found) {
-          var isDead = !found.alive;
+        var isDead = service.isDead(role);
+        if (!_.isUndefined(isDead)) {
           any ? dead |= isDead : dead &= isDead;
         }
       });
@@ -122,7 +109,12 @@
      * Return to the beginning
      */
     function startOver() {
+      service.playerNames =localStorage.getArray('playerNames');
+      service.roles = [];
+      service.players = [];
       service.round = 0;
+      service.role = undefined;
+
       $ionicHistory.nextViewOptions({
         disableAnimate: true
       });

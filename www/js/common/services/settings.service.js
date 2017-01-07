@@ -3,8 +3,6 @@
     .module('werewolf')
     .factory('settings', settings);
 
-  settings.$inject = ['localStorage'];
-
   function settings(localStorage) {
     var service = {
       // default to using production when not on localhost

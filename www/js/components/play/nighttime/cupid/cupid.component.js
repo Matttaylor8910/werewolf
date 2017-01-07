@@ -14,21 +14,28 @@
     var $ctrl = this;
 
     $ctrl.gameState = gameState;
-    $ctrl.arrows = 2;
+    $ctrl.players = [];
 
-    $ctrl.shootArrow = shootArrow;
+    $ctrl.select = select;
+    $ctrl.isSelected = isSelected;
     $ctrl.next = next;
 
     if (gameState.round > 1 || !gameState.rolePlaying('Cupid')) {
       gameState.transition($ctrl.nextRole);
     }
 
-    function shootArrow(player) {
-      player.inLove = !player.inLove;
-      $ctrl.arrows += player.inLove ? -1 : 1;
+    function isSelected(player){
+      return !!_.find($ctrl.players, ['name', player.name]);
+    }
+
+    function select(player) {
+      $ctrl.players = _.concat(_.takeRight($ctrl.players), [player]);
     }
 
     function next() {
+      _.each($ctrl.players, function(player) {
+        player.inLove = true;
+      });
       gameState.transition($ctrl.nextRole);
     }
   }

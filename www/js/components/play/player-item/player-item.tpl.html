@@ -1,7 +1,6 @@
 <div class="item space-between" ng-click="$ctrl.player.alive = !$ctrl.player.alive">
   <div ng-class="{'ded': !$ctrl.player.alive}">{{$ctrl.player.name}} ({{$ctrl.player.role.name}})</div>
   <div class="player-badges">
-    <i class="icon ion-help" ng-show="!$ctrl.player.role.supported"></i>
     <i class="icon ion-forward" ng-show="$ctrl.player.banished"></i>
     <i class="icon ion-android-microphone-off" ng-show="$ctrl.player.silenced"></i>
     <i class="icon ion-heart assertive" ng-show="$ctrl.player.inLove"></i>

@@ -14,18 +14,22 @@
     var $ctrl = this;
 
     $ctrl.gameState = gameState;
-    $ctrl.choices = 2;
+    $ctrl.players = [];
 
     $ctrl.select = select;
+    $ctrl.isSelected = isSelected;
     $ctrl.next = next;
 
     if (gameState.round > 1 || !gameState.rolePlaying('Hoodlum')) {
       gameState.transition($ctrl.nextRole);
     }
 
+    function isSelected(player){
+      return !!_.find($ctrl.players, ['name', player.name]);
+    }
+
     function select(player) {
-      player.hoodlum = !player.hoodlum;
-      $ctrl.choices += player.hoodlum ? -1 : 1;
+      $ctrl.players = _.concat(_.takeRight($ctrl.players), [player]);
     }
 
     function next() {

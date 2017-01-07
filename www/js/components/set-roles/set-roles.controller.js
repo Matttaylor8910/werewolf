@@ -3,7 +3,7 @@
     .module('werewolf.setRoles')
     .controller('SetRolesController', SetRolesController);
 
-  function SetRolesController($state, gameState) {
+  function SetRolesController($scope, $state, gameState) {
     var $ctrl = this;
 
     $ctrl.gameState = gameState;
@@ -11,18 +11,13 @@
     $ctrl.selectRole = selectRole;
     $ctrl.next = next;
 
-    // Init this state in a function so we can reset if we have to
-    init();
-
-    /**
-     * Set up the state with all players and roles
-     */
-    function init() {
+    $scope.$on("$ionicView.beforeEnter", function(){
+      $ctrl.players = [];
       $ctrl.playerNames = gameState.playerNames;
       $ctrl.roles = _.clone(gameState.roles);
       $ctrl.playerName = $ctrl.playerNames.shift();
       $ctrl.role = undefined;
-    }
+    });
 
     /**
      * Select a role from the list and store that index
@@ -48,10 +43,12 @@
       };
 
       // Add the player to the game with their role
-      gameState.addPlayerToGame(player);
+      $ctrl.players.push(player);
+      gameState.setProperty('players', $ctrl.players);
 
       // Move on if all players have been selected
       if ($ctrl.playerNames.length === 0) {
+        var players = [];
         $state.go('play');
       }
 

@@ -6,8 +6,6 @@
   function PlayController(gameState) {
     var $ctrl = this;
 
-    $ctrl.phase = { title: 'Werewolf' };
-
     $ctrl.gameState = gameState;
 
     sleep();

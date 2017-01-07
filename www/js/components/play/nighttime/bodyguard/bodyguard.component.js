@@ -15,30 +15,24 @@
 
     $ctrl.gameState = gameState;
     $ctrl.nightState = nightState;
-    $ctrl.players = [];
+    $ctrl.player = undefined;
+    $ctrl.dead = gameState.isDead('Bodyguard');
 
     $ctrl.select = select;
-    $ctrl.isSelected = isSelected;
     $ctrl.next = next;
-    $ctrl.dead = gameState.isDead('Bodyguard');
 
     if (!gameState.rolePlaying('Bodyguard')) {
       gameState.transition($ctrl.nextRole);
     }
 
-    function isSelected(player){
-      return !!_.find($ctrl.players, ['name', player.name]);
-    }
-
     function select(player) {
-      $ctrl.players = _.xor($ctrl.players, [player]);
+      $ctrl.player = player;
     }
 
     function next() {
-      if ($ctrl.players.length) {
-        nightState.setLast('bodyguard', $ctrl.players[0].name);
-        $ctrl.players[0].shouldSave = true;
-        $ctrl.players = [];
+      if ($ctrl.player) {
+        nightState.setLast('bodyguard', $ctrl.player.name);
+        $ctrl.player.shouldSave = true;
       }
       gameState.transition($ctrl.nextRole);
     }

@@ -9,7 +9,7 @@
 <div class="buttons-container" ng-show="!$ctrl.dead">
   <button class="button button-clear button-positive"
           ng-repeat="player in $ctrl.gameState.players | filter:{alive:true}"
-          ng-class="{'button-assertive': $ctrl.isSelected(player)}"
+          ng-class="{'button-assertive': $ctrl.player === player}"
           ng-disabled="$ctrl.nightState.last.bodyguard === player.name"
           ng-click="$ctrl.select(player)">
     {{player.name}}
@@ -17,7 +17,7 @@
 </div>
 
 <button class="button button-clear button-full button-positive"
-        ng-show="$ctrl.players.length === 1 || $ctrl.dead"
+        ng-show="$ctrl.player || $ctrl.dead"
         ng-click="$ctrl.next()">
   Move On
 </button>
