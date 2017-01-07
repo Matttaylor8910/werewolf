@@ -360,7 +360,7 @@
           weight: '-3',
           max: 1,
           active: true,
-          supported: false,
+          supported: true,
           team: 'villager',
           url: 'img/cards/troublemaker.png',
           description: 'Once per game, choose to have two lynch attempts on one day. If the votes are tied, then you\'ve wasted your chance.'

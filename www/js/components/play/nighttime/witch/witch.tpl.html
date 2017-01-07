@@ -6,11 +6,11 @@
   The Witch is dead, just waking up for appearances.
 </div>
 
-<div class="intro-toast" ng-show="!$ctrl.dead && $ctrl.nightState.witchUsed.kill && $ctrl.nightState.witchUsed.save">
+<div class="intro-toast" ng-show="!$ctrl.dead && $ctrl.nightState.once.witchKill && $ctrl.nightState.once.witchSave">
   The Witch has used both of her actions, just waking up for appearances.
 </div>
 
-<div class="item item-icon-right" ng-click="$ctrl.weBeKillin = !$ctrl.weBeKillin" ng-show="!$ctrl.dead && !$ctrl.nightState.witchUsed.kill">
+<div class="item item-icon-right" ng-click="$ctrl.weBeKillin = !$ctrl.weBeKillin" ng-show="!$ctrl.dead && !$ctrl.nightState.once.witchKill">
   Kill
   <i class="icon ion-checkmark" ng-show="$ctrl.weBeKillin"></i>
 </div>
@@ -24,7 +24,7 @@
   </button>
 </div>
 
-<div class="item item-icon-right" ng-click="$ctrl.weBeSavin = !$ctrl.weBeSavin" ng-show="!$ctrl.dead  && !$ctrl.nightState.witchUsed.save">
+<div class="item item-icon-right" ng-click="$ctrl.weBeSavin = !$ctrl.weBeSavin" ng-show="!$ctrl.dead  && !$ctrl.nightState.once.witchSave">
   Save
   <i class="icon ion-checkmark" ng-show="$ctrl.weBeSavin"></i>
 </div>

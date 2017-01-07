@@ -46,11 +46,11 @@
     function next() {
       if ($ctrl.weBeKillin) {
         $ctrl.players.kill.shouldDie = true;
-        $ctrl.nightState.witchUsed.kill = true;
+        $ctrl.nightState.once.witchKill = true;
       }
       if ($ctrl.weBeSavin) {
         $ctrl.players.save.shouldSave = true;
-        $ctrl.nightState.witchUsed.save = true;
+        $ctrl.nightState.once.witchSave = true;
       }
       gameState.transition($ctrl.nextRole);
     }

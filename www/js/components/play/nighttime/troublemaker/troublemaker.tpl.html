@@ -1,0 +1,31 @@
+<div class="intro-toast">
+  <b>Troublemaker</b> wake up. Do you want to kill 2 players this round?
+</div>
+
+<div class="intro-toast" ng-show="$ctrl.dead">
+  The Troublemaker is dead, just waking up for appearances.
+</div>
+
+<div class="intro-toast" ng-show="!$ctrl.dead && $ctrl.nightState.once.troublemaker">
+  The Troublemaker has used her action, just waking up for appearances.
+</div>
+
+<div class="item item-icon-right" ng-click="$ctrl.weBeKillin = !$ctrl.weBeKillin" ng-show="!$ctrl.dead && !$ctrl.nightState.once.troublemaker">
+  Kill
+  <i class="icon ion-checkmark" ng-show="$ctrl.weBeKillin"></i>
+</div>
+
+<div class="buttons-container" ng-show="$ctrl.weBeKillin">
+  <button class="button button-clear button-positive"
+          ng-repeat="player in $ctrl.gameState.players | filter:{alive:true}"
+          ng-class="{'button-assertive': $ctrl.isSelected(player)}"
+          ng-click="$ctrl.select(player)">
+    {{player.name}}
+  </button>
+</div>
+
+<button class="button button-clear button-full button-positive"
+        ng-show="$ctrl.canMoveOn()"
+        ng-click="$ctrl.next()">
+  Move On
+</button>

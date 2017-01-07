@@ -33,6 +33,9 @@
     }
 
     function next() {
+      _.each($ctrl.players, function(player) {
+        player.hoodlum = true;
+      });
       gameState.transition($ctrl.nextRole);
     }
   }
