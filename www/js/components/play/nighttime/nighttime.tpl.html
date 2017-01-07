@@ -51,9 +51,14 @@
   </masons>
 
   <minion
-    next-role="done"
+    next-role="witch"
     ng-if="$ctrl.gameState.role.minion">
   </minion>
+
+  <witch
+    next-role="done"
+    ng-if="$ctrl.gameState.role.witch">
+  </witch>
 
   <div ng-show="$ctrl.gameState.role.done">
     <div class="intro-toast">

@@ -11,7 +11,8 @@
       'werewolf.play.nighttime.seer',
       'werewolf.play.nighttime.hoodlum',
       'werewolf.play.nighttime.masons',
-      'werewolf.play.nighttime.minion'
+      'werewolf.play.nighttime.minion',
+      'werewolf.play.nighttime.witch'
     ])
     .component('werewolfNighttime', {
       templateUrl: 'js/components/play/nighttime/nighttime.tpl.html',

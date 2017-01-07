@@ -37,7 +37,7 @@
     function next() {
       if ($ctrl.players.length) {
         nightState.setLast('bodyguard', $ctrl.players[0].name);
-        $ctrl.players[0].shouldDie = false;
+        $ctrl.players[0].shouldSave = true;
         $ctrl.players = [];
       }
       gameState.transition($ctrl.nextRole);

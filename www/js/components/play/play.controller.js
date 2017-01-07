@@ -47,8 +47,11 @@
 
         // if player was marked to die, kill em
         if (player.alive && player.shouldDie) {
-          player.alive = false;
+          // they're dead if they should have been saved
+          player.alive = !!player.shouldSave;
+
           player.shouldDie = false;
+          player.shouldSave = false;
         }
 
       });
