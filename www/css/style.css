@@ -189,6 +189,10 @@
   width: 100%;
 }
 
+.view-swapper {
+  font-size: 19px;
+}
+
 /*confirm css*/
 .text-bold {
   font-weight: bold !important;
