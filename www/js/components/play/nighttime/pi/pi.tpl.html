@@ -1,0 +1,26 @@
+<div class="intro-toast">
+  <b>P.I.</b> wake up. Who do you think the Werewolves are?
+</div>
+
+<div class="intro-toast" ng-show="$ctrl.dead">
+  The P.I. is dead, just waking up for appearances.
+</div>
+
+<div class="intro-toast" ng-show="!$ctrl.dead && $ctrl.nightState.once.pi">
+  The P.I. has used his power, just waking up for appearances.
+</div>
+
+<div class="item item-icon-right" ng-click="$ctrl.weBeSeekin = !$ctrl.weBeSeekin" ng-show="!$ctrl.dead && !$ctrl.nightState.once.pi">
+  Seek
+  <i class="icon ion-checkmark" ng-show="$ctrl.weBeSeekin"></i>
+</div>
+
+<div class="intro-toast" ng-show="!$ctrl.dead && $ctrl.weBeSeekin">
+  <span ng-show="$ctrl.wolves.length > 0">Thumbs up if the person they point at, or the people to that person's left or right are, these players: <b>{{$ctrl.wolves.join(', ')}}</b></span>
+  <span ng-show="!$ctrl.wolves.length === 0">No werewolves?!</span>
+</div>
+
+<button class="button button-clear button-full button-positive"
+        ng-click="$ctrl.next()">
+  Move On
+</button>

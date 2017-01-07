@@ -290,7 +290,7 @@
           weight: '+3',
           max: 1,
           active: true,
-          supported: false,
+          supported: true,
           team: 'villager',
           url: 'img/cards/pi.png',
           description: 'Once per game, Inspect three players (they must be beside each other). You only know if at least one of them is malicious. (variation: Inspect three adjacent players on one night).'

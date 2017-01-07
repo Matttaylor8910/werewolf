@@ -61,9 +61,14 @@
   </witch>
 
   <troublemaker
-    next-role="done"
+    next-role="pi"
     ng-if="$ctrl.gameState.role.troublemaker">
   </troublemaker>
+
+  <pi
+    next-role="done"
+    ng-if="$ctrl.gameState.role.pi">
+  </pi>
 
   <div ng-show="$ctrl.gameState.role.done">
     <div class="intro-toast">
