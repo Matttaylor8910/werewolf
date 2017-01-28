@@ -20,7 +20,7 @@
       $ctrl.newPlayer = '';
 
       // if player hasn't already been added and isn't blank
-      if (!_.includes($ctrl.players, player) && player !== '') {
+      if (!_.includes(gameState.playerNames, player) && player !== '') {
         togglePlayer(player);
       }
 
@@ -34,8 +34,8 @@
      * @param player
      */
     function togglePlayer(player) {
-      $ctrl.players = _.xor($ctrl.players, [player]).sort();
-      gameState.setProperty('playerNames', $ctrl.players);
+      var players = _.xor(gameState.playerNames, [player]).sort();
+      gameState.setProperty('playerNames', players);
     }
   }
 })();
