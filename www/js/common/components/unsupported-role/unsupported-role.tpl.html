@@ -3,7 +3,7 @@
     <div class="role-title">{{$ctrl.role.name}}</div>
     <div class="role-description {{$ctrl.role.team}}">
       {{$ctrl.role.description}}
-      <span class="role-weight">{{$ctrl.role.weight}}</span>
+      <span class="role-weight">{{$ctrl.role.weight | plusMinus}}</span>
     </div>
   </div>
 </div>

@@ -12,7 +12,8 @@
       once          : {},
 
       setKills      : setKills,
-      setLast       : setLast
+      setLast       : setLast,
+      clear         : clear
     };
 
     return service;
@@ -32,6 +33,15 @@
      */
     function setLast(property, name) {
       service.last[property] = name;
+    }
+
+    /**
+     * Clear out the night game state
+     */
+    function clear() {
+      service.thisRoundKills = 0;
+      service.last = {};
+      service.once = {};
     }
   }
 })();

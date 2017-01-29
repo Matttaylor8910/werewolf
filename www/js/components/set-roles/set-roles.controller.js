@@ -13,8 +13,8 @@
 
     $scope.$on("$ionicView.beforeEnter", function(){
       $ctrl.players = [];
-      $ctrl.playerNames = gameState.playerNames;
-      $ctrl.roles = _.clone(gameState.roles);
+      $ctrl.playerNames = _.cloneDeep(gameState.playerNames);
+      $ctrl.roles = _.cloneDeep(gameState.roles);
       $ctrl.playerName = $ctrl.playerNames.shift();
       $ctrl.role = undefined;
     });

@@ -13,9 +13,9 @@
     $ctrl.toggleView = toggleView;
 
     $scope.$on("$ionicView.beforeEnter", function(){
+      $ctrl.selectedRoles = _.cloneDeep(gameState.roles);
       $ctrl.allRoles = allRoles();
-      $ctrl.selectedRoles = gameState.roles;
-      $ctrl.totalWeight = 0;
+      $ctrl.totalWeight = _.sumBy(gameState.roles, 'weight');
       $ctrl.grid = settings.chooseRolesGrid;
     });
 

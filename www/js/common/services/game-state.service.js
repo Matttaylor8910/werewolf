@@ -3,7 +3,7 @@
     .module('werewolf')
     .factory('gameState', gameState);
 
-  function gameState($state, $ionicHistory, $ionicScrollDelegate, localStorage) {
+  function gameState($state, $ionicHistory, $ionicScrollDelegate, localStorage, nightState) {
     // only for local dev use
     var DEBUG = false;
 
@@ -118,6 +118,9 @@
       service.players = [];
       service.round = 0;
       service.role = undefined;
+
+      // clean up the night state too
+      nightState.clear();
 
       $ionicHistory.nextViewOptions({
         disableAnimate: true

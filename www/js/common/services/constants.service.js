@@ -18,7 +18,7 @@
       return [
         {
           name: 'Apprentice Seer',
-          weight: '+4',
+          weight: 4,
           max: 1,
           active: true,
           supported: true,
@@ -28,7 +28,7 @@
         },
         {
           name: 'Aura Seer',
-          weight: '+3',
+          weight: 3,
           max: 1,
           active: true,
           supported: false,
@@ -38,7 +38,7 @@
         },
         {
           name: 'Beholder',
-          weight: '+2',
+          weight: 2,
           max: 1,
           active: false,
           supported: false,
@@ -48,7 +48,7 @@
         },
         {
           name: 'Big Bad Wolf',
-          weight: '-9',
+          weight: -9,
           max: 1,
           active: false,
           supported: false,
@@ -58,7 +58,7 @@
         },
         {
           name: 'Bogeyman',
-          weight: '-6',
+          weight: -6,
           max: 1,
           active: false,
           supported: false,
@@ -68,7 +68,7 @@
         },
         {
           name: 'Bodyguard',
-          weight: '+3',
+          weight: 3,
           max: 1,
           active: true,
           supported: true,
@@ -78,7 +78,7 @@
         },
         {
           name: 'Count Dracula',
-          weight: '-2',
+          weight: -2,
           max: 1,
           active: false,
           supported: false,
@@ -88,7 +88,7 @@
         },
         {
           name: 'Cult Leader',
-          weight: '+1',
+          weight: 1,
           max: 1,
           active: true,
           supported: true,
@@ -98,7 +98,7 @@
         },
         {
           name: 'Cupid',
-          weight: '-3',
+          weight: -3,
           max: 1,
           active: true,
           supported: true,
@@ -108,7 +108,7 @@
         },
         {
           name: 'The Count',
-          weight: '+5',
+          weight: 5,
           max: 1,
           active: false,
           supported: false,
@@ -117,7 +117,7 @@
           description: 'The first night, you are told how many werewolves there are in each half of the village.'
         },{
           name: 'Cursed',
-          weight: '-3',
+          weight: -3,
           max: 1,
           active: false,
           supported: false,
@@ -127,7 +127,7 @@
         },
         {
           name: 'Doppelgänger',
-          weight: '-2',
+          weight: -2,
           max: 1,
           active: true,
           supported: false,
@@ -137,7 +137,7 @@
         },
         {
           name: 'Dream Wolf',
-          weight: '-5',
+          weight: -5,
           max: 1,
           active: false,
           supported: false,
@@ -147,7 +147,7 @@
         },
         {
           name: 'Drunk',
-          weight: '+4',
+          weight: 4,
           max: 1,
           active: true,
           supported: false,
@@ -157,7 +157,7 @@
         },
         {
           name: 'Diseased',
-          weight: '+3',
+          weight: 3,
           max: 1,
           active: true,
           supported: true,
@@ -167,7 +167,7 @@
         },
         {
           name: 'Fruit Brute',
-          weight: '-3',
+          weight: -3,
           max: 1,
           active: false,
           supported: true,
@@ -177,7 +177,7 @@
         },
         {
           name: 'Ghost',
-          weight: '+2',
+          weight: 2,
           max: 1,
           active: true,
           supported: false,
@@ -187,7 +187,7 @@
         },
         {
           name: 'Hunter',
-          weight: '+3',
+          weight: 3,
           max: 1,
           active: true,
           supported: true,
@@ -197,7 +197,7 @@
         },
         {
           name: 'Village Idiot',
-          weight: '+2',
+          weight: 2,
           max: 1,
           active: true,
           supported: true,
@@ -207,7 +207,7 @@
         },
         {
           name: 'Insomniac',
-          weight: '+3',
+          weight: 3,
           max: 1,
           active: false,
           supported: false,
@@ -217,7 +217,7 @@
         },
         {
           name: 'Lycan',
-          weight: '-1',
+          weight: -1,
           max: 1,
           active: true,
           supported: true,
@@ -227,7 +227,7 @@
         },
         {
           name: 'Wolf Man',
-          weight: '-9',
+          weight: -9,
           max: 1,
           active: false,
           supported: true,
@@ -237,7 +237,7 @@
         },
         {
           name: 'Martyr',
-          weight: '+3',
+          weight: 3,
           max: 1,
           active: false,
           supported: false,
@@ -247,7 +247,7 @@
         },
         {
           name: 'Mason',
-          weight: '+2',
+          weight: 2,
           max: 3,
           active: true,
           supported: true,
@@ -257,7 +257,7 @@
         },
         {
           name: 'Mayor',
-          weight: '+2',
+          weight: 2,
           max: 1,
           active: true,
           supported: true,
@@ -267,7 +267,7 @@
         },
         {
           name: 'Old Hag',
-          weight: '+1',
+          weight: 1,
           max: 1,
           active: true,
           supported: true,
@@ -277,7 +277,7 @@
         },
         {
           name: 'Old Man',
-          weight: '+0',
+          weight: 0,
           max: 1,
           active: false,
           supported: false,
@@ -287,7 +287,7 @@
         },
         {
           name: 'P.I.',
-          weight: '+3',
+          weight: 3,
           max: 1,
           active: true,
           supported: true,
@@ -297,7 +297,7 @@
         },
         {
           name: 'Pacifist',
-          weight: '-1',
+          weight: -1,
           max: 1,
           active: true,
           supported: true,
@@ -307,7 +307,7 @@
         },
         {
           name: 'Priest',
-          weight: '+3',
+          weight: 3,
           max: 1,
           active: true,
           supported: false,
@@ -317,7 +317,7 @@
         },
         {
           name: 'Prince',
-          weight: '+3',
+          weight: 3,
           max: 1,
           active: true,
           supported: true,
@@ -327,7 +327,7 @@
         },
         {
           name: 'Seer',
-          weight: '+7',
+          weight: 7,
           max: 1,
           active: true,
           supported: true,
@@ -337,7 +337,7 @@
         },
         {
           name: 'Spellcaster',
-          weight: '+1',
+          weight: 1,
           max: 1,
           active: true,
           supported: true,
@@ -347,7 +347,7 @@
         },
         {
           name: 'Tough Guy',
-          weight: '+3',
+          weight: 3,
           max: 1,
           active: true,
           supported: true,
@@ -357,7 +357,7 @@
         },
         {
           name: 'Troublemaker',
-          weight: '-3',
+          weight: -3,
           max: 1,
           active: true,
           supported: true,
@@ -367,7 +367,7 @@
         },
         {
           name: 'Thing',
-          weight: '+3',
+          weight: 3,
           max: 1,
           active: false,
           supported: false,
@@ -377,7 +377,7 @@
         },
         {
           name: 'Villager',
-          weight: '+1',
+          weight: 1,
           max: 20,
           active: true,
           supported: true,
@@ -387,7 +387,7 @@
         },
         {
           name: 'Witch',
-          weight: '+4',
+          weight: 4,
           max: 1,
           active: true,
           supported: true,
@@ -397,7 +397,7 @@
         },
         {
           name: 'Sorceress',
-          weight: '-3',
+          weight: -3,
           max: 1,
           active: true,
           supported: true,
@@ -407,7 +407,7 @@
         },
         {
           name: 'Minion',
-          weight: '-6',
+          weight: -6,
           max: 1,
           active: true,
           supported: true,
@@ -417,7 +417,7 @@
         },
         {
           name: 'Werewolf',
-          weight: '-6',
+          weight: -6,
           max: 12,
           active: true,
           supported: true,
@@ -427,7 +427,7 @@
         },
         {
           name: 'Wolf Cub',
-          weight: '-8',
+          weight: -8,
           max: 1,
           active: true,
           supported: true,
@@ -437,7 +437,7 @@
         },
         {
           name: 'Hoodlum',
-          weight: '+0',
+          weight: 0,
           max: 1,
           active: true,
           supported: true,
@@ -447,7 +447,7 @@
         },
         {
           name: 'Tanner',
-          weight: '-2',
+          weight: -2,
           max: 1,
           active: true,
           supported: true,
@@ -457,7 +457,7 @@
         },
         {
           name: 'Lone Wolf',
-          weight: '-5',
+          weight: -5,
           max: 1,
           active: true,
           supported: true,
@@ -467,7 +467,7 @@
         },
         {
           name: 'Vampire',
-          weight: '-7',
+          weight: -7,
           max: 8,
           active: true,
           supported: false,
@@ -477,7 +477,7 @@
         },
         {
           name: 'Little Girl',
-          weight: '+0',
+          weight: 0,
           max: 1,
           active: false,
           supported: false,
@@ -487,7 +487,7 @@
         },
         {
           name: 'Wild Child',
-          weight: '+0',
+          weight: 0,
           max: 1,
           active: false,
           supported: false,
@@ -497,7 +497,7 @@
         },
         {
           name: 'Sasquatch',
-          weight: '-2',
+          weight: -2,
           max: 1,
           active: false,
           supported: false,
@@ -507,7 +507,7 @@
         },
         {
           name: 'Leprechaun',
-          weight: '+5',
+          weight: 5,
           max: 1,
           active: false,
           supported: false,
@@ -517,7 +517,7 @@
         },
         {
           name: 'Bloody Mary',
-          weight: '+1',
+          weight: 1,
           max: 1,
           active: false,
           supported: false,
@@ -527,7 +527,7 @@
         },
         {
           name: 'Chupacabra',
-          weight: '+4',
+          weight: 4,
           max: 1,
           active: false,
           supported: false,
@@ -537,7 +537,7 @@
         },
         {
           name: 'Nostradamus',
-          weight: '+1',
+          weight: 1,
           max: 1,
           active: false,
           supported: false,
@@ -547,7 +547,7 @@
         },
         {
           name: 'Dire Wolf',
-          weight: '-4',
+          weight: -4,
           max: 1,
           active: false,
           supported: false,
@@ -557,7 +557,7 @@
         },
         {
           name: 'Fang Face',
-          weight: '-5',
+          weight: -5,
           max: 1,
           active: false,
           supported: false,
@@ -567,7 +567,7 @@
         },
         {
           name: 'Virginia Woolf',
-          weight: '-2',
+          weight: -2,
           max: 1,
           active: false,
           supported: false,
@@ -577,7 +577,7 @@
         },
         {
           name: 'Wolverine',
-          weight: '-4',
+          weight: -4,
           max: 1,
           active: false,
           supported: false,

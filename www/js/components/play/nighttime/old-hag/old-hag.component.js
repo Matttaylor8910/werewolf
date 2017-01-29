@@ -30,7 +30,7 @@
 
     function next() {
       if ($ctrl.player) {
-        nightState.setLast('oldHag',$ctrl.player.name);
+        nightState.setLast('oldHag', $ctrl.player.name);
         $ctrl.player.banished = true;
       }
       gameState.transition($ctrl.nextRole);

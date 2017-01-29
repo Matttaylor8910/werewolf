@@ -3,12 +3,13 @@
     .module('werewolf.play')
     .controller('PlayController', PlayController);
 
-  function PlayController(gameState) {
+  function PlayController($scope, gameState) {
     var $ctrl = this;
 
     $ctrl.gameState = gameState;
 
-    sleep();
+    // Start in the sleeping state
+    $scope.$on("$ionicView.beforeEnter", sleep);
 
     /**
      * Set the play state to the nighttime phase

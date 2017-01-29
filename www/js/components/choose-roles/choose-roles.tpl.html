@@ -14,7 +14,7 @@
   <!--Subheader for the top-->
   <div class="bar bar-subheader item item-divider selected-divider">
     <div>{{$ctrl.selectedRoles.length}} of {{$ctrl.gameState.playerNames.length}} Roles Selected</div>
-    <div ng-class="{'assertive': $ctrl.totalWeight < 0, 'positive': $ctrl.totalWeight > 0}">({{($ctrl.totalWeight < 0 ? '' : '+') + $ctrl.totalWeight}})</div>
+    <div ng-class="{'assertive': $ctrl.totalWeight < 0, 'positive': $ctrl.totalWeight > 0}">({{$ctrl.totalWeight | plusMinus}})</div>
   </div>
 
   <ion-content overflow-scroll="true" class="has-subheader">
