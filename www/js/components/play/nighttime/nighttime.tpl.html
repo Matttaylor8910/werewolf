@@ -76,7 +76,21 @@
   </pi>
 
   <div ng-show="$ctrl.gameState.role.done">
-    <div class="intro-toast">
+
+    <!--unsupported roles at the top, this will be removed later-->
+    <div ng-show="$ctrl.unsupportedRoles.length > 0">
+      <div class="intro-toast">
+        Here are some roles that are not yet supported by the app, when you're ready to move on, wake everyone.
+      </div>
+      <div class="grid-container">
+        <div class="grid-item" ng-repeat="role in $ctrl.unsupportedRoles track by $index">
+          <img ng-show="role.active" ng-src="{{role.url}}">
+          <unsupported-role role=role ng-show="!role.active"></unsupported-role>
+        </div>
+      </div>
+    </div>
+
+    <div class="intro-toast" ng-show="$ctrl.unsupportedRoles.length === 0">
       All actions are done for the night, time to wake everyone.
     </div>
   </div>

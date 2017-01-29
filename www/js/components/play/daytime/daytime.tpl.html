@@ -1,20 +1,12 @@
 <div class="daytime">
 
-  <div class="night-recap" ng-show="$ctrl.gameState.nightRecap.length > 0">
+  <div class="night-recap">
     <h3>What happened last night?</h3>
     <div class="night-event" ng-repeat="nightEvent in $ctrl.gameState.nightRecap">
       <b>{{nightEvent.name}}</b> {{nightEvent.eventText}}
     </div>
-  </div>
-
-  <!--unsupported roles at the top, this will be removed later-->
-  <div ng-show="$ctrl.unsupportedRoles.length > 0">
-    <div class="item item-divider">Unsupported Roles</div>
-    <div class="grid-container">
-      <div class="grid-item" ng-repeat="role in $ctrl.unsupportedRoles track by $index">
-        <img ng-show="role.active" ng-src="{{role.url}}">
-        <unsupported-role role=role ng-show="!role.active"></unsupported-role>
-      </div>
+    <div class="night-event" ng-show="$ctrl.gameState.nightRecap.length === 0">
+      Nothing to report ¯\_(ツ)_/¯
     </div>
   </div>
 

@@ -27,5 +27,7 @@
 
     $ctrl.gameState = gameState;
     $ctrl.nightState = nightState;
+
+    $ctrl.unsupportedRoles = _.filter($ctrl.gameState.roles, ['supported', false]);
   }
 })();
