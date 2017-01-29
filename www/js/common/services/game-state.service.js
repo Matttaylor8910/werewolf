@@ -5,14 +5,18 @@
 
   function gameState($state, $ionicHistory, $ionicScrollDelegate, localStorage) {
     // only for local dev use
-    var DEBUG = false;
+    var DEBUG = true;
 
     var service = {
       playerNames               : localStorage.getArray('playerNames'),
       roles                     : DEBUG ? localStorage.getArray('roles') : [],
+
       players                   : DEBUG ? localStorage.getArray('players') : [],
       round                     : 0,
       role                      : undefined,
+
+      // An array of string about what happened last night
+      nightRecap                : [],
 
       setProperty               : setProperty,
       rolePlaying               : rolePlaying,

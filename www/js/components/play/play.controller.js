@@ -21,11 +21,12 @@
         nextAction: wake
       };
 
-      // Logic for what happens after the day
+      // clear the night recap
+      gameState.setProperty('nightRecap', []);
+
+      // reset player indicators
       _.each($ctrl.gameState.players, function(player) {
-        //make sure no one is silenced
         player.silenced = false;
-        //make sure no one is banished
         player.banished = false;
       });
     }
@@ -45,14 +46,49 @@
 
         // if player was marked to die, kill em
         if (player.alive && player.shouldDie) {
-          // they're dead if they should have been saved
-          player.alive = !!player.shouldSave;
+          killPlayer(player);
+        }
 
-          player.shouldDie = false;
-          player.shouldSave = false;
+        // check if player was banished
+        if (player.banished && player.alive) {
+          addEventToRecap(player.name, 'is banished for the day. They must leave the room until tomorrow.');
+        }
+
+        // check if player was silenced
+        if (player.silenced && player.alive) {
+          addEventToRecap(player.name, 'is silenced for the day. They must not talk until tomorrow.');
         }
 
       });
+    }
+
+    /**
+     * Player should lose their life (or lose the life the priest gave them
+     * @param eventTeplayerxt The player that is about to die
+     */
+    function killPlayer(player) {
+      // they're dead if they should have been saved
+      player.alive = !!player.shouldSave;
+      // reset some properties
+      player.shouldDie = false;
+      player.shouldSave = false;
+
+      // if the player is actually dead, add to night recap
+      if (!player.alive) {
+        addEventToRecap(player.name, 'died last night.')
+      }
+    }
+
+    /**
+     * The text to be in the recap
+     * @param name
+     * @param eventText
+     */
+    function addEventToRecap(name, eventText) {
+      gameState.setProperty('nightRecap', _.union(gameState.nightRecap, [{
+        name      : name,
+        eventText : eventText
+      }]));
     }
   }
 })();
