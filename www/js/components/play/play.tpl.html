@@ -2,7 +2,7 @@
   <ion-nav-buttons side="left">
     <button class="button button-clear button-assertive" ng-click="$ctrl.gameState.startOver()">Start Over</button>
   </ion-nav-buttons>
-  <ion-nav-title>{{$ctrl.phase.title}} {{$ctrl.gameState.round}}</ion-nav-title>
+  <ion-nav-title ng-show="$ctrl.phase.title">{{$ctrl.phase.title}} {{$ctrl.gameState.round}}</ion-nav-title>
   <ion-nav-buttons side="right">
     <button class="button button-clear button-positive text-bold" ng-click="$ctrl.phase.nextAction()" ng-show="$ctrl.gameState.role.done">{{$ctrl.phase.nextActionText}}</button>
   </ion-nav-buttons>

@@ -3,19 +3,20 @@
     .module('werewolf.play')
     .controller('PlayController', PlayController);
 
-  function PlayController($scope, gameState) {
+  function PlayController($scope, gameState, nightState) {
     var $ctrl = this;
 
     $ctrl.gameState = gameState;
 
     // Start in the sleeping state
-    $scope.$on("$ionicView.beforeEnter", sleep);
+    $scope.$on('$ionicView.enter', sleep);
 
     /**
      * Set the play state to the nighttime phase
      */
     function sleep() {
       gameState.nextRound();
+      console.log('gameState.round: ' + gameState.round);
       $ctrl.phase = {
         title: 'Night',
         nextActionText: 'Wake',
@@ -65,19 +66,32 @@
 
     /**
      * Player should lose their life (or lose the life the priest gave them
-     * @param eventTeplayerxt The player that is about to die
+     * @param player The player that is about to die
      */
     function killPlayer(player) {
       // they're dead if they should have been saved
       player.alive = !!player.shouldSave;
+
+      // if the player is actually dead have some work to do
+      if (!player.alive) {
+
+        // werewolves are PIST and get an extra kill
+        if (player.role.name === 'Wolf Cub') {
+          nightState.setProperty('thisRoundKills', nightState.thisRoundKills + 1);
+        }
+
+        // werewolves are diseased now and don't feed next round
+        if (player.role.name === 'Diseased' && player.eaten) {
+          nightState.setProperty('diseased', true);
+        }
+
+        addEventToRecap(player.name, 'died last night.')
+      }
+
       // reset some properties
       player.shouldDie = false;
       player.shouldSave = false;
-
-      // if the player is actually dead, add to night recap
-      if (!player.alive) {
-        addEventToRecap(player.name, 'died last night.')
-      }
+      player.eaten = false;
     }
 
     /**

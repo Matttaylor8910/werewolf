@@ -11,7 +11,11 @@
   The Werewolves are dead, just waking up for appearances.
 </div>
 
-<div class="buttons-container" ng-show="$ctrl.gameState.round > 1 && !$ctrl.dead">
+<div class="intro-toast" ng-show="$ctrl.diseased">
+  The Werewolves are diseased, they don't get to feed tonight.
+</div>
+
+<div class="buttons-container" ng-show="$ctrl.gameState.round > 1 && !$ctrl.nightState.diseased && !$ctrl.dead">
   <button class="button button-clear button-positive"
           ng-repeat="player in $ctrl.gameState.players | filter:{alive:true}"
           ng-class="{'button-assertive': player.shouldDie}"
@@ -21,7 +25,7 @@
 </div>
 
 <button class="button button-clear button-full button-positive"
-        ng-show="$ctrl.nightState.thisRoundKills === 0 || $ctrl.dead"
+        ng-show="$ctrl.nightState.thisRoundKills === 0 || $ctrl.nightState.diseased || $ctrl.dead"
         ng-click="$ctrl.next()">
   Move On
 </button>

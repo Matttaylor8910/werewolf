@@ -24,12 +24,14 @@
     }
 
     function kill(player) {
+      player.eaten     = !player.eaten;
       player.shouldDie = !player.shouldDie;
-      nightState.setKills(nightState.thisRoundKills + (player.shouldDie ? -1 : 1));
+      nightState.setProperty('thisRoundKills', nightState.thisRoundKills + (player.shouldDie ? -1 : 1));
     }
 
     function next() {
-      nightState.setKills(1);
+      nightState.setProperty('diseased', false);
+      nightState.setProperty('thisRoundKills', gameState.rolePlaying('Big Bad Wolf') ? 2 : 1);
       gameState.transition($ctrl.nextRole);
     }
   }

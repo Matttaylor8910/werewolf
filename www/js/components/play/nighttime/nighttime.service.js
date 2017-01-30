@@ -8,10 +8,11 @@
       realWolves    : ['Werewolf', 'Wolf Cub', 'Wolf Man', 'Fruit Brute', 'Dire Wolf', 'Big Bad Wolf', 'Lone Wolf'],
       lookLikeWolves: ['Werewolf', 'Wolf Cub', 'Lycan', 'Fruit Brute', 'Dire Wolf', 'Big Bad Wolf', 'Lone Wolf'],
       thisRoundKills: 0,
+      diseased      : false,
       last          : {},
       once          : {},
 
-      setKills      : setKills,
+      setProperty   : setProperty,
       setLast       : setLast,
       clear         : clear
     };
@@ -20,10 +21,11 @@
 
     /**
      * Set the number of kills to be used in the night
-     * @param numKills
+     * @param property
+     * @param value
      */
-    function setKills(numKills) {
-      service.thisRoundKills = numKills;
+    function setProperty(property, value) {
+      service[property] = value;
     }
 
     /**
@@ -40,6 +42,7 @@
      */
     function clear() {
       service.thisRoundKills = 0;
+      service.diseased = false;
       service.last = {};
       service.once = {};
     }
