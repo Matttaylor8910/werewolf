@@ -8,6 +8,7 @@
     var DEBUG = false;
 
     var service = {
+      allPlayerNames            : localStorage.getArray('allPlayerNames'),
       playerNames               : localStorage.getArray('playerNames'),
       roles                     : DEBUG ? localStorage.getArray('roles') : [],
 

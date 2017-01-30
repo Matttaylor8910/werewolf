@@ -1,4 +1,9 @@
 <ion-view>
+  <ion-nav-buttons side="left">
+    <button class="button button-clear" ng-class="{'button-assertive': !$ctrl.editMode, 'button-positive': $ctrl.editMode}" ng-click="$ctrl.toggleEditMode()">
+      {{$ctrl.editMode ? 'Cancel' : 'Edit'}}
+    </button>
+  </ion-nav-buttons>
   <ion-nav-title>Choose Players</ion-nav-title>
   <ion-nav-buttons side="right">
     <button class="button button-clear button-positive" ui-sref="choose-roles" ng-disabled="$ctrl.gameState.playerNames.length < 3">
@@ -16,13 +21,17 @@
       </form>
     </div>
     <div class="list">
-      <div class="item item-divider">{{$ctrl.gameState.playerNames.length}} Player(s)</div>
-      <div class="item item-icon-right" ng-repeat="player in $ctrl.gameState.playerNames">
+      <div class="item item-divider space-between">
+        <div>{{$ctrl.gameState.allPlayerNames.length}} Player(s)</div>
+        <div class="positive">{{$ctrl.gameState.playerNames.length}} Selected</div>
+      </div>
+      <div class="item item-icon-right" ng-class="{'item-icon-left': $ctrl.editMode}" ng-repeat="player in $ctrl.gameState.allPlayerNames" ng-click="$ctrl.toggleSelected(player)">
+        <i class="icon ion-minus-circled assertive" ng-show="$ctrl.editMode" ng-click="$ctrl.togglePlayer(player)"></i>
         {{player}}
-        <i class="icon ion-minus-circled assertive" ng-click="$ctrl.togglePlayer(player)"></i>
+        <i class="icon ion-checkmark positive" ng-show="$ctrl.isSelected(player)"></i>
       </div>
     </div>
-    <div class="text-center" ng-show="$ctrl.gameState.playerNames.length < 3">Add at least 3 players to proceed</div>
+    <div class="text-center" ng-show="$ctrl.gameState.allPlayerNames.length < 3">Add at least 3 players to proceed</div>
 
   </ion-content>
 </ion-view>
