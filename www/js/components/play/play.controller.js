@@ -16,7 +16,6 @@
      */
     function sleep() {
       gameState.nextRound();
-      console.log('gameState.round: ' + gameState.round);
       $ctrl.phase = {
         title: 'Night',
         nextActionText: 'Wake',
