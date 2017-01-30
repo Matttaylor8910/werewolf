@@ -85,6 +85,15 @@
           nightState.setProperty('diseased', true);
         }
 
+        // check to kill cupid's soul mate
+        if (player.inLove) {
+          _.each($ctrl.gameState.players, function(potentialSoulMate) {
+            if (potentialSoulMate !== player && potentialSoulMate.inLove && potentialSoulMate.alive) {
+              killPlayer(potentialSoulMate);
+            }
+          });
+        }
+
         addEventToRecap(player.name, 'died last night.')
       }
 

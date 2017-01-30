@@ -22,12 +22,14 @@
       controller: NighttimeController
     });
 
-  function NighttimeController(gameState, nightState) {
+  function NighttimeController($scope, gameState, nightState) {
     var $ctrl = this;
 
     $ctrl.gameState = gameState;
     $ctrl.nightState = nightState;
 
-    $ctrl.unsupportedRoles = _.filter($ctrl.gameState.roles, ['supported', false]);
+    $scope.$on('$ionicView.enter', function() {
+      $ctrl.unsupportedRoles = _.filter($ctrl.gameState.roles, ['supported', false]);
+    });
   }
 })();
