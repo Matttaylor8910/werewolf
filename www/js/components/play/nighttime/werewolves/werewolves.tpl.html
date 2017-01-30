@@ -7,13 +7,7 @@
   </span>
 </div>
 
-<div class="intro-toast" ng-show="$ctrl.dead">
-  The Werewolves are dead, just waking up for appearances.
-</div>
-
-<div class="intro-toast" ng-show="$ctrl.diseased">
-  The Werewolves are diseased, they don't get to feed tonight.
-</div>
+<div class="intro-toast" ng-bind="$ctrl.toast" ng-show="$ctrl.toast"></div>
 
 <div class="buttons-container" ng-show="$ctrl.gameState.round > 1 && !$ctrl.nightState.diseased && !$ctrl.dead">
   <button class="button button-clear button-positive"

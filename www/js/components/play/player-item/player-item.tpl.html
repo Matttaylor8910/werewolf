@@ -1,4 +1,4 @@
-<div class="item space-between" ng-click="$ctrl.player.alive = !$ctrl.player.alive">
+<div class="item space-between" ng-click="$ctrl.lynchPlayer()">
   <div ng-class="{'ded': !$ctrl.player.alive}">{{$ctrl.player.name}} ({{$ctrl.player.role.name}})</div>
   <div class="player-badges">
     <i class="icon ion-forward" ng-show="$ctrl.player.banished"></i>

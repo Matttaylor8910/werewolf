@@ -3,7 +3,7 @@
     .module('werewolf')
     .factory('gameState', gameState);
 
-  function gameState($state, $ionicHistory, $ionicScrollDelegate, localStorage, nightState) {
+  function gameState($state, $ionicHistory, $ionicScrollDelegate, $ionicPopup, localStorage, nightState) {
     // only for local dev use
     var DEBUG = false;
 
@@ -26,7 +26,10 @@
       areDead                   : areDead,
       startOver                 : startOver,
       nextRound                 : nextRound,
-      transition                : transition
+      transition                : transition,
+      killPlayer                : killPlayer,
+      lynchPlayer               : lynchPlayer,
+      addEventToRecap           : addEventToRecap
     };
 
     // if the application doesn't have an equal number of players to roles,
@@ -145,6 +148,89 @@
       service.role = {};
       service.role[role] = true;
       $ionicScrollDelegate.scrollTop(true);
+    }
+
+    /**
+     * Player should lose their life (or lose the life the priest gave them
+     * @param player The player that is about to die
+     */
+    function killPlayer(player) {
+      // they're dead if they should have been saved
+      player.alive = !!player.shouldSave;
+
+      // if the player is actually dead have some work to do
+      if (!player.alive) {
+
+        // werewolves are PIST and get an extra kill
+        if (player.role.name === 'Wolf Cub') {
+          nightState.setProperty('thisRoundKills', nightState.thisRoundKills + 1);
+        }
+
+        // werewolves are diseased now and don't feed next round
+        if (player.role.name === 'Diseased' && player.eaten) {
+          nightState.setProperty('diseased', true);
+        }
+
+        // check to kill cupid's soul mate
+        if (player.inLove) {
+          _.each(service.players, function(potentialSoulMate) {
+            if (potentialSoulMate !== player && potentialSoulMate.inLove && potentialSoulMate.alive) {
+              killPlayer(potentialSoulMate);
+            }
+          });
+        }
+
+        addEventToRecap(player.name, 'died last night.')
+      }
+    }
+
+    /**
+     * The villagers lynch a player and handle that logic here
+     * @param player
+     */
+    function lynchPlayer(player) {
+      // make sure they really wanna kill them
+      $ionicPopup.confirm({
+        title: 'Lynch ' + player.name,
+        template: 'Are you sure the village really wants to lynch ' + player.name + '?'
+      }).then(function(res) {
+        // they chose yes
+        if(res) {
+          // prince doesn't die when lynched
+          if (player.role.name === 'Prince') {
+            $ionicPopup.alert({
+              title: player.name + ' lives!',
+              template: 'The Prince is not allowed to be lynched by the village.'
+            });
+          }
+          // everyone else can though
+          else {
+            // werewolves are PIST and get an extra kill
+            if (player.role.name === 'Wolf Cub') {
+              nightState.setProperty('thisRoundKills', nightState.thisRoundKills + 1);
+            }
+
+            // werewolves no longer get the bonus kill the Big Bad Wolf gives
+            if (player.role.name === 'Big Bad Wolf') {
+              nightState.setProperty('thisRoundKills', nightState.thisRoundKills - 1);
+            }
+
+            player.alive = false;
+          }
+        }
+      });
+    }
+
+    /**
+     * The text to be in the recap
+     * @param name
+     * @param eventText
+     */
+    function addEventToRecap(name, eventText) {
+      service.nightRecap = _.union(service.nightRecap, [{
+        name      : name,
+        eventText : eventText
+      }]);
     }
   }
 })();

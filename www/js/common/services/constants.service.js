@@ -51,7 +51,7 @@
           weight: -9,
           max: 1,
           active: false,
-          supported: false,
+          supported: true,
           team: 'wolf',
           url: 'img/cards/big-bad-wolf.png',
           description: 'Each night, wake with the other werewolves. If you are still in the game, the Werewolves may eliminate two adjacent players.'

@@ -11,7 +11,7 @@
   </div>
 
   <div class="list">
-    <player-item player="player" ng-repeat="player in $ctrl.gameState.players | filter:{alive:true} track by $index"></player-item>
+    <player-item player="player" can-lynch="true" ng-repeat="player in $ctrl.gameState.players | filter:{alive:true} track by $index"></player-item>
   </div>
 
   <div class="list">
