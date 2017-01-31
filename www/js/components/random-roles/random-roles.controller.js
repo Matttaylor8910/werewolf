@@ -46,7 +46,7 @@
       showRole();
 
       // Move on if all players have been shown
-      if ($ctrl.index === $ctrl.players.length - 1) {
+      if ($ctrl.index === $ctrl.players.length) {
         $state.go('play');
       }
     }
