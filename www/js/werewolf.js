@@ -7,6 +7,7 @@
       'werewolf.choosePlayers',
       'werewolf.chooseRoles',
       'werewolf.confirm',
+      'werewolf.randomRoles',
       'werewolf.setRoles',
       'werewolf.play',
       'werewolf.unsupportedRole'

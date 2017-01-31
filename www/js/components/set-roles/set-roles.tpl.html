@@ -7,7 +7,7 @@
   <ion-nav-title>Set Roles</ion-nav-title>
   <ion-nav-buttons side="right">
     <button class="button button-clear button-positive text-bold" ng-click="$ctrl.next()" ng-disabled="$ctrl.role === undefined">
-      Next Player
+      {{$ctrl.playerNames.length > 0 ? 'Next Player' : 'Start'}}
     </button>
   </ion-nav-buttons>
   <ion-content>

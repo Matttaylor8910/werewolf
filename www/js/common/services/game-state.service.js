@@ -151,7 +151,7 @@
     }
 
     /**
-     * Player should lose their life (or lose the life the priest gave them
+     * Player should lose their life (or lose the life the priest gave them)
      * @param player The player that is about to die
      */
     function killPlayer(player) {
