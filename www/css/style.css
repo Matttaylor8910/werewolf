@@ -185,7 +185,8 @@
   color: #fff;
 }
 
-.role img {
+.role img,
+.grid-item img {
   width: 100%;
 }
 
@@ -196,6 +197,13 @@
 /*confirm css*/
 .text-bold {
   font-weight: bold !important;
+}
+
+/*select roles css*/
+.grid-item.full {
+  width: 100%;
+  height: 66vw;
+  zoom: 2.0;
 }
 
 /*play css*/

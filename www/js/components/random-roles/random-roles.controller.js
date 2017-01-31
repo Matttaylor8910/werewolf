@@ -11,43 +11,51 @@
     $ctrl.next = next;
 
     $scope.$on("$ionicView.beforeEnter", function(){
+      $ctrl.index = 0;
       $ctrl.players = [];
-      $ctrl.playerNames = _.cloneDeep(gameState.playerNames);
-      $ctrl.roles = _.cloneDeep(gameState.roles);
-      $ctrl.playerName = $ctrl.playerNames.shift();
-      $ctrl.role = undefined;
+      $ctrl.player = undefined;
+      randomlyAssign();
     });
 
     /**
-     * Tie the selected player to the selected role and
-     * then pop off the next player.
-     *
-     * Move to the play state when finished with all players
+     * Randomly assign players to the roles
+     */
+    function randomlyAssign() {
+      var roles = _.cloneDeep(gameState.roles);
+      _.each(gameState.playerNames, function(playerName) {
+        var role = roles.splice(_.random(roles.length - 1), 1)[0];
+
+        var player = {
+          alive: true,
+          name: playerName,
+          role: role
+        };
+
+        // Add the player to the game with their role
+        $ctrl.players.push(player);
+      });
+      showRole();
+      gameState.setProperty('players', $ctrl.players);
+    }
+
+    /**
+     * Move on to the next role
      */
     function next() {
-      var role = $ctrl.roles.splice($ctrl.role, 1)[0];
+      $ctrl.index++;
+      showRole();
 
-      var player = {
-        alive: true,
-        name: $ctrl.playerName,
-        role: role
-      };
-
-      // Add the player to the game with their role
-      $ctrl.players.push(player);
-      gameState.setProperty('players', $ctrl.players);
-
-      // Move on if all players have been selected
-      if ($ctrl.playerNames.length === 0) {
-        var players = [];
+      // Move on if all players have been shown
+      if ($ctrl.index === $ctrl.players.length - 1) {
         $state.go('play');
       }
+    }
 
-      // Else random up for the next player
-      else {
-        $ctrl.playerName = $ctrl.playerNames.shift();
-        $ctrl.role = undefined;
-      }
+    /**
+     * Select the role to show given the index
+     */
+    function showRole() {
+      $ctrl.player = $ctrl.players[$ctrl.index];
     }
   }
 })();

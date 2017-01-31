@@ -4,15 +4,20 @@
       <i class="icon ion-arrow-left-c"></i>
     </button>
   </ion-nav-buttons>
-  <ion-nav-title>Random Roles</ion-nav-title>
+  <ion-nav-title>{{$ctrl.player.name}}</ion-nav-title>
   <ion-nav-buttons side="right">
-    <button class="button button-clear button-positive text-bold" ng-click="$ctrl.next()" ng-disabled="$ctrl.role === undefined">
+    <button class="button button-clear button-positive text-bold" ng-click="$ctrl.next()">
       Next Player
     </button>
   </ion-nav-buttons>
   <ion-content>
 
-    <div class="intro-toast">Ay yo, No Deck Mode (TM) is still under development, should be done soon.</div>
+    <div class="intro-toast">Wake up <b>{{$ctrl.player.name}}</b> to show them their role:</div>
+
+    <div class="grid-item full">
+      <img ng-show="$ctrl.player.role.active" ng-src="{{$ctrl.player.role.url}}">
+      <unsupported-role role="$ctrl.player.role" ng-show="!$ctrl.player.role.active"></unsupported-role>
+    </div>
 
   </ion-content>
 </ion-view>

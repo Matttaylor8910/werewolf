@@ -38,26 +38,13 @@
     <!--All roles header-->
     <div class="item item-divider">
       <span>All Roles</span>
-      <!--<span class="view-swapper" ng-click="$ctrl.toggleView()">-->
-        <!--<i class="icon ion-grid" ng-class="{'positive': $ctrl.grid}"></i>-->
-        <!--|-->
-        <!--<i class="icon ion-arrow-swap" ng-class="{'positive': !$ctrl.grid}"></i>-->
-      <!--</span>-->
-    </div>
-
-    <!--Horizontal scroll view for all roles-->
-    <div class="all-roles-horizontal" ng-if="!$ctrl.grid">
-      <div class="role" ng-repeat="role in $ctrl.allRoles track by $index" ng-click="$ctrl.addRole(role, $index)" ng-class="{'faded': role.max === 0}">
-        <img ng-src="{{role.url}}" ng-show="role.active">
-        <unsupported-role role=role ng-show="!role.active"></unsupported-role>
-      </div>
     </div>
 
     <!--Grid view for all roles-->
     <div class="grid-container" ng-if="$ctrl.grid">
       <div class="grid-item" ng-repeat="role in $ctrl.allRoles track by $index" ng-click="$ctrl.addRole(role, $index)" ng-class="{'faded': role.max === 0}">
         <img ng-show="role.active" ng-src="{{role.url}}">
-        <unsupported-role role=role ng-show="!role.active"></unsupported-role>
+        <unsupported-role role="role" ng-show="!role.active"></unsupported-role>
       </div>
     </div>
 
