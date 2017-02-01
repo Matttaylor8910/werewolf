@@ -228,25 +228,7 @@
   margin: 0 15px;
 }
 
-/*OVERRIDES*/
-
-.bar .title {
-  margin: 0 5px;
-}
-
-.bar.bar-subheader {
-  height: 38px;
-  margin: 0;
-  border: none;
-}
-
-.has-subheader {
-  top: 82px;
-}
-
-.item {
-  white-space: normal !important;
-}
+/*Responsive*/
 
 @media (max-width: 350px) {
   .grid-item {
@@ -278,4 +260,28 @@
     font-size: 10px;
     line-height: 10px;
   }
+}
+
+/*OVERRIDES*/
+
+.bar .title {
+  margin: 0 5px;
+}
+
+.bar.bar-subheader {
+  height: 38px;
+  margin: 0;
+  border: none;
+}
+
+.has-subheader {
+  top: 82px;
+}
+
+.item {
+  white-space: normal !important;
+}
+
+.popup-body {
+  text-align: center;
 }
