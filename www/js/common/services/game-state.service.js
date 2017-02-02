@@ -3,7 +3,7 @@
     .module('werewolf')
     .factory('gameState', gameState);
 
-  function gameState($state, $ionicHistory, $ionicScrollDelegate, $ionicPopup, localStorage, nightState) {
+  function gameState($state, $ionicHistory, $ionicScrollDelegate, $ionicPopup, $ionicActionSheet, localStorage, nightState) {
     // only for local dev use
     var DEBUG = false;
 
@@ -195,13 +195,12 @@
      * @param player
      */
     function lynchPlayer(player) {
-      // make sure they really wanna kill them
-      $ionicPopup.confirm({
-        title: 'Lynch ' + player.name,
-        template: 'Are you sure the village really wants to lynch ' + player.name + '?'
-      }).then(function(res) {
-        // they chose yes
-        if(res) {
+      $ionicActionSheet.show({
+        destructiveText: 'Lynch',
+        titleText: 'Are you sure you wanna lynch ' + player.name + '?',
+        cancelText: 'Cancel',
+        cancel: function() {},
+        destructiveButtonClicked: function() {
           // prince doesn't die when lynched
           if (player.role.name === 'Prince') {
             simpleAlert(player.name + ' lives!', 'The Prince is not allowed to be lynched by the village.');
@@ -225,6 +224,7 @@
 
             player.alive = false;
           }
+          return true;
         }
       });
     }
@@ -237,7 +237,10 @@
     function simpleAlert(title, template) {
       $ionicPopup.alert({
         title: title,
-        template: template
+        template: template,
+        buttons: [
+          { text: 'Sounds Good' }
+        ]
       });
     }
 
