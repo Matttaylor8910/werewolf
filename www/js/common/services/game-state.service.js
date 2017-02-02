@@ -158,6 +158,12 @@
       // they're dead if they should have been saved
       player.alive = !!player.shouldSave;
 
+      // if player is blessed, they don't die
+      if (player.blessed) {
+        player.blessed = false;
+        player.alive = true;
+      }
+
       // if the player is actually dead have some work to do
       if (!player.alive) {
 
@@ -198,10 +204,12 @@
         if(res) {
           // prince doesn't die when lynched
           if (player.role.name === 'Prince') {
-            $ionicPopup.alert({
-              title: player.name + ' lives!',
-              template: 'The Prince is not allowed to be lynched by the village.'
-            });
+            simpleAlert(player.name + ' lives!', 'The Prince is not allowed to be lynched by the village.');
+          }
+          // if the player is blessed, just make them lose a life
+          else if (player.blessed) {
+            player.blessed = false;
+            simpleAlert(player.name + ' lives!', player.name + ' was blessed by the priest, so they live to die another day.');
           }
           // everyone else can though
           else {
@@ -218,6 +226,18 @@
             player.alive = false;
           }
         }
+      });
+    }
+
+    /**
+     * Wrapper for $ionicPopu taking a title and template
+     * @param title
+     * @param template
+     */
+    function simpleAlert(title, template) {
+      $ionicPopup.alert({
+        title: title,
+        template: template
       });
     }
 

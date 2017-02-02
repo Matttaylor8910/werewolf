@@ -310,7 +310,7 @@
           weight: 3,
           max: 1,
           active: true,
-          supported: false,
+          supported: true,
           team: 'villager',
           url: 'img/cards/priest.png',
           description: 'On the first night, protect a player. The next attempt to kill the player fails. The night after that attempt, you protect a different player. (variation: Protect one player from death caused at night, including vampire attacks.)'

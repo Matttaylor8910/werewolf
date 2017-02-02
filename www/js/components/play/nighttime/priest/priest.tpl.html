@@ -1,0 +1,30 @@
+<div class="intro-toast">
+  <b>Priest</b> wake up. Do you want to bless anyone tonight?
+</div>
+
+<div class="intro-toast" ng-show="$ctrl.dead">
+  The Priest is dead, just waking up for appearances.
+</div>
+
+<div class="intro-toast" ng-show="!$ctrl.dead && $ctrl.nightState.once.priest">
+  The Priest has used his power, just waking up for appearances.
+</div>
+
+<div class="item item-icon-right" ng-click="$ctrl.weBeBlessin = !$ctrl.weBeBlessin" ng-show="!$ctrl.dead && !$ctrl.nightState.once.priest">
+  Bless
+  <i class="icon ion-checkmark" ng-show="$ctrl.weBeBlessin"></i>
+</div>
+
+<div class="buttons-container" ng-show="$ctrl.weBeBlessin">
+  <button class="button button-clear button-positive"
+          ng-repeat="player in $ctrl.gameState.players | filter:{alive:true}"
+          ng-class="{'button-assertive': $ctrl.player === player}"
+          ng-click="$ctrl.select(player)">
+    {{player.name}}
+  </button>
+</div>
+
+<button class="button button-clear button-full button-positive"
+        ng-click="$ctrl.next()">
+  Move On
+</button>

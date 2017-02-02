@@ -71,9 +71,14 @@
   </troublemaker>
 
   <pi
-    next-role="done"
+    next-role="priest"
     ng-if="$ctrl.gameState.role.pi">
   </pi>
+
+  <priest
+    next-role="done"
+    ng-if="$ctrl.gameState.role.priest">
+  </priest>
 
   <div ng-show="$ctrl.gameState.role.done">
 

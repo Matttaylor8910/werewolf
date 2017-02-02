@@ -43,11 +43,14 @@
      */
     function next() {
       $ctrl.index++;
-      showRole();
 
       // Move on if all players have been shown
       if ($ctrl.index === $ctrl.players.length) {
         $state.go('play');
+      }
+      // Otherwise show next role
+      else {
+        showRole();
       }
     }
 
