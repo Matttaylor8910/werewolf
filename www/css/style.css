@@ -98,7 +98,7 @@
 
 /* start css */
 .intro-background {
-  background: #000 url(/img/intro.jpg) center;
+  background: #000 url(/www/img/intro.jpg) center;
   background-size: cover;
   display: flex;
   flex-direction: column;
