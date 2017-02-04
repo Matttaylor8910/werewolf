@@ -96,6 +96,24 @@
   font-weight: bold;
 }
 
+/* start css */
+.intro-background {
+  background: #000 url(/img/intro.jpg) center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.start-button {
+  color: #8f8f8f;
+  text-shadow: 0 2px 5px #333;
+  font-family: copperplate;
+  font-size: 50px;
+  text-align: center;
+  padding: 20vw 0;
+}
+
 /*player colors*/
 .blue {
   color: #284c73;

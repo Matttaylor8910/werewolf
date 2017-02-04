@@ -4,6 +4,7 @@
       'ionic',
       'ionic.utils',
 
+      'werewolf.start',
       'werewolf.choosePlayers',
       'werewolf.chooseRoles',
       'werewolf.confirm',
@@ -16,11 +17,11 @@
     .run(run);
 
   /**
-   * Default to choosing players
+   * Default to start
    * @param $urlRouterProvider
    */
   function config($urlRouterProvider) {
-    $urlRouterProvider.otherwise('/choose-players');
+    $urlRouterProvider.otherwise('/start');
   }
 
   function run($ionicPlatform) {
