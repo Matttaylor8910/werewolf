@@ -197,7 +197,7 @@
     function lynchPlayer(player) {
       $ionicActionSheet.show({
         destructiveText: 'Lynch',
-        titleText: 'Are you sure you wanna lynch ' + player.name + '?',
+        titleText: 'Are you sure the village wanna lynch ' + player.name + '?',
         cancelText: 'Cancel',
         cancel: function() {},
         destructiveButtonClicked: function() {
