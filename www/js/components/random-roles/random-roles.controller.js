@@ -28,7 +28,8 @@
         var player = {
           alive: true,
           name: playerName,
-          role: role
+          role: role,
+          inCult: role.name === 'Cult Leader'
         };
 
         // Add the player to the game with their role
