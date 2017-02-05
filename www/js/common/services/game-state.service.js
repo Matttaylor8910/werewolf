@@ -117,7 +117,7 @@
      * Return to the beginning
      */
     function startOver() {
-      service.playerNames =localStorage.getArray('playerNames');
+      service.playerNames = localStorage.getArray('playerNames');
       service.roles = [];
       service.players = [];
       service.round = 0;

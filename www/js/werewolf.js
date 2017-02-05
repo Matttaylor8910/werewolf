@@ -21,7 +21,7 @@
    * @param $urlRouterProvider
    */
   function config($urlRouterProvider) {
-    $urlRouterProvider.otherwise('/start');
+    $urlRouterProvider.otherwise('/choose-players');
   }
 
   function run($ionicPlatform) {
