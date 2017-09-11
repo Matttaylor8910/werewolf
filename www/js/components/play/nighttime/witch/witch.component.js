@@ -20,7 +20,7 @@
     $ctrl.players = {};
 
     $ctrl.select = select;
-    $ctrl.canMoveOn = canMoveOn;
+    $ctrl.disableMoveOn = disableMoveOn;
     $ctrl.next = next;
 
     if (!gameState.rolePlaying('Witch')) {
@@ -31,16 +31,16 @@
       $ctrl.players[action] = player;
     }
 
-    function canMoveOn() {
+    function disableMoveOn() {
       if ($ctrl.weBeKillin && !$ctrl.players.kill) {
-        return false;
+        return true;
       }
 
       if ($ctrl.weBeSavin && !$ctrl.players.save) {
-        return false;
+        return true;
       }
 
-      return true;
+      return false;
     }
 
     function next() {

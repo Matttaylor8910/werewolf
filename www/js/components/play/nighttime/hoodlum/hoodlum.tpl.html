@@ -12,7 +12,7 @@
 </div>
 
 <button class="button button-clear button-full button-positive"
-        ng-show="$ctrl.players.length === 2"
+        ng-disabled="$ctrl.players.length !== 2"
         ng-click="$ctrl.next()">
   Move On
 </button>

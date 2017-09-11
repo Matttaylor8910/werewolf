@@ -39,7 +39,7 @@
 </div>
 
 <button class="button button-clear button-full button-positive"
-        ng-show="$ctrl.canMoveOn()"
+        ng-disabled="$ctrl.disableMoveOn()"
         ng-click="$ctrl.next()">
   Move On
 </button>

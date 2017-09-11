@@ -19,7 +19,7 @@
     $ctrl.weBeKillin = false;
     $ctrl.dead = gameState.isDead('Spellcaster');
 
-    $ctrl.canMoveOn = canMoveOn;
+    $ctrl.disableMoveOn = disableMoveOn;
     $ctrl.select = select;
     $ctrl.isSelected = isSelected;
     $ctrl.next = next;
@@ -28,12 +28,8 @@
       gameState.transition($ctrl.nextRole);
     }
 
-    function canMoveOn() {
-      if ($ctrl.weBeKillin && $ctrl.players.length !== 2) {
-        return false;
-      }
-
-      return true;
+    function disableMoveOn() {
+      return $ctrl.weBeKillin && $ctrl.players.length !== 2;
     }
 
     function isSelected(player){

@@ -17,7 +17,7 @@
 </div>
 
 <button class="button button-clear button-full button-positive"
-        ng-show="$ctrl.player || $ctrl.dead"
+        ng-disabled="!$ctrl.player && !$ctrl.dead"
         ng-click="$ctrl.next()">
   Move On
 </button>
