@@ -2,15 +2,15 @@
   <ion-nav-buttons side="left">
     <button class="button button-clear button-assertive" ng-click="$ctrl.gameState.startOver()">Start Over</button>
   </ion-nav-buttons>
-  <ion-nav-title ng-show="$ctrl.phase.title">{{$ctrl.phase.title}} {{$ctrl.gameState.round}}</ion-nav-title>
+  <ion-nav-title ng-show="$ctrl.gameState.round">{{$ctrl.gameState.daytime ? 'Day' : 'Night'}} {{$ctrl.gameState.round}}</ion-nav-title>
   <ion-nav-buttons side="right">
-    <button class="button button-clear button-positive text-bold" ng-click="$ctrl.phase.nextAction()" ng-show="$ctrl.gameState.role.done">{{$ctrl.phase.nextActionText}}</button>
+    <button class="button button-clear button-positive text-bold" ng-click="$ctrl.nextAction()" ng-show="$ctrl.gameState.role.done">{{$ctrl.gameState.daytime ? 'Sleep' : 'Wake'}}</button>
   </ion-nav-buttons>
   <ion-content>
 
-    <werewolf-daytime ng-if="$ctrl.phase.title === 'Day'"></werewolf-daytime>
+    <werewolf-daytime ng-if="$ctrl.gameState.daytime"></werewolf-daytime>
 
-    <werewolf-nighttime ng-if="$ctrl.phase.title === 'Night'"></werewolf-nighttime>
+    <werewolf-nighttime ng-if="!$ctrl.gameState.daytime"></werewolf-nighttime>
 
   </ion-content>
 </ion-view>

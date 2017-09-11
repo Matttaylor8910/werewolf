@@ -14,6 +14,7 @@
 
       players                   : DEBUG ? localStorage.getArray('players') : [],
       round                     : 0,
+      daytime                   : false,
       role                      : undefined,
 
       // An array of string about what happened last night
@@ -27,8 +28,8 @@
       startOver                 : startOver,
       nextRound                 : nextRound,
       transition                : transition,
-      killPlayer                : killPlayer,
       lynchPlayer               : lynchPlayer,
+      killPlayer                : killPlayer,
       addEventToRecap           : addEventToRecap
     };
 
@@ -151,46 +152,6 @@
     }
 
     /**
-     * Player should lose their life (or lose the life the priest gave them)
-     * @param player The player that is about to die
-     */
-    function killPlayer(player) {
-      // they're dead if they should have been saved
-      player.alive = !!player.shouldSave;
-
-      // if player is blessed, they don't die
-      if (player.blessed) {
-        player.blessed = false;
-        player.alive = true;
-      }
-
-      // if the player is actually dead have some work to do
-      if (!player.alive) {
-
-        // werewolves are PIST and get an extra kill
-        if (player.role.name === 'Wolf Cub') {
-          nightState.setProperty('thisRoundKills', nightState.thisRoundKills + 1);
-        }
-
-        // werewolves are diseased now and don't feed next round
-        if (player.role.name === 'Diseased' && player.eaten) {
-          nightState.setProperty('diseased', true);
-        }
-
-        // check to kill cupid's soul mate
-        if (player.inLove) {
-          _.each(service.players, function(potentialSoulMate) {
-            if (potentialSoulMate !== player && potentialSoulMate.inLove && potentialSoulMate.alive) {
-              killPlayer(potentialSoulMate);
-            }
-          });
-        }
-
-        addEventToRecap(player.name, 'died last night.')
-      }
-    }
-
-    /**
      * The villagers lynch a player and handle that logic here
      * @param player
      */
@@ -204,25 +165,8 @@
           // prince doesn't die when lynched
           if (player.role.name === 'Prince') {
             simpleAlert(player.name + ' lives!', 'The Prince is not allowed to be lynched by the village.');
-          }
-          // if the player is blessed, just make them lose a life
-          else if (player.blessed) {
-            player.blessed = false;
-            simpleAlert(player.name + ' lives!', player.name + ' was blessed by the priest, so they live to die another day.');
-          }
-          // everyone else can though
-          else {
-            // werewolves are PIST and get an extra kill
-            if (player.role.name === 'Wolf Cub') {
-              nightState.setProperty('thisRoundKills', nightState.thisRoundKills + 1);
-            }
-
-            // werewolves no longer get the bonus kill the Big Bad Wolf gives
-            if (player.role.name === 'Big Bad Wolf') {
-              nightState.setProperty('thisRoundKills', nightState.thisRoundKills - 1);
-            }
-
-            player.alive = false;
+          } else {
+            killPlayer(player);
           }
           return true;
         }
@@ -230,7 +174,68 @@
     }
 
     /**
-     * Wrapper for $ionicPopu taking a title and template
+     * Player should lose their life (or lose the life the priest gave them)
+     * @param player
+     */
+    function killPlayer(player) {
+
+      // if player is blessed, they don't die
+      if (player.blessed) {
+        player.blessed = false;
+
+        // if they were killed during the daytime alert the moderator as to why they don't die
+        if (service.daytime) {
+          simpleAlert(player.name + ' lives!', player.name + ' was blessed by the priest, so they live to die another day.');
+        }
+      }
+
+      // they're dead if they weren't saved by a role such as bodyguard
+      else if (!player.shouldSave) {
+        // first off, now they're dead
+        player.alive = false;
+
+        killedForReal(player);
+
+        if (!service.daytime) {
+          addEventToRecap(player.name, 'died last night.')
+        }
+      }
+    }
+
+    /**
+     * They player is now no longer alive, so set some game conditions for
+     * special roles that affect future rounds or take out additional players
+     * @param player
+     */
+    function killedForReal(player) {
+
+      // werewolves are PIST and get an extra kill
+      if (player.role.name === 'Wolf Cub') {
+        nightState.setProperty('thisRoundKills', nightState.thisRoundKills + 1);
+      }
+
+      // werewolves no longer get the bonus kill the Big Bad Wolf gives
+      if (player.role.name === 'Big Bad Wolf') {
+        nightState.setProperty('thisRoundKills', nightState.thisRoundKills - 1);
+      }
+
+      // werewolves are diseased now and don't feed next round
+      if (player.role.name === 'Diseased' && player.eaten) {
+        nightState.setProperty('diseased', true);
+      }
+
+      // check to kill cupid's soul mate
+      if (player.inLove) {
+        _.each(service.players, function(potentialSoulMate) {
+          if (potentialSoulMate !== player && potentialSoulMate.inLove && potentialSoulMate.alive) {
+            killPlayer(potentialSoulMate);
+          }
+        });
+      }
+    }
+
+    /**
+     * Wrapper for $ionicPopup taking a title and template
      * @param title
      * @param template
      */

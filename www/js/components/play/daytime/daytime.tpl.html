@@ -3,7 +3,7 @@
   <div class="night-recap">
     <h3>What happened last night?</h3>
     <div class="night-event" ng-repeat="nightEvent in $ctrl.gameState.nightRecap">
-      <b>{{nightEvent.name}}</b> {{nightEvent.eventText}}
+      <b ng-bind="nightEvent.name"></b> {{nightEvent.eventText}}
     </div>
     <div class="night-event" ng-show="$ctrl.gameState.nightRecap.length === 0">
       Nothing to report ¯\_(ツ)_/¯

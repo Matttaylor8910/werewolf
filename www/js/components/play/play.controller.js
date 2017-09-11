@@ -16,11 +16,8 @@
      */
     function sleep() {
       gameState.nextRound();
-      $ctrl.phase = {
-        title: 'Night',
-        nextActionText: 'Wake',
-        nextAction: wake
-      };
+      gameState.setProperty('daytime', false);
+      $ctrl.nextAction = wake;
 
       // clear the night recap
       gameState.setProperty('nightRecap', []);
@@ -39,12 +36,6 @@
      * Set the play state to the daytime phase
      */
     function wake() {
-      $ctrl.phase = {
-        title: 'Day',
-        nextActionText: 'Sleep',
-        nextAction: sleep
-      };
-
       // Logic for what happens after the night
       _.each($ctrl.gameState.players, function(player){
 
@@ -64,6 +55,16 @@
         }
 
       });
+
+      // Keep a reminder about the Masons if they're playing
+      if (gameState.rolePlaying('Mason')) {
+        gameState.addEventToRecap('Reminder:', 'The Masons are in play, kill anyone who says \'Mason\'')
+      }
+
+      // Set to daytime here so that the above functions
+      // know that these actions happened at night
+      gameState.setProperty('daytime', true);
+      $ctrl.nextAction = sleep;
     }
   }
 })();
