@@ -550,7 +550,7 @@
           weight: -4,
           max: 1,
           active: false,
-          supported: false,
+          supported: true,
           team: 'wolf',
           url: 'img/cards/unsupported.jpg',
           description: 'Each night, wake with the other Werewolves. The first night, choose a player to be your companion. You are eliminated if that player is eliminated.'
