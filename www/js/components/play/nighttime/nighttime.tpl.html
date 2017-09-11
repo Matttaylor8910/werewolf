@@ -1,9 +1,14 @@
 <div class="nighttime">
 
   <werewolves
-    next-role="cultLeader"
+    next-role="direWolf"
     ng-if="$ctrl.gameState.role.wolves">
   </werewolves>
+
+  <dire-wolf
+    next-role="cultLeader"
+    ng-if="$ctrl.gameState.role.direWolf">
+  </dire-wolf>
 
   <cult-leader
     next-role="cupid"

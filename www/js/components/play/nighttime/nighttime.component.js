@@ -16,7 +16,8 @@
       'werewolf.play.nighttime.troublemaker',
       'werewolf.play.nighttime.pi',
       'werewolf.play.nighttime.apprenticeSeer',
-      'werewolf.play.nighttime.priest'
+      'werewolf.play.nighttime.priest',
+      'werewolf.play.nighttime.direWolf'
     ])
     .component('werewolfNighttime', {
       templateUrl: 'js/components/play/nighttime/nighttime.tpl.html',

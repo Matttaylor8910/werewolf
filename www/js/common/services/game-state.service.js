@@ -5,7 +5,7 @@
 
   function gameState($state, $ionicHistory, $ionicScrollDelegate, $ionicPopup, $ionicActionSheet, localStorage, nightState) {
     // only for local dev use
-    var DEBUG = false;
+    var DEBUG = true;
 
     var service = {
       allPlayerNames            : localStorage.getArray('allPlayerNames'),
@@ -29,6 +29,7 @@
       nextRound                 : nextRound,
       transition                : transition,
       lynchPlayer               : lynchPlayer,
+      confirmKill               : confirmKill,
       killPlayer                : killPlayer,
       addEventToRecap           : addEventToRecap
     };
@@ -174,6 +175,23 @@
     }
 
     /**
+     * Confirm killing a player before passing them along
+     * @param player
+     */
+    function confirmKill(player) {
+      $ionicActionSheet.show({
+        destructiveText: 'Kill',
+        titleText: 'Are you sure you wanna kill ' + player.name + '?',
+        cancelText: 'Cancel',
+        cancel: function() {},
+        destructiveButtonClicked: function() {
+          killPlayer(player);
+          return true;
+        }
+      });
+    }
+
+    /**
      * Player should lose their life (or lose the life the priest gave them)
      * @param player
      */
@@ -224,14 +242,22 @@
         nightState.setProperty('diseased', true);
       }
 
-      // check to kill cupid's soul mate
-      if (player.inLove) {
-        _.each(service.players, function(potentialSoulMate) {
-          if (potentialSoulMate !== player && potentialSoulMate.inLove && potentialSoulMate.alive) {
-            killPlayer(potentialSoulMate);
+      // iterate through the players for some conditions
+      _.each(service.players, function(thisPlayer) {
+
+        if (thisPlayer.alive && thisPlayer !== player) {
+
+          // check to kill cupid's soul mate
+          if (player.inLove && thisPlayer.inLove) {
+            killPlayer(thisPlayer);
           }
-        });
-      }
+
+          // check to kill dire wolf if companion dies
+          if (player.direCompanion && thisPlayer.alive && thisPlayer.role.name === 'Dire Wolf') {
+            killPlayer(thisPlayer);
+          }
+        }
+      });
     }
 
     /**

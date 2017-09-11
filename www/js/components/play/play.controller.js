@@ -26,9 +26,6 @@
       _.each($ctrl.gameState.players, function(player) {
         player.silenced = false;
         player.banished = false;
-        player.shouldDie = false;
-        player.shouldSave = false;
-        player.eaten = false;
       });
     }
 
@@ -53,6 +50,11 @@
         if (player.silenced && player.alive) {
           gameState.addEventToRecap(player.name, 'is silenced for the day. They must not talk until tomorrow.');
         }
+
+        // reset some properties that don't matter after the night
+        player.shouldDie = false;
+        player.shouldSave = false;
+        player.eaten = false;
 
       });
 
