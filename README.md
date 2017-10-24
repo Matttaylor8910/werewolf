@@ -16,4 +16,4 @@ Werewolf is far from finished and I have several things I’d like to complete b
 
 ## How can I help?
 
-Subbmit a PR or reach out at taylor.matt777@gmail.com if you’re interested in what my plans are
+Submit a PR or reach out at taylor.matt777@gmail.com if you’re interested in what my plans are
