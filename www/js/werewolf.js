@@ -13,8 +13,18 @@
       'werewolf.play',
       'werewolf.unsupportedRole'
     ])
+    .controller('DarkModeController', DarkModeController)
     .config(config)
     .run(run);
+
+  function DarkModeController($rootScope, settings) {
+    var $ctrl = this;
+    $ctrl.settings = settings;
+    $rootScope.onTitleHold = onTitleHold;
+    function onTitleHold() {
+      settings.setProperty('darkMode', !settings.darkMode);
+    }
+  }
 
   /**
    * Default to start

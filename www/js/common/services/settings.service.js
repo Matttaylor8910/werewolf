@@ -7,6 +7,7 @@
     var service = {
       // default to using production when not on localhost
       chooseRolesGrid : setting('chooseRolesGrid', true),
+      darkMode: setting('darkMode', true),
 
       setProperty     : setProperty
     };

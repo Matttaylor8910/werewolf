@@ -1,4 +1,11 @@
 {
   "name": "werewolf",
-  "app_id": ""
+  "integrations": {},
+  "type": "angular",
+  "watchPatterns": [
+    "scss/**/*",
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ]
 }
