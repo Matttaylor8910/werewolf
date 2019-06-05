@@ -319,3 +319,13 @@
   font-weight: bold;
   color: #387ef5;
 }
+
+.random-roles .grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.random-roles .grid-item img {
+  max-width: 265px;
+}
